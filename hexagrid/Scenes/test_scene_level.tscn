@@ -1,0 +1,205 @@
+[gd_scene load_steps=19 format=3 uid="uid://blvur76lvxsat"]
+
+[ext_resource type="Script" uid="uid://b7k2vdaeojnjf" path="res://Scripts/camera_3d.gd" id="1_omdf6"]
+[ext_resource type="PackedScene" uid="uid://4sjxty8bu1nm" path="res://Scenes/disk_object.tscn" id="2_poxx6"]
+[ext_resource type="Script" uid="uid://c1we1jp3wq677" path="res://Scripts/ui_manager.gd" id="3_h84j6"]
+[ext_resource type="Texture2D" uid="uid://cpbc3gkpmw85o" path="res://Textures/blue_img.png" id="4_kqwjw"]
+[ext_resource type="Texture2D" uid="uid://88hf5cd568ax" path="res://Textures/red_img.png" id="5_ibar2"]
+[ext_resource type="Texture2D" uid="uid://csht4saywqv1w" path="res://Textures/green_img.png" id="6_rhfqx"]
+[ext_resource type="Texture2D" uid="uid://6he1snenww0a" path="res://Textures/yellow_img.png" id="7_6ynrd"]
+[ext_resource type="Texture2D" uid="uid://ccavkawmwll1n" path="res://Textures/white_img.png" id="8_n3knq"]
+[ext_resource type="Texture2D" uid="uid://rg4uk3whr1r8" path="res://Textures/black_img.png" id="9_h12q8"]
+[ext_resource type="Texture2D" uid="uid://qap13v6tg3hu" path="res://Textures/purple_img.png" id="10_s30mg"]
+[ext_resource type="Script" uid="uid://c5dn8ul5wivtc" path="res://Scripts/tiles.gd" id="11_fxb07"]
+[ext_resource type="PackedScene" uid="uid://n07lxinxjif1" path="res://Scenes/tile_base_hexagon.tscn" id="12_yeelh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tilu"]
+diffuse_mode = 3
+albedo_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+metallic = 0.2
+metallic_specular = 0.47
+roughness = 0.85
+normal_scale = -5.45
+clearcoat = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nsqwx"]
+material = SubResource("StandardMaterial3D_2tilu")
+size = Vector2(15, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mh1am"]
+size = Vector3(5, 0.001, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dob0"]
+bg_color = Color(0.134454, 0.120795, 0.220922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqw2l"]
+bg_color = Color(0.223861, 0.203587, 0.347615, 1)
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b68on"]
+bg_color = Color(0.536482, 0.453055, 0.961659, 1)
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.372549)
+shadow_size = 3
+
+[node name="GameNode" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0575659, 0, -0.00392495)
+metadata/_edit_group_ = true
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("UIManagerRef")]
+transform = Transform3D(-4.37114e-08, -0.814116, 0.580703, 0, 0.580703, 0.814116, -1, 3.55861e-08, -2.53833e-08, 1.2, 1.3, 0)
+projection = 1
+size = 1.201
+near = 0.042
+far = 20.0
+script = ExtResource("1_omdf6")
+stack_to_spawn = ExtResource("2_poxx6")
+UIManagerRef = NodePath("../UIManager")
+
+[node name="FloorBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloorBody3D"]
+mesh = SubResource("PlaneMesh_nsqwx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0495, 0)
+shape = SubResource("BoxShape3D_mh1am")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.788011, -0.557979, 0.26019, 0, 0.422618, 0.906308, -0.615661, 0.71418, -0.333028, 0, 0.698915, 0)
+light_angular_distance = 0.5
+shadow_enabled = true
+
+[node name="UIManager" type="Node3D" parent="."]
+script = ExtResource("3_h84j6")
+blue_img = ExtResource("4_kqwjw")
+red_img = ExtResource("5_ibar2")
+green_img = ExtResource("6_rhfqx")
+yellow_img = ExtResource("7_6ynrd")
+white_img = ExtResource("8_n3knq")
+black_img = ExtResource("9_h12q8")
+purple_img = ExtResource("10_s30mg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UIManager"]
+
+[node name="ResetButton" type="Button" parent="UIManager/CanvasLayer"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Reset"
+
+[node name="TopPanel" type="Panel" parent="UIManager/CanvasLayer"]
+custom_minimum_size = Vector2(0, 60)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7dob0")
+
+[node name="ScorePanel" type="Panel" parent="UIManager/CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 160.0
+grow_horizontal = 2
+size_flags_vertical = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="UIManager/CanvasLayer/ScorePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_tqw2l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b68on")
+max_value = 300.0
+step = 1.0
+show_percentage = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIManager/CanvasLayer/ScorePanel/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ScoreLabel" type="RichTextLabel" parent="UIManager/CanvasLayer/ScorePanel/ProgressBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 45
+bbcode_enabled = true
+text = "[center]0/300[/center]"
+fit_content = true
+
+[node name="Panel" type="Panel" parent="UIManager/CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(450, 200)
+anchors_preset = -1
+anchor_top = 0.654
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.208008
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIManager/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="UIManager/CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+
+[node name="Button2" type="Button" parent="UIManager/CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+
+[node name="Button3" type="Button" parent="UIManager/CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+
+[node name="Tiles" type="Node3D" parent="." groups=["Tiles"]]
+script = ExtResource("11_fxb07")
+
+[node name="TileBaseObject" parent="Tiles" instance=ExtResource("12_yeelh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+
+[node name="TileBaseObject3" parent="Tiles" instance=ExtResource("12_yeelh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225, 0.02, 0)
+
+[node name="TileBaseObject4" parent="Tiles" instance=ExtResource("12_yeelh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225, 0.02, 0)
+
+[node name="TileBaseObject5" parent="Tiles" instance=ExtResource("12_yeelh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3375, 0.02, 0.2)
+
+[node name="TileBaseObject2" parent="Tiles" instance=ExtResource("12_yeelh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113, 0.02, 0.2005)
+
+[connection signal="pressed" from="UIManager/CanvasLayer/ResetButton" to="UIManager" method="_on_reset_button_pressed"]
+[connection signal="resized" from="UIManager/CanvasLayer/Panel" to="UIManager" method="_on_panel_resized"]
+[connection signal="pressed" from="UIManager/CanvasLayer/Panel/HBoxContainer/Button" to="UIManager" method="_on_button_pressed"]
+[connection signal="pressed" from="UIManager/CanvasLayer/Panel/HBoxContainer/Button2" to="UIManager" method="_on_button_2_pressed"]
+[connection signal="pressed" from="UIManager/CanvasLayer/Panel/HBoxContainer/Button3" to="UIManager" method="_on_button_3_pressed"]

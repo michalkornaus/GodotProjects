@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://kmwwq205jwm0"]
+
+[ext_resource type="PackedScene" uid="uid://4sjxty8bu1nm" path="res://Scenes/disk_object.tscn" id="2_yq05n"]
+[ext_resource type="Script" uid="uid://c5dn8ul5wivtc" path="res://Scripts/tiles.gd" id="3_2hokq"]
+[ext_resource type="Material" uid="uid://bfto20s4bukd5" path="res://Materials/RedMaterial.tres" id="4_goelm"]
+[ext_resource type="Material" uid="uid://boha84ivp2dw2" path="res://Materials/PurpleMaterial.tres" id="4_h4xob"]
+[ext_resource type="PackedScene" uid="uid://n07lxinxjif1" path="res://Scenes/tile_base_hexagon.tscn" id="4_mpl4m"]
+[ext_resource type="Material" uid="uid://dvovnr8vxbxum" path="res://Materials/GreenMaterial.tres" id="6_afne1"]
+[ext_resource type="Material" uid="uid://bhm2bl2qqa4r2" path="res://Materials/BlueMaterial.tres" id="7_qtj0d"]
+[ext_resource type="Material" uid="uid://co8w6v6xb2xsi" path="res://Materials/YellowMaterial.tres" id="8_x3tl2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cavrh"]
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3l3bt"]
+size = Vector2(5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mh1am"]
+size = Vector3(5, 0.001, 5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wkoym"]
+material = ExtResource("4_h4xob")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.02
+
+[node name="GameNode" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0.7, 1, 0.7)
+projection = 1
+size = 0.8
+near = 0.001
+far = 4.17
+
+[node name="FloorBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloorBody3D"]
+material_override = SubResource("StandardMaterial3D_cavrh")
+mesh = SubResource("PlaneMesh_3l3bt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0495, 0)
+shape = SubResource("BoxShape3D_mh1am")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.258819, -0.875426, 0.408218, 0, 0.422618, 0.906308, -0.965926, -0.23457, 0.109382, 0, 0.698915, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_blend_splits = true
+sky_mode = 1
+
+[node name="Tiles" type="Node3D" parent="." groups=["Tiles"]]
+script = ExtResource("3_2hokq")
+
+[node name="TileBaseObject" parent="Tiles" instance=ExtResource("4_mpl4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+
+[node name="StackObject" parent="Tiles" instance=ExtResource("2_yq05n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tiles/StackObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+material_override = ExtResource("8_x3tl2")
+mesh = SubResource("CylinderMesh_wkoym")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Tiles/StackObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045, 0)
+material_override = ExtResource("6_afne1")
+mesh = SubResource("CylinderMesh_wkoym")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Tiles/StackObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+material_override = ExtResource("7_qtj0d")
+mesh = SubResource("CylinderMesh_wkoym")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Tiles/StackObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.095, 0)
+material_override = ExtResource("4_goelm")
+mesh = SubResource("CylinderMesh_wkoym")
+
+[node name="StackObject2" parent="Tiles" instance=ExtResource("2_yq05n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0497077, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tiles/StackObject2"]
+material_override = ExtResource("6_afne1")
+mesh = SubResource("CylinderMesh_wkoym")
+
+[node name="StackObject4" parent="Tiles" instance=ExtResource("2_yq05n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0747077, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tiles/StackObject4"]
+material_override = ExtResource("7_qtj0d")
+mesh = SubResource("CylinderMesh_wkoym")
+
+[node name="StackObject3" parent="Tiles" instance=ExtResource("2_yq05n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0997077, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tiles/StackObject3"]
+material_override = ExtResource("8_x3tl2")
+mesh = SubResource("CylinderMesh_wkoym")

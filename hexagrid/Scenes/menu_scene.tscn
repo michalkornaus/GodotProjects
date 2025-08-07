@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://db23tadq8xsqb"]
+
+[ext_resource type="Script" uid="uid://c5mlafxxj11ct" path="res://Scripts/menu_tiles.gd" id="1_7es04"]
+[ext_resource type="PackedScene" uid="uid://4sjxty8bu1nm" path="res://Scenes/disk_object.tscn" id="2_kcnca"]
+[ext_resource type="PackedScene" uid="uid://n07lxinxjif1" path="res://Scenes/tile_base_hexagon.tscn" id="12_rioxi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tilu"]
+albedo_color = Color(0.233925, 0.233925, 0.233925, 1)
+normal_scale = -5.45
+clearcoat = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nsqwx"]
+material = SubResource("StandardMaterial3D_2tilu")
+size = Vector2(15, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mh1am"]
+size = Vector3(5, 0.001, 5)
+
+[node name="GameNode" type="Node3D"]
+
+[node name="CameraRotator" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRotator"]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 0.496265, 1.2, 0)
+projection = 1
+current = true
+size = 2.5
+far = 20.0
+
+[node name="FloorBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloorBody3D"]
+mesh = SubResource("PlaneMesh_nsqwx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0495, 0)
+shape = SubResource("BoxShape3D_mh1am")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.788011, -0.557979, 0.26019, 0, 0.422618, 0.906308, -0.615661, 0.71418, -0.333028, 0, 0.698915, 0)
+shadow_enabled = true
+directional_shadow_mode = 1
+
+[node name="UIManager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UIManager"]
+
+[node name="Panel" type="Panel" parent="UIManager/CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0.447059)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 608.0
+grow_horizontal = 2
+
+[node name="Button" type="Button" parent="UIManager/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -42.5
+offset_right = 71.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Zagraj!"
+
+[node name="Tiles" type="Node3D" parent="." groups=["Tiles"]]
+script = ExtResource("1_7es04")
+stack_to_spawn = ExtResource("2_kcnca")
+
+[node name="TileBaseObject" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+
+[node name="TileBaseObject3" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225, 0.02, 0)
+
+[node name="TileBaseObject4" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225, 0.02, 0)
+
+[node name="TileBaseObject5" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.337, 0.02, 0.195)
+
+[node name="TileBaseObject2" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113, 0.02, 0.195)
+
+[node name="TileBaseObject6" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112327, 0.02, -0.195)
+
+[node name="TileBaseObject7" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112, 0.02, 0.195)
+
+[node name="TileBaseObject8" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112439, 0.02, -0.194561)
+
+[node name="TileBaseObject9" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33731, 0.02, -0.195)
+
+[node name="TileBaseObject10" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.02, 0)
+
+[node name="TileBaseObject11" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0.388)
+
+[node name="TileBaseObject12" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225, 0.02, 0.388)
+
+[node name="TileBaseObject13" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, -0.3875)
+
+[node name="TileBaseObject14" parent="Tiles" instance=ExtResource("12_rioxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225053, 0.02, -0.388)

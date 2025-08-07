@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="HexaGrid"
+run/main_scene="res://Scenes/game_scene.tscn"
+config/features=PackedStringArray("4.4", "Mobile")
+config/icon="res://Textures/NewIcon/IconNewSmall.png"
+config/windows_native_icon="res://Textures/NewIcon/IconNewWindows.ico"
+
+[autoload]
+
+GlobalNode="*res://Scripts/global_node.gd"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1404
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/hexgrid3d/plugin.cfg")
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
+
+[input_devices]
+
+pointing/android/enable_pan_and_scale_gestures=true
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+occlusion_culling/bvh_build_quality=1
+textures/canvas_textures/default_texture_filter=2
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=2
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality.mobile=2
+environment/ssao/quality=1
+environment/ssil/quality=1
+anti_aliasing/quality/msaa_3d=2
+anti_aliasing/quality/screen_space_aa=1
