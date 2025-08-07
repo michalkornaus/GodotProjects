@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dlwqw1xt5w4if"]
+
+[ext_resource type="Shader" uid="uid://bt62ld8gatmxc" path="res://Shader/terrain_shader.gdshader" id="1_jlodk"]
+[ext_resource type="Texture2D" uid="uid://n4yfhwyllj0j" path="res://Textures/Grass01.jpg" id="2_2qe7m"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jlodk")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_2qe7m")
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.2
+shader_parameter/metallic = 0.15
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(1, 1, 1)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(1, 1, 1)
+shader_parameter/sky_blend_color = Color(0.647059, 0.654902, 0.670588, 1)
+shader_parameter/fade_start_distance = 135.0
+shader_parameter/fade_end_distance = 150.0

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=4 uid="uid://uul447qn2jlu"]
+
+[ext_resource type="Texture2D" uid="uid://cm7uicml3odb4" path="res://Imports/Trees/textures/BigTreeBillboard_baseColor.png" id="1_k5a1l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxox3"]
+resource_name = "BigTreeBillboard"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_k5a1l")
+roughness = 0.821115
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_muqpj"]
+_surfaces = [{
+"aabb": AABB(-4.71236, -5.80325, -9.88635, 9.05711, 11.1221, 19.7727),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"name": "BigTreeBillboard",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AABE1QAAAADO/lY///8AAM7+Vj8AAAAAAABE1f//AABIiQAAAAAAAEiJ/v///wAASIn//wAAAABIiQAA//8AAMoN0TQAAAAA//8D2P//AAD+/wPYAAAAAMoN0TT//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wdmnp"]
+resource_name = "Sketchfab_Scene_BigTreeBillboard_001_BigTreeBillboard_0"
+_surfaces = [{
+"aabb": AABB(-4.71236, -5.80325, -9.88635, 9.05711, 11.1221, 19.7727),
+"attribute_data": PackedByteArray("AAAAAP///////wAAAAD//wAAAAD///////8AAAAA//8AAAAA////////AAAAAP//"),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"material": SubResource("StandardMaterial3D_gxox3"),
+"name": "BigTreeBillboard",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AABE1QAAIjzO/lY///8iPM7+Vj8AACI8AABE1f//IjxIiQAAAACqKkiJ/v///6oqSIn//wAAqipIiQAA//+qKsoN0TQAAFA7//8D2P//UDv+/wPYAABQO8oN0TT//1A7RzIjmUcyI5lHMiOZRzIjmaoqqiqqKqoqqiqqKqoqqirLGmlKyxppSssaaUrLGmlK")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_muqpj")
+
+[node name="BigTreeBillboard" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="BigTreeBillboardMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.74)
+mesh = SubResource("ArrayMesh_wdmnp")
+skeleton = NodePath("")

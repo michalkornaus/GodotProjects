@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvtmixlahm1of"]
+
+[ext_resource type="PackedScene" uid="uid://q7ypeortp3p5" path="res://Imports/Trees/tree_4_billboard.tscn" id="1_4617e"]
+[ext_resource type="PackedScene" uid="uid://bx5utdeo7saom" path="res://Imports/Trees/tree_3_billboard.tscn" id="2_jumpy"]
+[ext_resource type="PackedScene" uid="uid://cys5qsep6u5f4" path="res://Imports/Trees/tree_1_billboard.tscn" id="3_4617e"]
+[ext_resource type="PackedScene" uid="uid://dbiuvvqudqrea" path="res://Imports/Trees/dead_tree_billboard.tscn" id="4_4617e"]
+[ext_resource type="PackedScene" uid="uid://coneo4qbgwrhs" path="res://Imports/Trees/crazy_roots_billboard.tscn" id="5_4617e"]
+[ext_resource type="PackedScene" uid="uid://uul447qn2jlu" path="res://Imports/Trees/big_tree_billboard.tscn" id="6_4617e"]
+
+[node name="Sketchfab_Scene" type="Node3D"]
+
+[node name="Sketchfab_model" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.22045e-16, 1, 0, -1, 2.22045e-16, 0, 0, 0)
+
+[node name="AllBillboards_fbx" type="Node3D" parent="Sketchfab_model"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+
+[node name="RootNode" type="Node3D" parent="Sketchfab_model/AllBillboards_fbx"]
+
+[node name="Tree4Billboard" parent="Sketchfab_model/AllBillboards_fbx/RootNode" instance=ExtResource("1_4617e")]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 103.318, 273.613, -1015.11)
+
+[node name="Tree3Billboard" parent="Sketchfab_model/AllBillboards_fbx/RootNode" instance=ExtResource("2_jumpy")]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, -531.186, 547.621, 91.6509)
+
+[node name="Tree1Billboard" type="Node3D" parent="Sketchfab_model/AllBillboards_fbx/RootNode"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 87.2223, 273.613, 180.673)
+
+[node name="Tree1Billboard_Tree1Billboard_0" parent="Sketchfab_model/AllBillboards_fbx/RootNode/Tree1Billboard" instance=ExtResource("3_4617e")]
+
+[node name="DeadTreeBillboard" parent="Sketchfab_model/AllBillboards_fbx/RootNode" instance=ExtResource("4_4617e")]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 87.2223, 273.613, -240.083)
+
+[node name="CrazyRootsBillboard" parent="Sketchfab_model/AllBillboards_fbx/RootNode" instance=ExtResource("5_4617e")]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 87.2223, 273.613, -568.547)
+
+[node name="BigTreeBillboard_001" parent="Sketchfab_model/AllBillboards_fbx/RootNode" instance=ExtResource("6_4617e")]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, -619.8, 956.894, -802.138)

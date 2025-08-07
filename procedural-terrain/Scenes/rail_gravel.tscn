@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://eaulcydflhsm"]
+
+[ext_resource type="Material" uid="uid://7koa3st3m0sj" path="res://Materials/rail_gravel_mat.tres" id="1_w7f0h"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yw0j5"]
+size = Vector2(1.5, 4)
+
+[node name="RailGravel" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_w7f0h")
+mesh = SubResource("PlaneMesh_yw0j5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 0, 0, 1, 1.322, -0.482, 0)
+material_override = ExtResource("1_w7f0h")
+mesh = SubResource("PlaneMesh_yw0j5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.766044, -0.642788, 0, 0.642788, 0.766044, 0, 0, 0, 1, -1.322, -0.482, 0)
+material_override = ExtResource("1_w7f0h")
+mesh = SubResource("PlaneMesh_yw0j5")
+skeleton = NodePath("../..")

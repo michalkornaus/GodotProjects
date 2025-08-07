@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://coneo4qbgwrhs"]
+
+[ext_resource type="Texture2D" uid="uid://hrgm8c642sim" path="res://Imports/Trees/textures/CrazyRootsBillboard_baseColor.png" id="1_0mdr7"]
+
+[node name="CrazyRootsBillboard" type="Node3D"]
+
+[node name="CrazyRootsSprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.889, 0)
+flip_v = true
+billboard = 2
+shaded = true
+texture = ExtResource("1_0mdr7")

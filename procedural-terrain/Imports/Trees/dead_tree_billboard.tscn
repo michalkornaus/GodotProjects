@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbiuvvqudqrea"]
+
+[ext_resource type="Texture2D" uid="uid://dhgp4g55flkf1" path="res://Imports/Trees/textures/DeadTreeBillboard_baseColor.png" id="1_r2qmw"]
+
+[node name="DeadTreeBillboard" type="Node3D"]
+
+[node name="DeadTreeSprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.974, 0)
+flip_v = true
+billboard = 2
+shaded = true
+texture = ExtResource("1_r2qmw")

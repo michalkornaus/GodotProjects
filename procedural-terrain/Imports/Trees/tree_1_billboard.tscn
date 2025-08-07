@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://prog34e115qh"]
+
+[ext_resource type="Texture2D" uid="uid://dxcebw05lytvt" path="res://Imports/Trees/textures/Tree1Billboard_baseColor.png" id="1_7dufn"]
+
+[node name="Tree1Billboard" type="Node3D"]
+
+[node name="Tree1Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.84, 0)
+flip_v = true
+billboard = 2
+shaded = true
+texture = ExtResource("1_7dufn")

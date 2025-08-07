@@ -1,0 +1,96 @@
+[gd_scene load_steps=31 format=3 uid="uid://domp60peh4upd"]
+
+[ext_resource type="Script" uid="uid://cuue8h72kn6fi" path="res://Scripts/procedural_terrain.gd" id="1_360n5"]
+[ext_resource type="PackedScene" uid="uid://cwxmohrkftppn" path="res://Scenes/segment_follow.tscn" id="2_swswm"]
+[ext_resource type="PackedScene" uid="uid://uoi73pqyotlr" path="res://Scenes/terrain_segment.tscn" id="3_18bc4"]
+[ext_resource type="Texture2D" uid="uid://n4yfhwyllj0j" path="res://Textures/Grass01.jpg" id="4_hjxmh"]
+[ext_resource type="PackedScene" uid="uid://uul447qn2jlu" path="res://Imports/Trees/big_tree_billboard.tscn" id="5_gmur8"]
+[ext_resource type="PackedScene" uid="uid://coneo4qbgwrhs" path="res://Imports/Trees/crazy_roots_billboard.tscn" id="6_o2cy6"]
+[ext_resource type="PackedScene" uid="uid://dbiuvvqudqrea" path="res://Imports/Trees/dead_tree_billboard.tscn" id="7_lm5cg"]
+[ext_resource type="PackedScene" uid="uid://prog34e115qh" path="res://Imports/Trees/tree_1_billboard.tscn" id="8_jf7ec"]
+[ext_resource type="PackedScene" uid="uid://bx5utdeo7saom" path="res://Imports/Trees/tree_3_billboard.tscn" id="9_ktfa4"]
+[ext_resource type="PackedScene" uid="uid://q7ypeortp3p5" path="res://Imports/Trees/tree_4_billboard.tscn" id="10_6f6jp"]
+[ext_resource type="PackedScene" uid="uid://bc7orq7u7bgd3" path="res://Scenes/rail.tscn" id="11_ktfa4"]
+[ext_resource type="PackedScene" uid="uid://c6gq4b72q5vka" path="res://Imports/Train/Cargo Train Front.glb" id="12_yw0j5"]
+[ext_resource type="Texture2D" uid="uid://dpbormvrwxifn" path="res://Textures/Grass Sprites/n_grass_diff_0_01.png" id="13_vo1ox"]
+[ext_resource type="PackedScene" uid="uid://ccmryg1fver85" path="res://Imports/Train/Cargo Train Wagon.glb" id="13_xgxa1"]
+[ext_resource type="Texture2D" uid="uid://cm1xhsmtvpixk" path="res://Textures/Grass Sprites/n_grass_diff_0_02.png" id="14_qvmnt"]
+[ext_resource type="PackedScene" uid="uid://eaulcydflhsm" path="res://Scenes/rail_gravel.tscn" id="14_xgxa1"]
+[ext_resource type="Texture2D" uid="uid://d2upsdkc12e6f" path="res://Textures/Grass Sprites/n_grass_diff_0_03.png" id="15_86bva"]
+[ext_resource type="Texture2D" uid="uid://d1uoo72le64je" path="res://Textures/Grass Sprites/n_grass_diff_0_09.png" id="16_6r31y"]
+[ext_resource type="Texture2D" uid="uid://birhqggeuxgha" path="res://Textures/Grass Sprites/n_grass_diff_0_10.png" id="17_051x7"]
+[ext_resource type="Texture2D" uid="uid://dhtru5ugp51tf" path="res://Textures/Grass Sprites/n_grass_diff_0_11.png" id="18_xfi5a"]
+[ext_resource type="Texture2D" uid="uid://1clnfppxxpna" path="res://Textures/Grass Sprites/n_grass_diff_0_13.png" id="19_kvtpc"]
+[ext_resource type="Texture2D" uid="uid://f7xk7ehffins" path="res://Textures/Grass Sprites/n_grass_diff_0_14.png" id="20_c0tds"]
+[ext_resource type="Texture2D" uid="uid://c0h5716l0d0x0" path="res://Textures/Grass Sprites/n_grass_diff_0_17.png" id="21_42o5f"]
+[ext_resource type="Texture2D" uid="uid://c6saksp8l4v63" path="res://Textures/Grass Sprites/n_grass_diff_0_18.png" id="22_8m0qe"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_18bc4"]
+fractal_octaves = 3
+domain_warp_amplitude = 30.835
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jf7ec"]
+noise_type = 5
+frequency = 1.0
+fractal_type = 0
+
+[sub_resource type="Curve3D" id="Curve3D_360n5"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 5),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hjxmh"]
+
+[sub_resource type="Sky" id="Sky_cwox1"]
+sky_material = SubResource("ProceduralSkyMaterial_hjxmh")
+
+[sub_resource type="Environment" id="Environment_wmj3n"]
+background_mode = 2
+sky = SubResource("Sky_cwox1")
+ssil_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_depth_begin = 162.8
+fog_depth_end = 213.0
+volumetric_fog_density = 0.1
+
+[node name="GameNode" type="Node3D"]
+script = ExtResource("1_360n5")
+spawn_distance = 50
+despawn_distance = 50
+moving_speed = 10.0
+segment_width_count = 50
+segment_prefab = ExtResource("2_swswm")
+terrain_prefab = ExtResource("3_18bc4")
+rail_node_prefab = ExtResource("11_ktfa4")
+rail_gravel_prefab = ExtResource("14_xgxa1")
+fast_noise = SubResource("FastNoiseLite_18bc4")
+texture = ExtResource("4_hjxmh")
+tree_models = Array[PackedScene]([ExtResource("6_o2cy6"), ExtResource("7_lm5cg"), ExtResource("8_jf7ec"), ExtResource("9_ktfa4"), ExtResource("10_6f6jp"), ExtResource("5_gmur8")])
+grass_sprites = Array[CompressedTexture2D]([ExtResource("13_vo1ox"), ExtResource("14_qvmnt"), ExtResource("15_86bva"), ExtResource("16_6r31y"), ExtResource("17_051x7"), ExtResource("18_xfi5a"), ExtResource("19_kvtpc"), ExtResource("20_c0tds"), ExtResource("21_42o5f"), ExtResource("22_8m0qe")])
+vegetation_noise = SubResource("FastNoiseLite_jf7ec")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.912471, 0.218048, -0.346195, 0, 0.846152, 0.532942, 0.409141, 0.486295, -0.772089, -1.92999, 1.59813, -2.1207)
+fov = 90.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.785433, 0.528468, 0.322204, 0.089448, -0.61202, 0.785768, 0.612448, -0.588348, -0.527971, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_360n5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wmj3n")
+
+[node name="Environment" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Train" parent="Environment" instance=ExtResource("12_yw0j5")]
+transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27835e-08, 0, 0.1, 0)
+
+[node name="Wagon" parent="Environment" instance=ExtResource("13_xgxa1")]
+transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27835e-08, 0, 0.1, 7.7)

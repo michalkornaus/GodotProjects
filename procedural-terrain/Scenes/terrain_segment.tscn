@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://uoi73pqyotlr"]
+
+[ext_resource type="Script" uid="uid://bxnrmw882yp2b" path="res://Scripts/terrain_segment.gd" id="1_l4a86"]
+
+[node name="TerrainSegment" type="PathFollow3D"]
+script = ExtResource("1_l4a86")

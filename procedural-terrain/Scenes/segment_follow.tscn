@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwxmohrkftppn"]
+
+[ext_resource type="Script" uid="uid://dny2jm6ni1m7w" path="res://Scripts/segment_follow.gd" id="1_br1g5"]
+
+[node name="PathFollow3D" type="PathFollow3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_br1g5")
