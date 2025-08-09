@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://c0aix03ktd8bq"]
+
+[ext_resource type="Texture2D" uid="uid://ber6000dm2doi" path="res://Resources/Cards/Sun Elves/Druid.jpg" id="1_homdi"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_smkj5"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_o8qu4"]
+
+[sub_resource type="Resource" id="Resource_ijoa0"]
+script = ExtResource("3_o8qu4")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 30.0
+ability_duration = 2.0
+ability_cooldown = 1.0
+
+[sub_resource type="Resource" id="Resource_fvnm4"]
+script = ExtResource("3_o8qu4")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Barrier"
+ability_amount = 40.0
+ability_duration = 5.0
+ability_cooldown = 2.0
+
+[resource]
+script = ExtResource("1_smkj5")
+card_name = "Druid"
+image = ExtResource("1_homdi")
+race = 7
+tier = 2
+description = "Regenreracja 30/2 + Bariera 40 "
+cost = 120
+health = 150
+attack_damage = 25
+armor = 25
+attack_speed = 0.75
+attack_range = 4.0
+armor_penetration = 0.0
+type = 2
+sub_type = 14
+special_ability_stats = Array[ExtResource("3_o8qu4")]([SubResource("Resource_ijoa0"), SubResource("Resource_fvnm4")])

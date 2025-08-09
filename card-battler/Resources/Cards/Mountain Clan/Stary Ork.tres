@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cq21a2c7eij7"]
+
+[ext_resource type="Texture2D" uid="uid://exhmh7ugim1d" path="res://Resources/Cards/Mountain Clan/Mountain Orc1.png" id="1_egrru"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_u1s3e"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_o0pli"]
+
+[sub_resource type="Resource" id="Resource_nve2y"]
+script = ExtResource("3_o0pli")
+ability_activation = 0
+ability_type = "Stun"
+ability_chance = 20
+ability_duration = 1.0
+ability_cooldown = 3.0
+
+[resource]
+script = ExtResource("1_u1s3e")
+card_name = "Stary Ork"
+image = ExtResource("1_egrru")
+race = 2
+tier = 2
+description = "20% chance for stun 1 s / 3 cd"
+cost = 120
+health = 350
+attack_damage = 30
+armor = 40
+attack_speed = 1.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 13
+special_ability_stats = Array[ExtResource("3_o0pli")]([SubResource("Resource_nve2y")])

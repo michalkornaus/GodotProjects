@@ -1,0 +1,38 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://inw77towcek3"]
+
+[ext_resource type="Texture2D" uid="uid://dk41ays3psyya" path="res://Resources/Cards/Beast/Chimera1.png" id="1_etieb"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="2_2jwk5"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_f72pf"]
+
+[sub_resource type="Resource" id="Resource_snwyw"]
+script = ExtResource("3_f72pf")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Acid"
+ability_amount = 8.0
+
+[sub_resource type="Resource" id="Resource_1lxue"]
+script = ExtResource("3_f72pf")
+ability_activation = 1
+ability_type = "Explode"
+ability_amount = 20.0
+ability_chance = 100
+ability_radius = 3.0
+
+[resource]
+script = ExtResource("2_2jwk5")
+card_name = "Chimera"
+image = ExtResource("1_etieb")
+race = 8
+tier = 3
+description = "Posion 8"
+cost = 200
+health = 250
+attack_damage = 20
+armor = 50
+attack_speed = 3.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 0
+special_ability_stats = Array[ExtResource("3_f72pf")]([SubResource("Resource_snwyw"), SubResource("Resource_1lxue")])

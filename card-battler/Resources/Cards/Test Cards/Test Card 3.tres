@@ -1,0 +1,51 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://bvyvaq670mxxw"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_0frhw"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="2_d3hnn"]
+[ext_resource type="Resource" uid="uid://bvpv37hdtdgqk" path="res://Resources/Cards/Outlaws/Banita.tres" id="3_htl1r"]
+
+[sub_resource type="Resource" id="Resource_s6loa"]
+script = ExtResource("2_d3hnn")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Barrier"
+ability_amount = 5.0
+ability_duration = 0.0
+ability_cooldown = 2.5
+
+[sub_resource type="Resource" id="Resource_ofem2"]
+script = ExtResource("2_d3hnn")
+ability_activation = 5
+ability_type = "Summon"
+ability_minion_to_spawn = ExtResource("3_htl1r")
+
+[sub_resource type="Resource" id="Resource_iphjh"]
+script = ExtResource("2_d3hnn")
+ability_activation = 3
+ability_type = "Range+"
+ability_amount = 0.5
+ability_threshold = 50.0
+
+[sub_resource type="Resource" id="Resource_0m5wa"]
+script = ExtResource("2_d3hnn")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Fire"
+ability_amount = 5.0
+
+[resource]
+script = ExtResource("1_0frhw")
+card_name = "Test 5 Specials"
+race = 0
+tier = 0
+description = "5 Specials"
+cost = 20
+health = 50
+attack_damage = 4
+armor = 15
+attack_speed = 1.0
+attack_range = 4.0
+armor_penetration = 0.0
+type = 1
+sub_type = 1
+special_ability_stats = Array[ExtResource("2_d3hnn")]([SubResource("Resource_s6loa"), SubResource("Resource_ofem2"), SubResource("Resource_iphjh"), SubResource("Resource_0m5wa")])

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bu7docgb3qj2d"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_7lhra"]
+[ext_resource type="Texture2D" uid="uid://bkhh6ymywmug" path="res://Resources/Cards/Mountain Clan/Mountain Orc4.png" id="1_kw4pe"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_0y4tw"]
+
+[sub_resource type="Resource" id="Resource_ojc7v"]
+script = ExtResource("3_0y4tw")
+ability_activation = 1
+ability_type = "Buff"
+ability_buff_type = "Attack Damage"
+ability_amount = 0.2
+ability_duration = 5.0
+ability_cooldown = 3.0
+
+[sub_resource type="Resource" id="Resource_bgl7g"]
+script = ExtResource("3_0y4tw")
+ability_activation = 0
+ability_type = "AOE"
+ability_amount = 10.0
+ability_radius = 1.5
+
+[resource]
+script = ExtResource("1_7lhra")
+card_name = "Berserker"
+image = ExtResource("1_kw4pe")
+race = 2
+tier = 2
+description = "On kill get 20% AD / 5s Duration /3cd"
+cost = 120
+health = 300
+attack_damage = 30
+armor = 40
+attack_speed = 2.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 18
+special_ability_stats = Array[ExtResource("3_0y4tw")]([SubResource("Resource_ojc7v"), SubResource("Resource_bgl7g")])

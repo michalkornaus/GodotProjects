@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://nx2wtp418eb3"]
+
+[ext_resource type="Script" uid="uid://ds3ua5k8g5uc2" path="res://Scripts/EndScene.gd" id="1_0dd2w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2r8ka"]
+font_size = 95
+
+[sub_resource type="LabelSettings" id="LabelSettings_lkrcj"]
+font_size = 40
+
+[node name="EndScene" type="Node2D"]
+script = ExtResource("1_0dd2w")
+
+[node name="WinnerLabel" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 130.0
+label_settings = SubResource("LabelSettings_2r8ka")
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 168.0
+offset_right = 672.0
+offset_bottom = 464.0
+text = "PLAYER 1 MINIONS KILLED:
+PLAYER 2 (AI) MINIONS KILLED:
+
+PLAYER 1 MINIONS KILLED:
+PLAYER 2 (AI) TOWERS DESTROYED:
+"
+label_settings = SubResource("LabelSettings_lkrcj")
+
+[node name="Amounts" type="Label" parent="StatsLabel"]
+layout_mode = 0
+offset_left = 1016.0
+offset_right = 1096.0
+offset_bottom = 296.0
+label_settings = SubResource("LabelSettings_lkrcj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 103.0
+offset_top = 67.0
+offset_right = 403.0
+offset_bottom = 167.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Go back to Main Menu!"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://yfdqdijfylh6"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_2ykg3"]
+[ext_resource type="Texture2D" uid="uid://dodw83e85qw1r" path="res://Resources/Cards/Beast/Bear.png" id="1_23mqd"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_omquq"]
+
+[sub_resource type="Resource" id="Resource_cq2i7"]
+script = ExtResource("3_omquq")
+ability_activation = 3
+ability_type = "Tower Tank"
+ability_amount = 0.2
+
+[resource]
+script = ExtResource("1_2ykg3")
+card_name = "Niedźwiedź"
+image = ExtResource("1_23mqd")
+race = 8
+tier = 1
+description = "Tank Tower  20%"
+cost = 50
+health = 200
+attack_damage = 20
+armor = 50
+attack_speed = 0.6
+attack_range = 1.0
+armor_penetration = 0.0
+type = 0
+sub_type = 15
+special_ability_stats = Array[ExtResource("3_omquq")]([SubResource("Resource_cq2i7")])

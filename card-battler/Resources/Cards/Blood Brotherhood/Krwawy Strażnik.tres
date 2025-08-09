@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://oplmgvl8kgqn"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_bgsum"]
+[ext_resource type="Texture2D" uid="uid://b70b7r1ben2ie" path="res://Resources/Cards/Blood Brotherhood/Blood3.png" id="1_gv1v0"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_buty3"]
+
+[resource]
+script = ExtResource("1_bgsum")
+card_name = "Krwawy Strażnik"
+image = ExtResource("1_gv1v0")
+race = 4
+tier = 1
+description = ""
+cost = 50
+health = 200
+attack_damage = 15
+armor = 30
+attack_speed = 1.2
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 15
+special_ability_stats = Array[ExtResource("3_buty3")]([])

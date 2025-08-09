@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://cb6sotqyqukms"]
+
+[ext_resource type="Texture2D" uid="uid://c4nmxf5tdjb6i" path="res://Resources/Cards/Sun Elves/Sun elf kowal.png" id="1_ky7ab"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_yld87"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_vhq14"]
+
+[sub_resource type="Resource" id="Resource_cadnj"]
+script = ExtResource("3_vhq14")
+ability_activation = 0
+ability_type = "Buff"
+ability_buff_type = "Armor"
+ability_amount = 2.0
+ability_duration = 10.0
+ability_cooldown = 1.0
+
+[sub_resource type="Resource" id="Resource_yy252"]
+script = ExtResource("3_vhq14")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Fire"
+ability_amount = 5.0
+
+[resource]
+script = ExtResource("1_yld87")
+card_name = "Słoneczny Kowal"
+image = ExtResource("1_ky7ab")
+race = 7
+tier = 2
+description = "on hit get 2 armor dur 10 / Fire 5 "
+cost = 120
+health = 250
+attack_damage = 20
+armor = 35
+attack_speed = 2.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 15
+special_ability_stats = Array[ExtResource("3_vhq14")]([SubResource("Resource_cadnj"), SubResource("Resource_yy252")])

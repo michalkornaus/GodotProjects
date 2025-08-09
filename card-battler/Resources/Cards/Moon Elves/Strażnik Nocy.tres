@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cbcth2fmvifyo"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_gvfyt"]
+[ext_resource type="Texture2D" uid="uid://c7i2yrh4yxrdx" path="res://Resources/Cards/Moon Elves/night-elf-prot-warrior.jpg" id="1_m4r8w"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_u1f6b"]
+
+[sub_resource type="Resource" id="Resource_56nnx"]
+script = ExtResource("3_u1f6b")
+ability_activation = 3
+ability_type = "Tower Tank"
+ability_amount = 0.5
+
+[resource]
+script = ExtResource("1_gvfyt")
+card_name = "Strażnik Nocy"
+image = ExtResource("1_m4r8w")
+race = 6
+tier = 2
+description = ""
+cost = 120
+health = 275
+attack_damage = 35
+armor = 50
+attack_speed = 1.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 15
+special_ability_stats = Array[ExtResource("3_u1f6b")]([SubResource("Resource_56nnx")])

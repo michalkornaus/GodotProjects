@@ -1,0 +1,44 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://4met1o11jcka"]
+
+[ext_resource type="Texture2D" uid="uid://do51e5ojumfd1" path="res://Resources/Cards/Undead Pact/Skeleton9.png" id="1_nwdvh"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="2_u7duj"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_222rc"]
+[ext_resource type="Resource" uid="uid://c4h2vuckmbckm" path="res://Resources/Cards/Undead Pact/Szkielet.tres" id="4_ymrw5"]
+
+[sub_resource type="Resource" id="Resource_rl6ff"]
+script = ExtResource("3_222rc")
+ability_activation = 5
+ability_type = "Explode"
+ability_amount = 50.0
+ability_chance = 100
+ability_radius = 3.0
+
+[sub_resource type="Resource" id="Resource_eo58a"]
+script = ExtResource("3_222rc")
+ability_activation = 5
+ability_type = "Summon"
+ability_minion_to_spawn = ExtResource("4_ymrw5")
+
+[sub_resource type="Resource" id="Resource_kj7db"]
+script = ExtResource("3_222rc")
+ability_activation = 5
+ability_type = "Summon"
+ability_minion_to_spawn = ExtResource("4_ymrw5")
+
+[resource]
+script = ExtResource("2_u7duj")
+card_name = "Kościana Abominacja"
+image = ExtResource("1_nwdvh")
+race = 5
+tier = 2
+description = "on death Explode 50 radius + summon 2 skeletons"
+cost = 120
+health = 100
+attack_damage = 30
+armor = 20
+attack_speed = 0.7
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 5
+special_ability_stats = Array[ExtResource("3_222rc")]([SubResource("Resource_rl6ff"), SubResource("Resource_eo58a"), SubResource("Resource_kj7db")])

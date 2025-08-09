@@ -1,0 +1,42 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://bte7kf52gftj8"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_fyml2"]
+[ext_resource type="Texture2D" uid="uid://vo6ttry426kg" path="res://Resources/Cards/Forest Orcs/Orc8.png" id="1_l1dh5"]
+[ext_resource type="Resource" uid="uid://iqp5h0ja1kye" path="res://Resources/Cards/Beast/Wilk.tres" id="3_hhrna"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="4_6hg1o"]
+
+[sub_resource type="Resource" id="Resource_s36r4"]
+script = ExtResource("4_6hg1o")
+ability_activation = 5
+ability_type = "Summon"
+ability_minion_to_spawn = ExtResource("3_hhrna")
+
+[sub_resource type="Resource" id="Resource_3r8ec"]
+script = ExtResource("4_6hg1o")
+ability_activation = 5
+ability_type = "Summon"
+ability_minion_to_spawn = ExtResource("3_hhrna")
+
+[sub_resource type="Resource" id="Resource_x8x4n"]
+script = ExtResource("4_6hg1o")
+ability_activation = 5
+ability_type = "Summon"
+ability_minion_to_spawn = ExtResource("3_hhrna")
+
+[resource]
+script = ExtResource("1_fyml2")
+card_name = "Beast Master"
+image = ExtResource("1_l1dh5")
+race = 3
+tier = 3
+description = "after death summon 3 wolfs"
+cost = 200
+health = 400
+attack_damage = 50
+armor = 50
+attack_speed = 2.0
+attack_range = 5.0
+armor_penetration = 0.0
+type = 1
+sub_type = 18
+special_ability_stats = Array[ExtResource("4_6hg1o")]([SubResource("Resource_s36r4"), SubResource("Resource_3r8ec"), SubResource("Resource_x8x4n")])

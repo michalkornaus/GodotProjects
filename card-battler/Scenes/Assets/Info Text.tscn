@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6p66bxya07lv"]
+
+[ext_resource type="Script" uid="uid://birjgr8ayfll1" path="res://Scripts/Info Text.gd" id="1_fsubv"]
+
+[node name="InfoText" type="Label3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+billboard = 1
+shaded = true
+double_sided = false
+alpha_cut = 3
+alpha_hash_scale = 0.0
+alpha_antialiasing_mode = 2
+alpha_antialiasing_edge = 0.25
+font_size = 60
+script = ExtResource("1_fsubv")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://ja6pmfltnbft"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_hoxoc"]
+[ext_resource type="Texture2D" uid="uid://dhbiprvbuuonk" path="res://Resources/Cards/Human Kingdom/human4.png" id="1_nf6ly"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_55bxu"]
+
+[sub_resource type="Resource" id="Resource_oia0d"]
+script = ExtResource("3_55bxu")
+ability_activation = 0
+ability_type = "Disarm"
+ability_amount = 0.5
+ability_duration = 2.0
+ability_cooldown = 5.0
+
+[resource]
+script = ExtResource("1_hoxoc")
+card_name = "Rycerz"
+image = ExtResource("1_nf6ly")
+race = 0
+tier = 1
+description = ""
+cost = 50
+health = 170
+attack_damage = 25
+armor = 50
+attack_speed = 1.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 17
+special_ability_stats = Array[ExtResource("3_55bxu")]([SubResource("Resource_oia0d")])

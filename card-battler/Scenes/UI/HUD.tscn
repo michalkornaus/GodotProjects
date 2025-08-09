@@ -1,0 +1,709 @@
+[gd_scene load_steps=23 format=3 uid="uid://0cdht6xykwu7"]
+
+[ext_resource type="Script" uid="uid://ch6hklhaq5c2x" path="res://Scripts/Mobs/SpawnManager.gd" id="1_bvj0y"]
+[ext_resource type="PackedScene" uid="uid://mmq7d6i1fgjc" path="res://Scenes/Assets/Mobs/Minion.tscn" id="3_1jksw"]
+[ext_resource type="PackedScene" uid="uid://jw65hqu1mseq" path="res://Scenes/Assets/Mobs/Models/Ghost.tscn" id="4_6rao7"]
+[ext_resource type="PackedScene" uid="uid://b77fxsgmsjpkr" path="res://Scenes/Assets/Mobs/Models/Orc.tscn" id="4_e1iku"]
+[ext_resource type="Script" uid="uid://c4nasisuomh1r" path="res://Scripts/GameUIManager.gd" id="4_v33no"]
+[ext_resource type="PackedScene" uid="uid://b01khnim0q3yw" path="res://Scenes/Assets/Mobs/Models/Zombie.tscn" id="5_xy08n"]
+[ext_resource type="PackedScene" uid="uid://c7irlw1101kwc" path="res://Scenes/Assets/Mobs/Models/Skeleton.tscn" id="7_vue2w"]
+[ext_resource type="PackedScene" uid="uid://bcrmooe1y1vwx" path="res://Scenes/Assets/Mobs/Models/Pirate Captain.tscn" id="8_qup3b"]
+[ext_resource type="PackedScene" uid="uid://bhq0a6rcwxn30" path="res://Scenes/Assets/Mobs/Models/Skeleton Mage.tscn" id="8_ykaen"]
+[ext_resource type="PackedScene" uid="uid://w7h88cq200j0" path="res://Scenes/Assets/Mobs/Models/Anne.tscn" id="9_hehkg"]
+[ext_resource type="PackedScene" uid="uid://cpgrurqcmh6b" path="res://Scenes/UI/PlayerHealthBars.tscn" id="11_pfu7f"]
+[ext_resource type="PackedScene" uid="uid://djen03n4lf520" path="res://Scenes/UI/Cardex.tscn" id="13_7hhs5"]
+[ext_resource type="PackedScene" uid="uid://drr8l01a1ia4i" path="res://Scenes/UI/Cards UI.tscn" id="22_22c7i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nt7u"]
+bg_color = Color(0.282353, 0.282353, 0.282353, 0.882353)
+border_width_bottom = 6
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_blend = true
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwjre"]
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6dx4"]
+bg_color = Color(0.223529, 0.223529, 0.223529, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.101961, 0.101961, 0.101961, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_aje4d"]
+resource_local_to_scene = true
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jec1h"]
+font_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y68ng"]
+bg_color = Color(0.462745, 0.462745, 0.462745, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.113725, 0.113725, 0.113725, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wnb2"]
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x551i"]
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0bmv7"]
+color = Color(0.172549, 0.172549, 0.172549, 1)
+thickness = 6
+vertical = true
+
+[node name="HUD" type="Node3D"]
+
+[node name="SpawnManager" type="Node3D" parent="." groups=["SpawnManager"]]
+script = ExtResource("1_bvj0y")
+minionScene = ExtResource("3_1jksw")
+minion_models = [ExtResource("4_6rao7"), ExtResource("4_e1iku"), ExtResource("5_xy08n"), ExtResource("7_vue2w"), ExtResource("7_vue2w"), ExtResource("8_ykaen"), ExtResource("8_qup3b"), ExtResource("9_hehkg")]
+
+[node name="GameUIManager" type="Node3D" parent="."]
+process_mode = 3
+script = ExtResource("4_v33no")
+
+[node name="HUD" type="CanvasLayer" parent="GameUIManager"]
+process_mode = 1
+
+[node name="Labels" type="CanvasLayer" parent="GameUIManager/HUD"]
+
+[node name="UpperPanel" type="Panel" parent="GameUIManager/HUD/Labels"]
+custom_minimum_size = Vector2(0, 60)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5nt7u")
+
+[node name="CursorButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 68.0
+offset_right = 17.0
+offset_bottom = 113.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 23
+text = "Change cursor"
+
+[node name="GoldLabel" type="RichTextLabel" parent="GameUIManager/HUD/Labels/UpperPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -19.0
+offset_right = 235.0
+offset_bottom = 16.0
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "GOLD: 0G"
+fit_content = true
+scroll_active = false
+
+[node name="WaveTimer" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel"]
+layout_mode = 1
+offset_left = 255.0
+offset_top = 1.0
+offset_right = 505.0
+offset_bottom = 56.0
+text = "Next wave in: 0s"
+label_settings = SubResource("LabelSettings_pwjre")
+vertical_alignment = 1
+
+[node name="TimePanel" type="Panel" parent="GameUIManager/HUD/Labels/UpperPanel"]
+custom_minimum_size = Vector2(110, 60)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_right = 55.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h6dx4")
+
+[node name="TimeLabel" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel/TimePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_aje4d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeTimer" type="Timer" parent="GameUIManager/HUD/Labels/UpperPanel"]
+process_mode = 1
+autostart = true
+
+[node name="PauseMenuButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 33
+text = "☰"
+clip_text = true
+
+[node name="EscPanel" type="Panel" parent="GameUIManager/HUD/Labels/UpperPanel/PauseMenuButton"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 1
+offset_right = 29.0
+offset_bottom = 18.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel/PauseMenuButton/EscPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ESC"
+label_settings = SubResource("LabelSettings_jec1h")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="CodexButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -182.0
+offset_top = 1.0
+offset_right = -82.65
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 26
+text = "Codex"
+clip_text = true
+
+[node name="CodexPanel" type="Panel" parent="GameUIManager/HUD/Labels/UpperPanel/CodexButton"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 1
+offset_right = 18.0
+offset_bottom = 18.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel/CodexButton/CodexPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "K"
+label_settings = SubResource("LabelSettings_jec1h")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="PausePanel" type="Panel" parent="GameUIManager/HUD/Labels/UpperPanel"]
+process_mode = 3
+visible = false
+show_behind_parent = true
+custom_minimum_size = Vector2(300, 350)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -308.0
+offset_top = 65.0
+offset_right = -8.0
+offset_bottom = 415.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y68ng")
+
+[node name="SettingsPanel" type="Panel" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_7wnb2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel"]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 63.0
+offset_right = 101.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 23
+text = "Return to Menu"
+
+[node name="ControlsButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_top = 156.0
+offset_right = -50.0
+offset_bottom = 211.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 26
+text = "Controls"
+clip_text = true
+
+[node name="VideoButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_top = 251.0
+offset_right = -50.0
+offset_bottom = 306.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 26
+text = "Video"
+clip_text = true
+
+[node name="ControlPanel" type="Panel" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel"]
+visible = false
+custom_minimum_size = Vector2(300, 350)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -340.0
+offset_bottom = 420.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y68ng")
+
+[node name="CloseButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.09
+offset_top = -366.0
+offset_right = 111.09
+offset_bottom = -321.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 23
+text = "Return to settings"
+
+[node name="Controls" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.5
+offset_top = -101.0
+offset_right = 140.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Select building             -    \"LMB\" click
+Show entity's stats     -     \"LMB\" x2 click
+Remove entity (test)   -    \"RMB\" click 
+Pause Menu                 -     \"ESC\" key
+Cards Encyclopedia    -     \"K\" key
+Show the Shop            -     \"B\" key
+Roll the Shop               -     \"R\" key
+Navigate the Deck      -     \"1, 2, 3, 4, Q, E\"
+Show Card's stats       -     \"RMB\" on card"
+label_settings = SubResource("LabelSettings_x551i")
+
+[node name="MouseMovementButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+custom_minimum_size = Vector2(197.92, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = 117.0
+offset_right = 58.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "Mouse cursor 
+movement "
+
+[node name="MouseMovementCheckBox" type="CheckBox" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 345.0
+offset_right = 261.0
+offset_bottom = 369.0
+scale = Vector2(1.5, 1.5)
+disabled = true
+
+[node name="Label" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Game Controls"
+label_settings = SubResource("LabelSettings_7wnb2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VideoPanel" type="Panel" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Video Settings"
+label_settings = SubResource("LabelSettings_7wnb2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel"]
+custom_minimum_size = Vector2(222, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 53.0
+offset_right = 111.0
+offset_bottom = 103.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 23
+text = "Return to settings"
+
+[node name="ScreenModeButton" type="OptionButton" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -19.0
+offset_right = 91.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Maximized"
+popup/item_1/id = 2
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 3
+popup/item_3/text = "Exclusive Fullscreen"
+popup/item_3/id = 4
+
+[node name="Label2" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 133.0
+offset_right = 79.0
+offset_bottom = 156.0
+text = "Window display mode:"
+
+[node name="PausePanel" type="Panel" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReturnButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel"]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 63.0
+offset_right = 101.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 23
+text = "Return to Game"
+
+[node name="SettingsButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel"]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -18.0
+offset_right = 101.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "Settings"
+
+[node name="MenuButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel"]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -99.0
+offset_right = 101.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 23
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Quick Menu"
+label_settings = SubResource("LabelSettings_7wnb2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="GameUIManager/HUD/Labels/UpperPanel"]
+clip_contents = true
+layout_mode = 1
+offset_left = 235.0
+offset_right = 255.0
+offset_bottom = 60.0
+theme_override_styles/separator = SubResource("StyleBoxLine_0bmv7")
+
+[node name="VSeparator2" type="VSeparator" parent="GameUIManager/HUD/Labels/UpperPanel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -222.0
+offset_right = -202.0
+offset_bottom = 60.0
+grow_horizontal = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_0bmv7")
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="GameUIManager/HUD/Labels/UpperPanel"]
+initial_position = 4
+size = Vector2i(210, 100)
+unresizable = true
+popup_window = true
+dialog_text = "Leave to the Main Menu?"
+
+[node name="PlayerHealthBars" parent="GameUIManager/HUD/Labels/UpperPanel" instance=ExtResource("11_pfu7f")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.0
+offset_top = 34.0
+offset_right = -122.0
+offset_bottom = 34.0
+grow_horizontal = 2
+
+[node name="PlayerHealthBars2" parent="GameUIManager/HUD/Labels/UpperPanel" instance=ExtResource("11_pfu7f")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 121.0
+offset_top = 34.0
+offset_right = 121.0
+offset_bottom = 34.0
+grow_horizontal = 2
+player_enum = 1
+revert_ui = true
+
+[node name="DebugLayer" type="CanvasLayer" parent="GameUIManager/HUD/Labels/UpperPanel"]
+
+[node name="InstaWinButton" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+offset_left = 175.0
+offset_top = 69.0
+offset_right = 346.0
+offset_bottom = 116.0
+text = "Insta Win"
+
+[node name="Speedx1Button" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1559.0
+offset_top = 69.0
+offset_right = -1459.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "Speed x1"
+
+[node name="Speedx2Button" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1453.0
+offset_top = 69.0
+offset_right = -1353.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "Speed x2"
+
+[node name="Speedx4Button" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1345.0
+offset_top = 69.0
+offset_right = -1245.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "Speed 4x"
+
+[node name="Speedx8Button" type="Button" parent="GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1236.0
+offset_top = 69.0
+offset_right = -1136.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "Speed 8x (!)"
+
+[node name="CardsUI" parent="GameUIManager/HUD" instance=ExtResource("22_22c7i")]
+
+[node name="CardEncyclopedia" parent="GameUIManager/HUD" instance=ExtResource("13_7hhs5")]
+visible = false
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 45.0
+one_shot = true
+
+[node name="P1MobTimer" type="Timer" parent="."]
+
+[node name="P2MobTimer" type="Timer" parent="."]
+
+[node name="StartDelayTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/CursorButton" to="GameUIManager" method="_on_cursor_button_pressed"]
+[connection signal="timeout" from="GameUIManager/HUD/Labels/UpperPanel/TimeTimer" to="GameUIManager" method="_on_time_timer_timeout"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PauseMenuButton" to="GameUIManager" method="_on_pause_menu_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/CodexButton" to="GameUIManager/HUD/CardEncyclopedia" method="_on_codex_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel/ReturnButton" to="GameUIManager" method="_on_return_settings_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel/ControlsButton" to="GameUIManager" method="_on_controls_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel/VideoButton" to="GameUIManager" method="_on_video_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel/CloseButton" to="GameUIManager" method="_on_close_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel/MouseMovementButton" to="GameUIManager" method="_on_lol_like_cam_move_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel/CloseButton" to="GameUIManager" method="_on_close_button_pressed"]
+[connection signal="item_selected" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel/ScreenModeButton" to="GameUIManager" method="_on_screen_mode_button_item_selected"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel/ReturnButton" to="GameUIManager" method="_on_return_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel/SettingsButton" to="GameUIManager" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel/MenuButton" to="GameUIManager" method="_on_menu_button_pressed"]
+[connection signal="confirmed" from="GameUIManager/HUD/Labels/UpperPanel/ConfirmationDialog" to="GameUIManager" method="_on_confirmation_dialog_confirmed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/DebugLayer/InstaWinButton" to="GameUIManager" method="_on_insta_win_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/DebugLayer/Speedx1Button" to="GameUIManager" method="_on_speedx_1_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/DebugLayer/Speedx2Button" to="GameUIManager" method="_on_speedx_2_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/DebugLayer/Speedx4Button" to="GameUIManager" method="_on_speedx_4_button_pressed"]
+[connection signal="pressed" from="GameUIManager/HUD/Labels/UpperPanel/DebugLayer/Speedx8Button" to="GameUIManager" method="_on_speedx_8_button_pressed"]
+[connection signal="timeout" from="WaveTimer" to="SpawnManager" method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="P1MobTimer" to="SpawnManager" method="_on_p1_mob_timer_timeout"]
+[connection signal="timeout" from="P2MobTimer" to="SpawnManager" method="_on_p2_mob_timer_timeout"]
+[connection signal="timeout" from="StartDelayTimer" to="SpawnManager" method="_on_start_delay_timer_timeout"]

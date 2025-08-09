@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=3 uid="uid://mmq7d6i1fgjc"]
+
+[ext_resource type="Script" uid="uid://bn6lomp8kpxsw" path="res://Scripts/Mobs/MobBehaviour.gd" id="1_8yc5g"]
+[ext_resource type="PackedScene" uid="uid://bi3f26bls5dm3" path="res://Scenes/Assets/Mobs/Ranged Projectile.tscn" id="2_1urje"]
+[ext_resource type="PackedScene" uid="uid://8cdq6wa0c78s" path="res://Scenes/Assets/Health UI.tscn" id="3_a82i2"]
+[ext_resource type="PackedScene" uid="uid://b6p66bxya07lv" path="res://Scenes/Assets/Info Text.tscn" id="3_fpcn2"]
+[ext_resource type="Script" uid="uid://dvt6snwjjlkvc" path="res://Scripts/Gold Label.gd" id="3_wd5p4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4okeo"]
+height = 1.25
+radius = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lflvg"]
+resource_local_to_scene = true
+radius = 8.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2fcc8"]
+resource_local_to_scene = true
+height = 0.7
+radius = 2.2998
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pfm8l"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="FogMaterial" id="FogMaterial_7qbte"]
+density = -1.0
+height_falloff = 0.15
+edge_fade = 1e-05
+
+[sub_resource type="Curve3D" id="Curve3D_ti6jn"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 1, -1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_utijr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cehxv"]
+
+[node name="Minion" type="CharacterBody3D" groups=["mob"]]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_8yc5g")
+info_text_scene = ExtResource("3_fpcn2")
+projectile_arrow = ExtResource("2_1urje")
+movement_speed = 3.5
+num_rays = 19
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+shape = SubResource("CylinderShape3D_4okeo")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+max_speed = 15.0
+debug_enabled = true
+
+[node name="DetectionArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0.5)
+shape = SubResource("CylinderShape3D_lflvg")
+
+[node name="HitArea3D" type="Area3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="HitArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = SubResource("CylinderShape3D_2fcc8")
+
+[node name="GoldLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77508, 0)
+visible = false
+billboard = 1
+shaded = true
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+outline_modulate = Color(0.0431373, 0.0431373, 0.0431373, 1)
+font_size = 70
+outline_size = 16
+script = ExtResource("3_wd5p4")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_a82i2")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 2, 0)
+texture = SubResource("ViewportTexture_pfm8l")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(2, 5, 2)
+shape = 2
+material = SubResource("FogMaterial_7qbte")
+
+[node name="NavPathTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_ti6jn")
+
+[node name="HoverOverSelector" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.02, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_utijr")
+surface_material_override/0 = SubResource("StandardMaterial3D_cehxv")
+
+[connection signal="barrier_changed" from="." to="." method="_on_barrier_changed"]
+[connection signal="health_changed" from="." to="." method="_on_health_changed"]
+[connection signal="link_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_link_reached"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="body_entered" from="DetectionArea3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="DetectionArea3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="HitArea3D" to="." method="_on_hit_area_3d_body_entered"]
+[connection signal="body_exited" from="HitArea3D" to="." method="_on_hit_area_3d_body_exited"]
+[connection signal="timeout" from="NavPathTimer" to="." method="_on_nav_path_timer_timeout"]

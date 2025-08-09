@@ -1,0 +1,49 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://bstxweogr8sce"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_blkhe"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="2_q5qlo"]
+
+[sub_resource type="Resource" id="Resource_f1ma8"]
+script = ExtResource("2_q5qlo")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Fire"
+ability_amount = 5.0
+
+[sub_resource type="Resource" id="Resource_j4lut"]
+script = ExtResource("2_q5qlo")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Acid"
+ability_amount = 3.0
+
+[sub_resource type="Resource" id="Resource_cewrj"]
+script = ExtResource("2_q5qlo")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Bleed"
+ability_amount = 3.0
+
+[sub_resource type="Resource" id="Resource_dcolu"]
+script = ExtResource("2_q5qlo")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Curse"
+ability_amount = 3.0
+
+[resource]
+script = ExtResource("1_blkhe")
+card_name = "Test DOT"
+race = 0
+tier = 0
+description = "DOT Every ascept"
+cost = 20
+health = 200
+attack_damage = 10
+armor = 15
+attack_speed = 1.0
+attack_range = 4.0
+armor_penetration = 0.0
+type = 1
+sub_type = 1
+special_ability_stats = Array[ExtResource("2_q5qlo")]([SubResource("Resource_f1ma8"), SubResource("Resource_j4lut"), SubResource("Resource_cewrj"), SubResource("Resource_dcolu")])

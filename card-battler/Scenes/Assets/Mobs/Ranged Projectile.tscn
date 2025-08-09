@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi3f26bls5dm3"]
+
+[ext_resource type="Script" uid="uid://dvja2ruvgkxxp" path="res://Scripts/Mobs/RangedProjectile.gd" id="1_731m5"]
+[ext_resource type="Material" uid="uid://d1bt68hsinvb5" path="res://Mats/Projectile_Mat.tres" id="2_cvam1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b5n05"]
+resource_local_to_scene = true
+size = Vector3(0.05, 0.05, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wyn5g"]
+size = Vector3(0.05, 0.05, 0.5)
+
+[node name="PathFollow3D" type="PathFollow3D"]
+loop = false
+script = ExtResource("1_731m5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="ProjectileMeshInstance" type="MeshInstance3D" parent="StaticBody3D"]
+visible = false
+material_override = ExtResource("2_cvam1")
+mesh = SubResource("BoxMesh_b5n05")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_wyn5g")

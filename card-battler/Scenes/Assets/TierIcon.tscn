@@ -1,0 +1,71 @@
+[gd_scene load_steps=30 format=3 uid="uid://07pf7kft7nmm"]
+
+[ext_resource type="Script" uid="uid://cg34qtaf57eai" path="res://Scripts/Mobs/TierIcon.gd" id="1_fu7m2"]
+[ext_resource type="Texture2D" uid="uid://baohef7of3q7n" path="res://Textures/Card Icons/BaseTier.png" id="2_t4rhi"]
+[ext_resource type="Texture2D" uid="uid://dlo2xwpovkyab" path="res://Textures/Card Icons/CommonTier.png" id="3_w2xqd"]
+[ext_resource type="Texture2D" uid="uid://b4k5r1yftghpf" path="res://Textures/Card Icons/RareTier.png" id="4_wgdg2"]
+[ext_resource type="Texture2D" uid="uid://cn2p8o30twyr0" path="res://Textures/Card Icons/EpicTier.png" id="5_vn57v"]
+[ext_resource type="Texture2D" uid="uid://db48g2o4qhcrw" path="res://Textures/Card Icons/LegendaryTier.png" id="6_80si3"]
+[ext_resource type="Texture2D" uid="uid://dqechh0xpmmq5" path="res://Textures/Traits Icons/Assasin.png" id="7_pqerp"]
+[ext_resource type="Texture2D" uid="uid://b7euacfweoqa2" path="res://Textures/Traits Icons/bandit.png" id="8_snxct"]
+[ext_resource type="Texture2D" uid="uid://yijr2yt8diop" path="res://Textures/Traits Icons/Blood Sucker.png" id="9_2h48m"]
+[ext_resource type="Texture2D" uid="uid://c6ggqhrwd4u74" path="res://Textures/Traits Icons/Brawler.png" id="10_l5sub"]
+[ext_resource type="Texture2D" uid="uid://qw3qkd0l3wne" path="res://Textures/Traits Icons/Death.png" id="11_01rrv"]
+[ext_resource type="Texture2D" uid="uid://dyntc7mqpcfrb" path="res://Textures/Buildings/castle_TB.png" id="11_dp8vq"]
+[ext_resource type="Texture2D" uid="uid://dxtfv5vtfncim" path="res://Textures/Buildings/medieval-barracks_TB.png" id="12_5gudp"]
+[ext_resource type="Texture2D" uid="uid://b0o8hfxsfeefj" path="res://Textures/Traits Icons/Demon.png" id="12_j1lys"]
+[ext_resource type="Texture2D" uid="uid://dg1xvsralp5ri" path="res://Textures/Buildings/stone-tower_TB.png" id="13_atw2u"]
+[ext_resource type="Texture2D" uid="uid://ngk2m6hx16jt" path="res://Textures/Traits Icons/Divine.png" id="13_hemw5"]
+[ext_resource type="Texture2D" uid="uid://c7gbcwgltcg08" path="res://Textures/Traits Icons/Elementalist.png" id="14_3ld5i"]
+[ext_resource type="Texture2D" uid="uid://dvexlvnfuwock" path="res://Textures/Traits Icons/Evoker.png" id="15_2g63x"]
+[ext_resource type="Texture2D" uid="uid://cwgutfom8ry47" path="res://Textures/Traits Icons/Hand of Justice.png" id="16_v4dxs"]
+[ext_resource type="Texture2D" uid="uid://ufadansovok0" path="res://Textures/Traits Icons/Healer.png" id="17_8jckl"]
+[ext_resource type="Texture2D" uid="uid://ste8m76q7sxk" path="res://Textures/Traits Icons/Hunter.png" id="18_ly08y"]
+[ext_resource type="Texture2D" uid="uid://dytcrhfyyc6r5" path="res://Textures/Traits Icons/Ranger.png" id="19_a63v3"]
+[ext_resource type="Texture2D" uid="uid://d0273li3k6eow" path="res://Textures/Traits Icons/Siedge.png" id="20_ocl3p"]
+[ext_resource type="Texture2D" uid="uid://3sa4lgvi0h0n" path="res://Textures/Traits Icons/Support.png" id="21_x7roi"]
+[ext_resource type="Texture2D" uid="uid://b5ttn03yo8sfi" path="res://Textures/Traits Icons/Tank.png" id="22_dixx6"]
+[ext_resource type="Texture2D" uid="uid://cv5qhx64qi1ju" path="res://Textures/Traits Icons/Warlock.png" id="23_b3l2y"]
+[ext_resource type="Texture2D" uid="uid://b3ycmyx5u3slq" path="res://Textures/Traits Icons/Warrior.png" id="24_n5rct"]
+[ext_resource type="Texture2D" uid="uid://cpmch7cu4sddq" path="res://Textures/Traits Icons/Weteran.png" id="25_bv3l6"]
+[ext_resource type="Texture2D" uid="uid://dphjpkiqqxugs" path="res://Textures/Traits Icons/Wizard.png" id="26_mqvg2"]
+
+[node name="TierIcon" type="Control"]
+texture_filter = 4
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fu7m2")
+TierIcons = {
+-1: ExtResource("2_t4rhi"),
+0: ExtResource("3_w2xqd"),
+1: ExtResource("4_wgdg2"),
+2: ExtResource("5_vn57v"),
+3: ExtResource("6_80si3")
+}
+ClassIcons = {
+0: ExtResource("7_pqerp"),
+1: ExtResource("8_snxct"),
+2: ExtResource("9_2h48m"),
+3: ExtResource("10_l5sub"),
+4: ExtResource("11_01rrv"),
+5: ExtResource("12_j1lys"),
+6: ExtResource("13_hemw5"),
+7: ExtResource("14_3ld5i"),
+8: ExtResource("15_2g63x"),
+9: ExtResource("16_v4dxs"),
+10: ExtResource("17_8jckl"),
+11: ExtResource("18_ly08y"),
+12: ExtResource("19_a63v3"),
+13: ExtResource("20_ocl3p"),
+14: ExtResource("21_x7roi"),
+15: ExtResource("22_dixx6"),
+16: ExtResource("23_b3l2y"),
+17: ExtResource("24_n5rct"),
+18: ExtResource("25_bv3l6"),
+19: ExtResource("26_mqvg2")
+}
+BuildingIcons = {
+0: ExtResource("13_atw2u"),
+1: ExtResource("12_5gudp"),
+2: ExtResource("11_dp8vq")
+}

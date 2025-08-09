@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://dmpt1t7rj803i"]
+
+[ext_resource type="Texture2D" uid="uid://cmy3t4m8othmx" path="res://Resources/Cards/Human Kingdom/dowodca paladynow.jpg" id="1_5mupy"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_lkf73"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_fhff8"]
+
+[sub_resource type="Resource" id="Resource_pdiyq"]
+script = ExtResource("3_fhff8")
+ability_activation = 4
+ability_type = "Buff"
+ability_buff_type = "Attack Armor"
+ability_amount = 25.0
+ability_radius = 6.0
+ability_cooldown = 1.0
+
+[sub_resource type="Resource" id="Resource_0hryi"]
+script = ExtResource("3_fhff8")
+ability_activation = 0
+ability_type = "Buff"
+ability_buff_type = "Barrier"
+ability_amount = 20.0
+ability_duration = 5.0
+ability_cooldown = 0.5
+
+[resource]
+script = ExtResource("1_lkf73")
+card_name = "Dowódca Paladynów"
+image = ExtResource("1_5mupy")
+race = 0
+tier = 3
+description = "Aura 25 Armor + 20 Barier on Hit"
+cost = 200
+health = 350
+attack_damage = 40
+armor = 80
+attack_speed = 0.8
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 9
+special_ability_stats = Array[ExtResource("3_fhff8")]([SubResource("Resource_pdiyq"), SubResource("Resource_0hryi")])

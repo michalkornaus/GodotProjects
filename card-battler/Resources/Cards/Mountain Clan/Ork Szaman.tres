@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bfqo8lshtka7f"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_2nj0l"]
+[ext_resource type="Texture2D" uid="uid://hdokng2h2kqk" path="res://Resources/Cards/Mountain Clan/Mountain Orc12.png" id="1_kh2uy"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_gfteq"]
+
+[sub_resource type="Resource" id="Resource_526k5"]
+script = ExtResource("3_gfteq")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 20.0
+ability_duration = 4.0
+ability_cooldown = 2.0
+
+[resource]
+script = ExtResource("1_2nj0l")
+card_name = "Ork Szaman"
+image = ExtResource("1_kh2uy")
+race = 2
+tier = 0
+description = "Heal Overtime 20 / 4 s / 2 CD"
+cost = 20
+health = 90
+attack_damage = 5
+armor = 10
+attack_speed = 1.0
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 10
+special_ability_stats = Array[ExtResource("3_gfteq")]([SubResource("Resource_526k5")])

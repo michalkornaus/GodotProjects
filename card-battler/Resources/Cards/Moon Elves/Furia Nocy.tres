@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://uhvuwqevwyp5"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_at81s"]
+[ext_resource type="Texture2D" uid="uid://dos61yd5x82ys" path="res://Resources/Cards/Moon Elves/nightelf2.jpg" id="1_btmw5"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_n6qil"]
+
+[sub_resource type="Resource" id="Resource_l1dfq"]
+script = ExtResource("3_n6qil")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Acid"
+ability_amount = 4.0
+
+[sub_resource type="Resource" id="Resource_ejmqs"]
+script = ExtResource("3_n6qil")
+ability_activation = 0
+ability_type = "True DMG"
+ability_amount = 30.0
+ability_hits_to_activate = 3
+
+[resource]
+script = ExtResource("1_at81s")
+card_name = "Furia Nocy"
+image = ExtResource("1_btmw5")
+race = 6
+tier = 2
+description = "4 posion / 5 sec each 3 hit deal 30 true dmg"
+cost = 120
+health = 175
+attack_damage = 30
+armor = 25
+attack_speed = 2.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 0
+special_ability_stats = Array[ExtResource("3_n6qil")]([SubResource("Resource_l1dfq"), SubResource("Resource_ejmqs")])

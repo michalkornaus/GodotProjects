@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://gjywi1tyw2es"]
+
+[ext_resource type="Texture2D" uid="uid://c47gwc4mivfm8" path="res://Resources/Cards/Human Kingdom/humans6.png" id="1_6152c"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_yr0sr"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_4uk30"]
+
+[sub_resource type="Resource" id="Resource_tudx7"]
+script = ExtResource("3_4uk30")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 40.0
+ability_duration = 0.0
+ability_cooldown = 2.0
+
+[resource]
+script = ExtResource("1_yr0sr")
+card_name = "Uzdrowiciel"
+image = ExtResource("1_6152c")
+race = 0
+tier = 1
+description = "Heal 40"
+cost = 50
+health = 115
+attack_damage = 10
+armor = 5
+attack_speed = 1.0
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 10
+special_ability_stats = Array[ExtResource("3_4uk30")]([SubResource("Resource_tudx7")])

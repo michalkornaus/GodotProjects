@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://xt8x1gg2oe42"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_6kgeu"]
+[ext_resource type="Texture2D" uid="uid://b3ss8lk7st8ir" path="res://Resources/Cards/Forest Orcs/ORc13.png" id="1_brnlf"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_1rx8d"]
+
+[sub_resource type="Resource" id="Resource_ygsip"]
+script = ExtResource("3_1rx8d")
+ability_activation = 0
+ability_type = "Mark"
+ability_amount = 5.0
+
+[resource]
+script = ExtResource("1_6kgeu")
+card_name = "Ork Łowca"
+image = ExtResource("1_brnlf")
+race = 3
+tier = 0
+description = "Mark 5"
+cost = 20
+health = 90
+attack_damage = 15
+armor = 5
+attack_speed = 1.0
+attack_range = 4.0
+armor_penetration = 0.0
+type = 1
+sub_type = 11
+special_ability_stats = Array[ExtResource("3_1rx8d")]([SubResource("Resource_ygsip")])

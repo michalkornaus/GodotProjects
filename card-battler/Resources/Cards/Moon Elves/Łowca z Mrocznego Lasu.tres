@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bt7omkgp6daxp"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_qca7s"]
+[ext_resource type="Texture2D" uid="uid://c1k8s57pbwvj8" path="res://Resources/Cards/Moon Elves/nigtelfhunter.jpg" id="1_r6x21"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_6mm6t"]
+
+[sub_resource type="Resource" id="Resource_bvcq3"]
+script = ExtResource("3_6mm6t")
+ability_activation = 0
+ability_type = "Mark"
+ability_amount = 10.0
+
+[resource]
+script = ExtResource("1_qca7s")
+card_name = "Łowca z Mrocznego Lasu"
+image = ExtResource("1_r6x21")
+race = 6
+tier = 1
+description = "Mark 10"
+cost = 50
+health = 115
+attack_damage = 25
+armor = 10
+attack_speed = 1.25
+attack_range = 4.0
+armor_penetration = 0.0
+type = 1
+sub_type = 11
+special_ability_stats = Array[ExtResource("3_6mm6t")]([SubResource("Resource_bvcq3")])

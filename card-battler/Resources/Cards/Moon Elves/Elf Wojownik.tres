@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://78f4455xffer"]
+
+[ext_resource type="Texture2D" uid="uid://dmomnscgc5r1k" path="res://Resources/Cards/Moon Elves/night elf 4.jpg" id="1_8ate5"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_xal34"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_8m13b"]
+
+[resource]
+script = ExtResource("1_xal34")
+card_name = "Elf Wojownik"
+image = ExtResource("1_8ate5")
+race = 6
+tier = 1
+description = ""
+cost = 50
+health = 150
+attack_damage = 20
+armor = 30
+attack_speed = 1.25
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 17
+special_ability_stats = Array[ExtResource("3_8m13b")]([])

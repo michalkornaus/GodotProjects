@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bg34pac10a7ur"]
+
+[ext_resource type="Texture2D" uid="uid://cs87vod058gmq" path="res://Resources/Cards/Beast/Snake.jpg" id="1_55psa"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_wmsqj"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_aibmw"]
+
+[sub_resource type="Resource" id="Resource_kqf1p"]
+script = ExtResource("3_aibmw")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Acid"
+ability_amount = 2.0
+
+[resource]
+script = ExtResource("1_wmsqj")
+card_name = "Anakonda"
+image = ExtResource("1_55psa")
+race = 8
+tier = 1
+description = "2 toxic / 5 s Stacking"
+cost = 50
+health = 125
+attack_damage = 10
+armor = 0
+attack_speed = 1.5
+attack_range = 2.0
+armor_penetration = 0.0
+type = 0
+sub_type = 0
+special_ability_stats = Array[ExtResource("3_aibmw")]([SubResource("Resource_kqf1p")])

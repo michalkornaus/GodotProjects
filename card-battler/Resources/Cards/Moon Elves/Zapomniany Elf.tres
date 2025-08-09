@@ -1,0 +1,38 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://li2hmpdkty3i"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_nt8o4"]
+[ext_resource type="Texture2D" uid="uid://cpn7tm2woix5y" path="res://Resources/Cards/Moon Elves/night elf 8.jpeg" id="1_qc4uu"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_jm4lx"]
+
+[sub_resource type="Resource" id="Resource_pa767"]
+script = ExtResource("3_jm4lx")
+ability_activation = 1
+ability_type = "Explode"
+ability_amount = 20.0
+ability_chance = 100
+ability_radius = 3.0
+
+[sub_resource type="Resource" id="Resource_3hfk8"]
+script = ExtResource("3_jm4lx")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Curse"
+ability_amount = 1.0
+
+[resource]
+script = ExtResource("1_nt8o4")
+card_name = "Zapomniany Elf"
+image = ExtResource("1_qc4uu")
+race = 6
+tier = 2
+description = "On kill deal 20 near units + Curse 1"
+cost = 120
+health = 150
+attack_damage = 60
+armor = 20
+attack_speed = 0.8
+attack_range = 4.0
+armor_penetration = 0.0
+type = 2
+sub_type = 18
+special_ability_stats = Array[ExtResource("3_jm4lx")]([SubResource("Resource_pa767"), SubResource("Resource_3hfk8")])

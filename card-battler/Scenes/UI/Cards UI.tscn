@@ -1,0 +1,863 @@
+[gd_scene load_steps=37 format=3 uid="uid://drr8l01a1ia4i"]
+
+[ext_resource type="Script" uid="uid://b3rh8xqk4p4tj" path="res://Scripts/Cards/CardsUI.gd" id="1_lbyja"]
+[ext_resource type="PackedScene" uid="uid://bpcf3shjxg2ll" path="res://Scenes/Assets/Cards/Card.tscn" id="2_ju84m"]
+[ext_resource type="Script" uid="uid://d20ty8t0km2kl" path="res://Scripts/UpgradesUI.gd" id="4_px8ae"]
+[ext_resource type="Resource" uid="uid://oyuxohoufxsw" path="res://Resources/Buildings/TowerUpgrade1.tres" id="5_sk0fh"]
+[ext_resource type="Resource" uid="uid://ykdul4kvw8e1" path="res://Resources/Buildings/TowerUpgrade2.tres" id="6_yu7d5"]
+[ext_resource type="Resource" uid="uid://cidmuwjbcpc23" path="res://Resources/Buildings/TowerUpgrade3.tres" id="7_xxh4r"]
+[ext_resource type="PackedScene" uid="uid://bln5nembvaqdw" path="res://Scenes/Assets/Cards/Card Zone.tscn" id="8_agvxe"]
+[ext_resource type="Resource" uid="uid://dy04sfsyyklrp" path="res://Resources/Buildings/BarrackUpgrade1.tres" id="8_l782c"]
+[ext_resource type="Resource" uid="uid://bahhljppsrjqt" path="res://Resources/Buildings/BarrackUpgrade2.tres" id="9_gd3we"]
+[ext_resource type="Resource" uid="uid://b58aod210i8k0" path="res://Resources/Buildings/BarrackUpgrade3.tres" id="10_0n60o"]
+[ext_resource type="Resource" uid="uid://crbrseowu7pr8" path="res://Resources/Buildings/BarrackUpgrade4.tres" id="11_qjvom"]
+[ext_resource type="Resource" uid="uid://n5by2pepsaqp" path="res://Resources/Buildings/NexusUpgrade1.tres" id="12_ke7ep"]
+[ext_resource type="Resource" uid="uid://cn47imoio6f8q" path="res://Resources/Buildings/NexusUpgrade2.tres" id="13_6bkwj"]
+[ext_resource type="Resource" uid="uid://36yq7273dnak" path="res://Resources/Buildings/NexusUpgrade3.tres" id="14_14ds2"]
+[ext_resource type="Resource" uid="uid://otju3di3o3sl" path="res://Resources/Buildings/NexusUpgrade4.tres" id="15_k6jsr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ud05"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rra1u"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uugim"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf06h"]
+bg_color = Color(0.262745, 0.262745, 0.262745, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_mtnm0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8ax8"]
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.290196, 0.290196, 0.290196, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.231373)
+shadow_size = 4
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5mye"]
+content_margin_left = 20.0
+bg_color = Color(0.384314, 0.384314, 0.384314, 1)
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(0.239216, 0.239216, 0.239216, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svvoc"]
+content_margin_left = 20.0
+bg_color = Color(0.286275, 0.286275, 0.286275, 1)
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(0.239216, 0.239216, 0.239216, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pslsu"]
+content_margin_left = 20.0
+bg_color = Color(0.439216, 0.439216, 0.439216, 1)
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(0.239216, 0.239216, 0.239216, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vpfv"]
+line_spacing = 0.0
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1nc3"]
+line_spacing = 0.0
+font_color = Color(0.942823, 0.942823, 0.942823, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.67451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kmsga"]
+font_color = Color(0.5, 0.77, 1, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.67451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_010pb"]
+font_color = Color(0.729, 0.333, 0.827, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.67451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eesh4"]
+font_color = Color(1, 0.54, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.67451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug0iv"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr4vw"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kc68u"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6gnf"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg64k"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frddm"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4yra"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="CardsUI" type="CanvasLayer" node_paths=PackedStringArray("top_lane_deck", "middle_lane_deck", "bottom_lane_deck") groups=["CardsUI"]]
+script = ExtResource("1_lbyja")
+card_scene = ExtResource("2_ju84m")
+top_lane_deck = NodePath("CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsTop")
+middle_lane_deck = NodePath("CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle")
+bottom_lane_deck = NodePath("CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsBottom")
+
+[node name="Upgrade info" type="Panel" parent="."]
+visible = false
+z_index = 1
+offset_right = 280.0
+offset_bottom = 130.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ud05")
+
+[node name="Title" type="Label" parent="Upgrade info"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_right = 140.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "[Building] upgrade tier [Tier]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="Upgrade info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/line_separation = 10
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 15
+bbcode_enabled = true
+
+[node name="CardsUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -11.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="OptionsPanel" type="Panel" parent="CardsUI"]
+custom_minimum_size = Vector2(400, 60)
+layout_mode = 0
+offset_left = -191.0
+offset_top = -267.0
+offset_right = 209.0
+offset_bottom = -207.0
+
+[node name="OptionButtons" type="HBoxContainer" parent="CardsUI/OptionsPanel"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 60.0
+
+[node name="TopButton" type="Button" parent="CardsUI/OptionsPanel/OptionButtons"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_rra1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uugim")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gf06h")
+toggle_mode = true
+text = "TOP"
+
+[node name="MiddleButton" type="Button" parent="CardsUI/OptionsPanel/OptionButtons"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_rra1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uugim")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gf06h")
+toggle_mode = true
+text = "MID"
+
+[node name="BottomButton" type="Button" parent="CardsUI/OptionsPanel/OptionButtons"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_rra1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uugim")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gf06h")
+toggle_mode = true
+text = "BOT"
+
+[node name="UpgradeButton" type="Button" parent="CardsUI/OptionsPanel/OptionButtons"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_rra1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uugim")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gf06h")
+toggle_mode = true
+text = "UPGRADES"
+
+[node name="OptionLeftPanel" type="Panel" parent="CardsUI/OptionsPanel"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 0
+offset_left = -33.0
+offset_top = 17.0
+offset_right = -8.0
+offset_bottom = 42.0
+
+[node name="Label" type="Label" parent="CardsUI/OptionsPanel/OptionLeftPanel"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 25.0
+offset_bottom = 24.0
+text = "Q"
+label_settings = SubResource("LabelSettings_mtnm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="OptionRightPanel" type="Panel" parent="CardsUI/OptionsPanel"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 0
+offset_left = 408.0
+offset_top = 17.0
+offset_right = 433.0
+offset_bottom = 42.0
+
+[node name="Label" type="Label" parent="CardsUI/OptionsPanel/OptionRightPanel"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 25.0
+offset_bottom = 24.0
+text = "E"
+label_settings = SubResource("LabelSettings_mtnm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="LanesTopPanel" type="Panel" parent="CardsUI/OptionsPanel"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 0
+offset_right = 25.0
+offset_bottom = 25.0
+
+[node name="Label" type="Label" parent="CardsUI/OptionsPanel/LanesTopPanel"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 25.0
+offset_bottom = 24.0
+text = "1"
+label_settings = SubResource("LabelSettings_mtnm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="LanesMidPanel" type="Panel" parent="CardsUI/OptionsPanel"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 0
+offset_left = 101.0
+offset_right = 126.0
+offset_bottom = 25.0
+
+[node name="Label" type="Label" parent="CardsUI/OptionsPanel/LanesMidPanel"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 25.0
+offset_bottom = 24.0
+text = "2"
+label_settings = SubResource("LabelSettings_mtnm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="LanesBotPanel" type="Panel" parent="CardsUI/OptionsPanel"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 0
+offset_left = 202.0
+offset_right = 227.0
+offset_bottom = 25.0
+
+[node name="Label" type="Label" parent="CardsUI/OptionsPanel/LanesBotPanel"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 25.0
+offset_bottom = 24.0
+text = "3"
+label_settings = SubResource("LabelSettings_mtnm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="UpgradesPanel" type="Panel" parent="CardsUI/OptionsPanel"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 0
+offset_left = 303.0
+offset_right = 328.0
+offset_bottom = 25.0
+
+[node name="Label" type="Label" parent="CardsUI/OptionsPanel/UpgradesPanel"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 25.0
+offset_bottom = 24.0
+text = "4"
+label_settings = SubResource("LabelSettings_mtnm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="BottomPanel" type="PanelContainer" parent="CardsUI"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -494.0
+offset_top = -205.0
+offset_right = 540.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h8ax8")
+
+[node name="CardsPanelsAndTools" type="HBoxContainer" parent="CardsUI/BottomPanel"]
+custom_minimum_size = Vector2(115, 0)
+layout_mode = 2
+
+[node name="CardsPanels" type="VBoxContainer" parent="CardsUI/BottomPanel/CardsPanelsAndTools"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="Deck" type="Panel" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="DeckCardsTop" type="HBoxContainer" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 860.0
+offset_bottom = 163.0
+
+[node name="CardZone1" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsTop" groups=["top_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+
+[node name="CardZone2" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsTop" groups=["top_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+
+[node name="CardZone3" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsTop" groups=["top_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+
+[node name="CardZone4" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsTop" groups=["locked", "top_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+
+[node name="CardZone5" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsTop" groups=["locked", "top_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+
+[node name="CardZone6" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsTop" groups=["locked", "top_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+
+[node name="DeckCardsMiddle" type="HBoxContainer" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck"]
+visible = false
+layout_mode = 0
+offset_top = 3.0
+offset_right = 860.0
+offset_bottom = 163.0
+
+[node name="CardZone1" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["middle_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone2" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["middle_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone3" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["middle_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone4" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["locked", "middle_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone5" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["locked", "middle_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone6" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["locked", "middle_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 1
+
+[node name="DeckCardsBottom" type="HBoxContainer" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck"]
+visible = false
+layout_mode = 0
+offset_top = 3.0
+offset_right = 860.0
+offset_bottom = 163.0
+
+[node name="CardZone1" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsBottom" groups=["botton_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 2
+
+[node name="CardZone2" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsBottom" groups=["botton_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 2
+
+[node name="CardZone3" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsBottom" groups=["botton_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 2
+
+[node name="CardZone4" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsBottom" groups=["botton_zone", "locked"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 2
+
+[node name="CardZone5" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsBottom" groups=["botton_zone", "locked"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 2
+
+[node name="CardZone6" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsBottom" groups=["botton_zone", "locked"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+lane = 2
+
+[node name="ShopSpacer" type="Control" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="ShopButton" type="Button" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer"]
+layout_mode = 0
+offset_right = 860.0
+offset_bottom = 31.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_r5mye")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svvoc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pslsu")
+text = "SHOP "
+
+[node name="ShopKeyPanel" type="Panel" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer/ShopButton"]
+self_modulate = Color(0.317647, 0.317647, 0.317647, 1)
+layout_mode = 1
+offset_left = 466.0
+offset_top = 6.0
+offset_right = 486.0
+offset_bottom = 26.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer/ShopButton/ShopKeyPanel"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = -2.0
+offset_right = 20.5
+offset_bottom = 22.0
+text = "B"
+label_settings = SubResource("LabelSettings_mtnm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="PercentageBox" type="Panel" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+offset_left = 144.0
+offset_right = 844.0
+offset_bottom = 31.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer/PercentageBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.5
+offset_right = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 35
+alignment = 2
+
+[node name="Label" type="Label" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer/PercentageBox/HBoxContainer"]
+layout_mode = 2
+text = "Roll chances:"
+label_settings = SubResource("LabelSettings_4vpfv")
+
+[node name="CommonLabel" type="Label" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer/PercentageBox/HBoxContainer"]
+layout_mode = 2
+text = "Common: 80%"
+label_settings = SubResource("LabelSettings_b1nc3")
+
+[node name="RareLabel" type="Label" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer/PercentageBox/HBoxContainer"]
+layout_mode = 2
+text = "Rare: 20%"
+label_settings = SubResource("LabelSettings_kmsga")
+
+[node name="EpicLabel" type="Label" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer/PercentageBox/HBoxContainer"]
+layout_mode = 2
+text = "Epic: 0%"
+label_settings = SubResource("LabelSettings_010pb")
+
+[node name="LegendaryLabel" type="Label" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer/PercentageBox/HBoxContainer"]
+layout_mode = 2
+text = "Legendary: 0%"
+label_settings = SubResource("LabelSettings_eesh4")
+
+[node name="Shop" type="Panel" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="ShopCards" type="HBoxContainer" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Shop"]
+layout_mode = 0
+offset_right = 860.0
+offset_bottom = 160.0
+
+[node name="CardZoneShop1" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Shop/ShopCards" groups=["shop_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+zone = 1
+
+[node name="CardZoneShop2" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Shop/ShopCards" groups=["shop_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+zone = 1
+
+[node name="CardZoneShop3" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Shop/ShopCards" groups=["shop_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+zone = 1
+
+[node name="CardZoneShop4" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Shop/ShopCards" groups=["shop_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+zone = 1
+
+[node name="CardZoneShop5" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Shop/ShopCards" groups=["shop_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+zone = 1
+
+[node name="CardZoneShop6" parent="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Shop/ShopCards" groups=["shop_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+zone = 1
+
+[node name="Tools" type="VBoxContainer" parent="CardsUI/BottomPanel/CardsPanelsAndTools"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardZoneSell" parent="CardsUI/BottomPanel/CardsPanelsAndTools/Tools" groups=["sell_zone"] instance=ExtResource("8_agvxe")]
+layout_mode = 2
+zone = 2
+
+[node name="Sell" type="Button" parent="CardsUI/BottomPanel/CardsPanelsAndTools/Tools/CardZoneSell"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+text = "SELL
+(50%)"
+
+[node name="Spacer" type="Control" parent="CardsUI/BottomPanel/CardsPanelsAndTools/Tools"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_stretch_ratio = 1.5
+
+[node name="Roll" type="Button" parent="CardsUI/BottomPanel/CardsPanelsAndTools/Tools"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+disabled = true
+text = "ROLL
+"
+
+[node name="RollKeyPanel" type="Panel" parent="CardsUI/BottomPanel/CardsPanelsAndTools/Tools/Roll"]
+self_modulate = Color(0.317647, 0.317647, 0.317647, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -68.0
+offset_right = -42.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CardsUI/BottomPanel/CardsPanelsAndTools/Tools/Roll/RollKeyPanel"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = -2.0
+offset_right = 20.5
+offset_bottom = 22.0
+text = "R"
+label_settings = SubResource("LabelSettings_mtnm0")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="UpgradesPanel" type="HBoxContainer" parent="CardsUI/BottomPanel" node_paths=PackedStringArray("upgrade_info_panel", "delay_timer")]
+visible = false
+layout_mode = 2
+script = ExtResource("4_px8ae")
+upgrade_info_panel = NodePath("../../../Upgrade info")
+tower_upgrades_array = Array[Resource]([ExtResource("5_sk0fh"), ExtResource("6_yu7d5"), ExtResource("7_xxh4r")])
+barrack_upgrades_array = Array[Resource]([ExtResource("8_l782c"), ExtResource("9_gd3we"), ExtResource("10_0n60o"), ExtResource("11_qjvom")])
+nexus_upgrades_array = Array[Resource]([ExtResource("12_ke7ep"), ExtResource("13_6bkwj"), ExtResource("14_14ds2"), ExtResource("15_k6jsr")])
+delay_timer = NodePath("DelayTimer")
+
+[node name="TowerUpgrades" type="VBoxContainer" parent="CardsUI/BottomPanel/UpgradesPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopTower" type="Button" parent="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_ug0iv")
+text_overrun_behavior = 3
+clip_text = true
+
+[node name="MidTower" type="Button" parent="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_cr4vw")
+text_overrun_behavior = 3
+clip_text = true
+
+[node name="BotTower" type="Button" parent="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_kc68u")
+text_overrun_behavior = 4
+clip_text = true
+
+[node name="BarrackUpgrades" type="VBoxContainer" parent="CardsUI/BottomPanel/UpgradesPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TopBarrack" type="Button" parent="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6gnf")
+
+[node name="MidBarrack" type="Button" parent="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_mg64k")
+
+[node name="BotBarrack" type="Button" parent="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_frddm")
+
+[node name="NexusUpgrades" type="VBoxContainer" parent="CardsUI/BottomPanel/UpgradesPanel"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 2
+
+[node name="Nexus" type="Button" parent="CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_e4yra")
+
+[node name="DelayTimer" type="Timer" parent="CardsUI/BottomPanel/UpgradesPanel"]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="pressed" from="CardsUI/OptionsPanel/OptionButtons/TopButton" to="." method="_on_top_button_pressed"]
+[connection signal="pressed" from="CardsUI/OptionsPanel/OptionButtons/MiddleButton" to="." method="_on_middle_button_pressed"]
+[connection signal="pressed" from="CardsUI/OptionsPanel/OptionButtons/BottomButton" to="." method="_on_bottom_button_pressed"]
+[connection signal="pressed" from="CardsUI/OptionsPanel/OptionButtons/UpgradeButton" to="." method="_on_upgrades_button_pressed"]
+[connection signal="pressed" from="CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/ShopSpacer/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="CardsUI/BottomPanel/CardsPanelsAndTools/Tools/Roll" to="." method="_on_roll_pressed"]
+[connection signal="mouse_entered" from="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/TopTower" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["tower", "top", 1]]
+[connection signal="mouse_exited" from="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/TopTower" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/TopTower" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["tower", "top", 1]]
+[connection signal="mouse_entered" from="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/MidTower" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["tower", "mid", 1]]
+[connection signal="mouse_exited" from="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/MidTower" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/MidTower" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["tower", "mid", 1]]
+[connection signal="mouse_entered" from="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/BotTower" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["tower", "bot", 1]]
+[connection signal="mouse_exited" from="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/BotTower" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/BotTower" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["tower", "bot", 1]]
+[connection signal="mouse_entered" from="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/TopBarrack" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["barrack", "top", 1]]
+[connection signal="mouse_exited" from="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/TopBarrack" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/TopBarrack" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["barrack", "top", 1]]
+[connection signal="mouse_entered" from="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/MidBarrack" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["barrack", "mid", 1]]
+[connection signal="mouse_exited" from="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/MidBarrack" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/MidBarrack" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["barrack", "mid", 1]]
+[connection signal="mouse_entered" from="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/BotBarrack" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["barrack", "bot", 1]]
+[connection signal="mouse_exited" from="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/BotBarrack" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/BotBarrack" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["barrack", "bot", 1]]
+[connection signal="mouse_entered" from="CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades/Nexus" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["nexus", "", 1]]
+[connection signal="mouse_exited" from="CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades/Nexus" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades/Nexus" to="CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["nexus", "", 1]]

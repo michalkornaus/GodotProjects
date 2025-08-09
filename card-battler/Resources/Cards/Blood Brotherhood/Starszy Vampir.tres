@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://dtkfhhljyak6s"]
+
+[ext_resource type="Texture2D" uid="uid://b4sfout34mrhs" path="res://Resources/Cards/Blood Brotherhood/Starszy vamp.jpg" id="1_bnnvu"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_fbu0y"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_4g6ac"]
+
+[sub_resource type="Resource" id="Resource_d8qfg"]
+script = ExtResource("3_4g6ac")
+ability_activation = 0
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 12.0
+ability_duration = 0.0
+ability_cooldown = 0.5
+
+[sub_resource type="Resource" id="Resource_lylwk"]
+script = ExtResource("3_4g6ac")
+ability_activation = 1
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 50.0
+ability_duration = 0.0
+ability_cooldown = 3.0
+
+[resource]
+script = ExtResource("1_fbu0y")
+card_name = "Starszy Vampir"
+image = ExtResource("1_bnnvu")
+race = 4
+tier = 3
+description = "heal 12 on hit"
+cost = 200
+health = 350
+attack_damage = 50
+armor = 35
+attack_speed = 1.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 2
+special_ability_stats = Array[ExtResource("3_4g6ac")]([SubResource("Resource_d8qfg"), SubResource("Resource_lylwk")])

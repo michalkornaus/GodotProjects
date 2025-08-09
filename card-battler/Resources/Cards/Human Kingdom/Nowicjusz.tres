@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bect625psg2l0"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_op7uu"]
+[ext_resource type="Texture2D" uid="uid://dw6uw4by7aocf" path="res://Resources/Cards/Human Kingdom/Human12.png" id="1_whgrj"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_qifgh"]
+
+[sub_resource type="Resource" id="Resource_g2j1u"]
+script = ExtResource("3_qifgh")
+ability_activation = 0
+ability_type = "AOE"
+ability_amount = 5.0
+ability_radius = 3.0
+
+[resource]
+script = ExtResource("1_op7uu")
+card_name = "Nowicjusz"
+image = ExtResource("1_whgrj")
+race = 0
+tier = 0
+description = "AOE"
+cost = 20
+health = 80
+attack_damage = 5
+armor = 10
+attack_speed = 0.5
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 19
+special_ability_stats = Array[ExtResource("3_qifgh")]([SubResource("Resource_g2j1u")])

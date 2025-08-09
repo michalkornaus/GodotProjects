@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://dqe88dfm7eptf"]
+
+[ext_resource type="Texture2D" uid="uid://dxde42bddplfa" path="res://Resources/Cards/Undead Pact/Skeleton11.png" id="1_2f6he"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="2_n3nhs"]
+[ext_resource type="Resource" uid="uid://c4h2vuckmbckm" path="res://Resources/Cards/Undead Pact/Szkielet.tres" id="3_acwmq"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="4_mexi5"]
+
+[sub_resource type="Resource" id="Resource_wbj1p"]
+script = ExtResource("4_mexi5")
+ability_activation = 5
+ability_type = "Summon"
+ability_minion_to_spawn = ExtResource("3_acwmq")
+
+[sub_resource type="Resource" id="Resource_w5dl6"]
+script = ExtResource("4_mexi5")
+ability_activation = 4
+ability_type = "Ice"
+ability_amount = 0.25
+ability_radius = 4.0
+ability_duration = 1.0
+ability_cooldown = 2.0
+
+[resource]
+script = ExtResource("2_n3nhs")
+card_name = "Lodowy Kościelec"
+image = ExtResource("1_2f6he")
+race = 5
+tier = 3
+description = "on death summon Szkielet + Ice Aura 25% radius 4 "
+cost = 200
+health = 300
+attack_damage = 30
+armor = 80
+attack_speed = 1.0
+attack_range = 1.0
+armor_penetration = 0.0
+type = 0
+sub_type = 5
+special_ability_stats = Array[ExtResource("4_mexi5")]([SubResource("Resource_wbj1p"), SubResource("Resource_w5dl6")])

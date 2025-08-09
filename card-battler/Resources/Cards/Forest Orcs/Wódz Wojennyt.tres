@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://tam5qjj23gqb"]
+
+[ext_resource type="Texture2D" uid="uid://jruwicystbmg" path="res://Resources/Cards/Forest Orcs/Orc6.png" id="1_eaawm"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_pucbs"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_7t7ta"]
+
+[sub_resource type="Resource" id="Resource_yuc0k"]
+script = ExtResource("3_7t7ta")
+ability_activation = 4
+ability_type = "Buff"
+ability_buff_type = "Movement Speed"
+ability_amount = 5.0
+ability_radius = 6.0
+ability_cooldown = 1.0
+
+[sub_resource type="Resource" id="Resource_ijibd"]
+script = ExtResource("3_7t7ta")
+ability_activation = 1
+ability_type = "Buff"
+ability_buff_type = "Attack Damage"
+ability_amount = 30.0
+ability_duration = 5.0
+ability_cooldown = 4.0
+
+[resource]
+script = ExtResource("1_pucbs")
+card_name = "Wódz Wojenny"
+image = ExtResource("1_eaawm")
+race = 3
+tier = 3
+description = "On kill get 20% AS / 3 S"
+cost = 200
+health = 400
+attack_damage = 60
+armor = 10
+attack_speed = 1.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 13
+special_ability_stats = Array[ExtResource("3_7t7ta")]([SubResource("Resource_yuc0k"), SubResource("Resource_ijibd")])

@@ -1,0 +1,1698 @@
+[gd_scene load_steps=64 format=3 uid="uid://buwymdvfm2jr4"]
+
+[ext_resource type="Script" uid="uid://w48dq7kdjdvg" path="res://Scripts/Terrain.gd" id="1_kscea"]
+[ext_resource type="Material" uid="uid://cx0atg4k5plkp" path="res://Mats/Rest/DebugFloor.tres" id="2_sxhkc"]
+[ext_resource type="Material" uid="uid://jwcxs2rxl3ce" path="res://Mats/Rest/DebugBorder.tres" id="3_hnkeq"]
+[ext_resource type="Script" uid="uid://dih2648q6joio" path="res://Scripts/CameraMovement.gd" id="3_vxjuc"]
+[ext_resource type="PackedScene" uid="uid://j3r26g4shmbm" path="res://Scenes/Assets/Buildings/Building.tscn" id="4_5hxum"]
+[ext_resource type="Script" uid="uid://cdvuwxr6ewal4" path="res://Scripts/Camera3D.gd" id="4_oisq4"]
+[ext_resource type="PackedScene" uid="uid://bln5nembvaqdw" path="res://Scenes/Assets/Cards/Card Zone.tscn" id="5_07ey6"]
+[ext_resource type="Script" uid="uid://bbxl2566gx4r" path="res://Scripts/Debug/DebugCardsUI.gd" id="5_pvxn7"]
+[ext_resource type="Script" uid="uid://bxbt4ghf35inn" path="res://Scripts/Debug/DebugSpawnManager.gd" id="5_yun5i"]
+[ext_resource type="Script" uid="uid://d20ty8t0km2kl" path="res://Scripts/UpgradesUI.gd" id="6_4s8gm"]
+[ext_resource type="PackedScene" uid="uid://bpcf3shjxg2ll" path="res://Scenes/Assets/Cards/Card.tscn" id="6_mfaft"]
+[ext_resource type="Resource" uid="uid://oyuxohoufxsw" path="res://Resources/Buildings/TowerUpgrade1.tres" id="6_ud615"]
+[ext_resource type="Resource" uid="uid://ykdul4kvw8e1" path="res://Resources/Buildings/TowerUpgrade2.tres" id="7_36c0q"]
+[ext_resource type="Resource" uid="uid://cidmuwjbcpc23" path="res://Resources/Buildings/TowerUpgrade3.tres" id="8_r7e1w"]
+[ext_resource type="Resource" uid="uid://dy04sfsyyklrp" path="res://Resources/Buildings/BarrackUpgrade1.tres" id="9_mthtd"]
+[ext_resource type="Resource" uid="uid://bahhljppsrjqt" path="res://Resources/Buildings/BarrackUpgrade2.tres" id="10_a3t6c"]
+[ext_resource type="Resource" uid="uid://b58aod210i8k0" path="res://Resources/Buildings/BarrackUpgrade3.tres" id="11_r7wmc"]
+[ext_resource type="Script" uid="uid://c4nasisuomh1r" path="res://Scripts/GameUIManager.gd" id="11_x2nws"]
+[ext_resource type="PackedScene" uid="uid://cpgrurqcmh6b" path="res://Scenes/UI/PlayerHealthBars.tscn" id="12_b8lg7"]
+[ext_resource type="Resource" uid="uid://crbrseowu7pr8" path="res://Resources/Buildings/BarrackUpgrade4.tres" id="12_hbd6w"]
+[ext_resource type="Resource" uid="uid://n5by2pepsaqp" path="res://Resources/Buildings/NexusUpgrade1.tres" id="13_mshrf"]
+[ext_resource type="Resource" uid="uid://cn47imoio6f8q" path="res://Resources/Buildings/NexusUpgrade2.tres" id="14_2l5nq"]
+[ext_resource type="Resource" uid="uid://36yq7273dnak" path="res://Resources/Buildings/NexusUpgrade3.tres" id="15_ay5wa"]
+[ext_resource type="Resource" uid="uid://otju3di3o3sl" path="res://Resources/Buildings/NexusUpgrade4.tres" id="16_j7shb"]
+[ext_resource type="PackedScene" uid="uid://djen03n4lf520" path="res://Scenes/UI/Cardex.tscn" id="20_dkn60"]
+[ext_resource type="PackedScene" uid="uid://mmq7d6i1fgjc" path="res://Scenes/Assets/Mobs/Minion.tscn" id="21_44ivc"]
+[ext_resource type="PackedScene" uid="uid://jw65hqu1mseq" path="res://Scenes/Assets/Mobs/Models/Ghost.tscn" id="22_o6e5r"]
+[ext_resource type="PackedScene" uid="uid://b77fxsgmsjpkr" path="res://Scenes/Assets/Mobs/Models/Orc.tscn" id="23_p26lt"]
+[ext_resource type="PackedScene" uid="uid://b01khnim0q3yw" path="res://Scenes/Assets/Mobs/Models/Zombie.tscn" id="24_kufxy"]
+[ext_resource type="PackedScene" uid="uid://c7irlw1101kwc" path="res://Scenes/Assets/Mobs/Models/Skeleton.tscn" id="25_dbcaa"]
+[ext_resource type="PackedScene" uid="uid://bhq0a6rcwxn30" path="res://Scenes/Assets/Mobs/Models/Skeleton Mage.tscn" id="26_4na0w"]
+[ext_resource type="PackedScene" uid="uid://bcrmooe1y1vwx" path="res://Scenes/Assets/Mobs/Models/Pirate Captain.tscn" id="27_s8irp"]
+[ext_resource type="PackedScene" uid="uid://w7h88cq200j0" path="res://Scenes/Assets/Mobs/Models/Anne.tscn" id="28_v6oia"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_260au"]
+vertices = PackedVector3Array(-72.05, 5.1, 3.15, -47.9, 5.1, 3.3, -47.9, 5.1, 2.4, -47.6, 5.1, 2.1, -46.7, 5.1, 2.1, -46.85, 5.1, -22.05, -72.05, 5.1, 3.15, -47.9, 5.1, 2.4, -47.6, 5.1, 2.1, -46.85, 5.1, -22.05, -72.05, 5.1, -22.05, -46.7, 5.1, 2.1, 46.75, 5.1, 2.1, 46.9, 5.1, -22.05, -46.85, 5.1, -22.05, 47.95, 5.1, 2.4, 47.95, 5.1, 3.3, 72.1, 5.1, 3.15, 46.9, 5.1, -22.05, 46.75, 5.1, 2.1, 47.65, 5.1, 2.1, 47.65, 5.1, 2.1, 47.95, 5.1, 2.4, 72.1, 5.1, 3.15, 72.1, 5.1, -22.05, 46.9, 5.1, -22.05, -47, 0.1, -21.9, -47, 0.1, 1.95, 47.05, 0.1, 1.95, 47.05, 0.1, -21.9, -47, 0.1, 3, -47, 0.1, 46.95, 47.05, 0.1, 46.95, 47.05, 0.1, 3, -72.05, 5.1, 46.8, -47.9, 5.1, 46.65, -47.9, 5.1, 3.3, -72.05, 5.1, 3.15, 47.95, 5.1, 3.3, 47.95, 5.1, 46.65, 72.1, 5.1, 46.8, 72.1, 5.1, 3.15, -46.85, 5.1, 72, -46.7, 5.1, 47.85, -47.6, 5.1, 47.85, -47.9, 5.1, 47.55, -47.9, 5.1, 46.65, -72.05, 5.1, 46.8, -46.85, 5.1, 72, -47.6, 5.1, 47.85, -47.9, 5.1, 47.55, -72.05, 5.1, 46.8, -72.05, 5.1, 72, 72.1, 5.1, 46.8, 47.95, 5.1, 46.65, 47.95, 5.1, 47.55, 47.65, 5.1, 47.85, 46.75, 5.1, 47.85, 46.9, 5.1, 72, 72.1, 5.1, 46.8, 47.95, 5.1, 47.55, 47.65, 5.1, 47.85, 46.9, 5.1, 72, 72.1, 5.1, 72, -46.85, 5.1, 72, 46.9, 5.1, 72, 46.75, 5.1, 47.85, -46.7, 5.1, 47.85, -47, 0.1, 48, -47, 0.1, 72, 47.05, 0.1, 72, 47.05, 0.1, 48)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 10), PackedInt32Array(8, 10, 9), PackedInt32Array(11, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(17, 16, 15), PackedInt32Array(20, 19, 18), PackedInt32Array(21, 25, 22), PackedInt32Array(22, 25, 24), PackedInt32Array(22, 24, 23), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(38, 41, 39), PackedInt32Array(39, 41, 40), PackedInt32Array(44, 43, 42), PackedInt32Array(47, 46, 45), PackedInt32Array(49, 48, 50), PackedInt32Array(50, 48, 52), PackedInt32Array(50, 52, 51), PackedInt32Array(55, 54, 53), PackedInt32Array(58, 57, 56), PackedInt32Array(61, 60, 62), PackedInt32Array(62, 60, 63), PackedInt32Array(63, 60, 59), PackedInt32Array(67, 66, 64), PackedInt32Array(64, 66, 65), PackedInt32Array(71, 70, 68), PackedInt32Array(68, 70, 69)]
+cell_size = 0.15
+cell_height = 0.05
+agent_height = 1.25
+agent_radius = 0.4
+agent_max_climb = 0.1
+agent_max_slope = 20.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kv553"]
+size = Vector3(95, 0, 95)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gl80s"]
+size = Vector2(95, 95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_36jv3"]
+size = Vector3(25, 5, 95)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ce1db"]
+size = Vector3(25, 5, 95)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ud05"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rra1u"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uugim"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf06h"]
+bg_color = Color(0.262745, 0.262745, 0.262745, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8ax8"]
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.290196, 0.290196, 0.290196, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.231373)
+shadow_size = 4
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug0iv"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr4vw"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kc68u"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6gnf"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg64k"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frddm"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4yra"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nt7u"]
+bg_color = Color(0.282353, 0.282353, 0.282353, 0.882353)
+border_width_bottom = 6
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_blend = true
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwjre"]
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6dx4"]
+bg_color = Color(0.223529, 0.223529, 0.223529, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.101961, 0.101961, 0.101961, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_ecubm"]
+resource_local_to_scene = true
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jec1h"]
+font_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y68ng"]
+bg_color = Color(0.462745, 0.462745, 0.462745, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.113725, 0.113725, 0.113725, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wnb2"]
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x551i"]
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0bmv7"]
+color = Color(0.172549, 0.172549, 0.172549, 1)
+thickness = 6
+vertical = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_45usm"]
+sky_top_color = Color(0.764706, 0.827451, 0.917647, 1)
+sky_horizon_color = Color(0.52549, 0.752941, 0.784314, 1)
+sky_curve = 0.0891906
+sky_energy_multiplier = 1.1
+ground_bottom_color = Color(0.137255, 0.258824, 0.317647, 1)
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_jy73e"]
+sky_material = SubResource("ProceduralSkyMaterial_45usm")
+
+[sub_resource type="Environment" id="Environment_3alsl"]
+background_mode = 2
+background_color = Color(0.407843, 0.615686, 0.67451, 1)
+sky = SubResource("Sky_jy73e")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_exposure = 0.6
+ssao_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 110.0
+volumetric_fog_detail_spread = 1.4
+volumetric_fog_ambient_inject = 0.1
+
+[sub_resource type="FogMaterial" id="FogMaterial_awsgc"]
+density = 0.45
+albedo = Color(0.403922, 0.403922, 0.403922, 1)
+edge_fade = 1e-05
+
+[node name="GameNode" type="Node3D"]
+
+[node name="Terrain" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000226974, 0.000179768, -23.9998)
+script = ExtResource("1_kscea")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Terrain"]
+navigation_mesh = SubResource("NavigationMesh_260au")
+
+[node name="FloorStaticBody3D" type="StaticBody3D" parent="Terrain/NavigationRegion3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/NavigationRegion3D/FloorStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+shape = SubResource("BoxShape3D_kv553")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/NavigationRegion3D/FloorStaticBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.07454e-10)
+material_override = ExtResource("2_sxhkc")
+mesh = SubResource("PlaneMesh_gl80s")
+
+[node name="BorderStaticBody3D" type="StaticBody3D" parent="Terrain/NavigationRegion3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/NavigationRegion3D/BorderStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 2.5, 25)
+shape = SubResource("BoxShape3D_36jv3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/NavigationRegion3D/BorderStaticBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.07454e-10)
+material_override = ExtResource("3_hnkeq")
+mesh = SubResource("BoxMesh_ce1db")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Terrain/NavigationRegion3D/BorderStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 2.5, 25)
+shape = SubResource("BoxShape3D_36jv3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/NavigationRegion3D/BorderStaticBody3D/CollisionShape3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.07454e-10)
+material_override = ExtResource("3_hnkeq")
+mesh = SubResource("BoxMesh_ce1db")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Terrain/NavigationRegion3D/BorderStaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2.5, 60)
+shape = SubResource("BoxShape3D_36jv3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/NavigationRegion3D/BorderStaticBody3D/CollisionShape3D2"]
+material_override = ExtResource("3_hnkeq")
+mesh = SubResource("BoxMesh_ce1db")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Terrain/NavigationRegion3D/BorderStaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2.5, -10)
+shape = SubResource("BoxShape3D_36jv3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/NavigationRegion3D/BorderStaticBody3D/CollisionShape3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.18557e-06)
+material_override = ExtResource("3_hnkeq")
+mesh = SubResource("BoxMesh_ce1db")
+
+[node name="Player1_MidTower" parent="Terrain/NavigationRegion3D" groups=["MidTower", "player1"] instance=ExtResource("4_5hxum")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -18, 0, 24)
+building_damage = 50
+building_armor = 25
+building_health = 750
+building_range = 8.0
+building_lane = 1
+
+[node name="Player1_MidBarrack" parent="Terrain/NavigationRegion3D" groups=["MidBarrack", "player1"] instance=ExtResource("4_5hxum")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29, 0, 24)
+building_type = 1
+building_armor = 50
+building_range = 5.0
+building_lane = 1
+
+[node name="NavigationLink3D" type="NavigationLink3D" parent="Terrain/NavigationRegion3D/Player1_MidBarrack" groups=["teleport"]]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+start_position = Vector3(0, 0, -2)
+end_position = Vector3(0, 0, 2)
+travel_cost = 0.0
+
+[node name="Player1_Nexus" parent="Terrain/NavigationRegion3D" groups=["Nexus", "player1"] instance=ExtResource("4_5hxum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 24)
+building_type = 2
+building_armor = 50
+building_health = 1000
+building_lane = 1
+
+[node name="TimerLabel" type="Label3D" parent="Terrain/NavigationRegion3D/Player1_Nexus"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.884743, 3, 0.729689)
+billboard = 1
+font_size = 60
+
+[node name="Player2_MidTower" parent="Terrain/NavigationRegion3D" groups=["MidTower", "player2"] instance=ExtResource("4_5hxum")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 18, 0, 24)
+building_damage = 50
+building_armor = 25
+building_health = 750
+building_range = 8.0
+building_lane = 1
+
+[node name="Player2_MidBarrack" parent="Terrain/NavigationRegion3D" groups=["MidBarrack", "player2"] instance=ExtResource("4_5hxum")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29, 0, 24)
+building_type = 1
+building_armor = 50
+building_range = 5.0
+building_lane = 1
+
+[node name="NavigationLink3D" type="NavigationLink3D" parent="Terrain/NavigationRegion3D/Player2_MidBarrack" groups=["teleport"]]
+start_position = Vector3(0, 0, -2)
+end_position = Vector3(0, 0, 2)
+travel_cost = 0.0
+
+[node name="Player2_Nexus" parent="Terrain/NavigationRegion3D" groups=["Nexus", "player2"] instance=ExtResource("4_5hxum")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40, 0, 24)
+building_type = 2
+building_armor = 50
+building_health = 1000
+building_lane = 1
+
+[node name="TimerLabel" type="Label3D" parent="Terrain/NavigationRegion3D/Player2_Nexus"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.509186, 3, -0.66424)
+billboard = 1
+font_size = 60
+
+[node name="Player2_MidSpawner" type="Marker3D" parent="Terrain"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 37.6, 0, 24)
+
+[node name="Player2_MidExit" type="Marker3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 24)
+
+[node name="Player1_MidSpawner" type="Marker3D" parent="Terrain"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -37.6, 0, 24)
+
+[node name="Player1_MidExit" type="Marker3D" parent="Terrain"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -12, 0, 24)
+
+[node name="MidPath" type="Marker3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 24)
+
+[node name="HUD" type="Node3D" parent="."]
+
+[node name="CardsP1Debug" type="CanvasLayer" parent="HUD" node_paths=PackedStringArray("middle_lane_deck") groups=["CardsUI"]]
+script = ExtResource("5_pvxn7")
+card_scene = ExtResource("6_mfaft")
+middle_lane_deck = NodePath("CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle")
+
+[node name="Upgrade info" type="Panel" parent="HUD/CardsP1Debug"]
+visible = false
+z_index = 1
+offset_right = 280.0
+offset_bottom = 130.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ud05")
+
+[node name="Title" type="Label" parent="HUD/CardsP1Debug/Upgrade info"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_right = 140.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "[Building] upgrade tier [Tier]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="HUD/CardsP1Debug/Upgrade info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/line_separation = 10
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 15
+bbcode_enabled = true
+
+[node name="CardsUI" type="Control" parent="HUD/CardsP1Debug"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 416.369
+offset_top = -55.092
+offset_right = 416.369
+offset_bottom = -55.092
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+
+[node name="OptionsPanel" type="Panel" parent="HUD/CardsP1Debug/CardsUI"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = -98.7323
+offset_top = -267.0
+offset_right = 101.268
+offset_bottom = -207.0
+
+[node name="OptionButtons" type="HBoxContainer" parent="HUD/CardsP1Debug/CardsUI/OptionsPanel"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 60.0
+
+[node name="MiddleButton" type="Button" parent="HUD/CardsP1Debug/CardsUI/OptionsPanel/OptionButtons"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_rra1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uugim")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gf06h")
+toggle_mode = true
+text = "MID"
+
+[node name="UpgradeButton" type="Button" parent="HUD/CardsP1Debug/CardsUI/OptionsPanel/OptionButtons"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_rra1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uugim")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gf06h")
+toggle_mode = true
+text = "UPGRADES"
+
+[node name="BottomPanel" type="PanelContainer" parent="HUD/CardsP1Debug/CardsUI"]
+layout_mode = 1
+offset_left = -517.602
+offset_top = -207.0
+offset_right = 518.633
+offset_bottom = 27.95
+theme_override_styles/panel = SubResource("StyleBoxFlat_h8ax8")
+
+[node name="CardsPanelsAndTools" type="HBoxContainer" parent="HUD/CardsP1Debug/CardsUI/BottomPanel"]
+custom_minimum_size = Vector2(115, 0)
+layout_mode = 2
+
+[node name="CardsPanels" type="VBoxContainer" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="Deck" type="Panel" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="DeckCardsMiddle" type="HBoxContainer" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 860.0
+offset_bottom = 163.0
+
+[node name="CardZone1" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone2" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone3" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone4" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["locked", "middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone5" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["locked", "middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone6" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["locked", "middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="ShopSpacer" type="Control" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Tools" type="VBoxContainer" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardZoneSell" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/Tools" groups=["sell_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+zone = 2
+
+[node name="Sell" type="Button" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/CardsPanelsAndTools/Tools/CardZoneSell"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+text = "SELL
+(50%)"
+
+[node name="UpgradesPanel" type="HBoxContainer" parent="HUD/CardsP1Debug/CardsUI/BottomPanel" node_paths=PackedStringArray("upgrade_info_panel", "delay_timer")]
+visible = false
+layout_mode = 2
+script = ExtResource("6_4s8gm")
+upgrade_info_panel = NodePath("../../../Upgrade info")
+tower_upgrades_array = Array[Resource]([ExtResource("6_ud615"), ExtResource("7_36c0q"), ExtResource("8_r7e1w")])
+barrack_upgrades_array = Array[Resource]([ExtResource("9_mthtd"), ExtResource("10_a3t6c"), ExtResource("11_r7wmc"), ExtResource("12_hbd6w")])
+nexus_upgrades_array = Array[Resource]([ExtResource("13_mshrf"), ExtResource("14_2l5nq"), ExtResource("15_ay5wa"), ExtResource("16_j7shb")])
+delay_timer = NodePath("DelayTimer")
+
+[node name="TowerUpgrades" type="VBoxContainer" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopTower" type="Button" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_ug0iv")
+text_overrun_behavior = 3
+clip_text = true
+
+[node name="MidTower" type="Button" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_cr4vw")
+text_overrun_behavior = 3
+clip_text = true
+
+[node name="BotTower" type="Button" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_kc68u")
+text_overrun_behavior = 4
+clip_text = true
+
+[node name="BarrackUpgrades" type="VBoxContainer" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TopBarrack" type="Button" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6gnf")
+
+[node name="MidBarrack" type="Button" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_mg64k")
+
+[node name="BotBarrack" type="Button" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_frddm")
+
+[node name="NexusUpgrades" type="VBoxContainer" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 2
+
+[node name="Nexus" type="Button" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_e4yra")
+
+[node name="DelayTimer" type="Timer" parent="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel"]
+wait_time = 0.3
+one_shot = true
+
+[node name="CardsP2Debug" type="CanvasLayer" parent="HUD" node_paths=PackedStringArray("middle_lane_deck") groups=["CardsUI"]]
+script = ExtResource("5_pvxn7")
+player_name = 1
+card_scene = ExtResource("6_mfaft")
+middle_lane_deck = NodePath("CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle")
+
+[node name="Upgrade info" type="Panel" parent="HUD/CardsP2Debug"]
+visible = false
+z_index = 1
+offset_right = 280.0
+offset_bottom = 130.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ud05")
+
+[node name="Title" type="Label" parent="HUD/CardsP2Debug/Upgrade info"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_right = 140.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "[Building] upgrade tier [Tier]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="HUD/CardsP2Debug/Upgrade info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/line_separation = 10
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 15
+bbcode_enabled = true
+
+[node name="CardsUI" type="Control" parent="HUD/CardsP2Debug"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.601
+offset_top = -55.092
+offset_right = -420.601
+offset_bottom = -55.092
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+
+[node name="OptionsPanel" type="Panel" parent="HUD/CardsP2Debug/CardsUI"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = -96.1737
+offset_top = -267.0
+offset_right = 103.826
+offset_bottom = -207.0
+
+[node name="OptionButtons" type="HBoxContainer" parent="HUD/CardsP2Debug/CardsUI/OptionsPanel"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 60.0
+
+[node name="MiddleButton" type="Button" parent="HUD/CardsP2Debug/CardsUI/OptionsPanel/OptionButtons"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_rra1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uugim")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gf06h")
+toggle_mode = true
+text = "MID"
+
+[node name="UpgradeButton" type="Button" parent="HUD/CardsP2Debug/CardsUI/OptionsPanel/OptionButtons"]
+custom_minimum_size = Vector2(97, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_rra1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uugim")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gf06h")
+toggle_mode = true
+text = "UPGRADES"
+
+[node name="BottomPanel" type="PanelContainer" parent="HUD/CardsP2Debug/CardsUI"]
+layout_mode = 1
+offset_left = -517.602
+offset_top = -207.0
+offset_right = 518.633
+offset_bottom = 27.95
+theme_override_styles/panel = SubResource("StyleBoxFlat_h8ax8")
+
+[node name="CardsPanelsAndTools" type="HBoxContainer" parent="HUD/CardsP2Debug/CardsUI/BottomPanel"]
+custom_minimum_size = Vector2(115, 0)
+layout_mode = 2
+
+[node name="CardsPanels" type="VBoxContainer" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="Deck" type="Panel" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="DeckCardsMiddle" type="HBoxContainer" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 860.0
+offset_bottom = 163.0
+
+[node name="CardZone1" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone2" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone3" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone4" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["locked", "middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone5" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["locked", "middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="CardZone6" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels/Deck/DeckCardsMiddle" groups=["locked", "middle_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+lane = 1
+
+[node name="ShopSpacer" type="Control" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/CardsPanels"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Tools" type="VBoxContainer" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardZoneSell" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/Tools" groups=["sell_zone"] instance=ExtResource("5_07ey6")]
+layout_mode = 2
+zone = 2
+
+[node name="Sell" type="Button" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/CardsPanelsAndTools/Tools/CardZoneSell"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+text = "SELL
+(50%)"
+
+[node name="UpgradesPanel" type="HBoxContainer" parent="HUD/CardsP2Debug/CardsUI/BottomPanel" node_paths=PackedStringArray("upgrade_info_panel", "delay_timer")]
+visible = false
+layout_mode = 2
+script = ExtResource("6_4s8gm")
+upgrade_info_panel = NodePath("../../../../CardsP1Debug/Upgrade info")
+tower_upgrades_array = Array[Resource]([ExtResource("6_ud615"), ExtResource("7_36c0q"), ExtResource("8_r7e1w")])
+barrack_upgrades_array = Array[Resource]([ExtResource("9_mthtd"), ExtResource("10_a3t6c"), ExtResource("11_r7wmc"), ExtResource("12_hbd6w")])
+nexus_upgrades_array = Array[Resource]([ExtResource("13_mshrf"), ExtResource("14_2l5nq"), ExtResource("15_ay5wa"), ExtResource("16_j7shb")])
+delay_timer = NodePath("../../../../CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/DelayTimer")
+
+[node name="TowerUpgrades" type="VBoxContainer" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopTower" type="Button" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_ug0iv")
+text_overrun_behavior = 3
+clip_text = true
+
+[node name="MidTower" type="Button" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_cr4vw")
+text_overrun_behavior = 3
+clip_text = true
+
+[node name="BotTower" type="Button" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_kc68u")
+text_overrun_behavior = 4
+clip_text = true
+
+[node name="BarrackUpgrades" type="VBoxContainer" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TopBarrack" type="Button" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6gnf")
+
+[node name="MidBarrack" type="Button" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_mg64k")
+
+[node name="BotBarrack" type="Button" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_frddm")
+
+[node name="NexusUpgrades" type="VBoxContainer" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 2
+
+[node name="Nexus" type="Button" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_e4yra")
+
+[node name="DelayTimer" type="Timer" parent="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel"]
+wait_time = 0.3
+one_shot = true
+
+[node name="CardEncyclopedia" parent="HUD" instance=ExtResource("20_dkn60")]
+visible = false
+
+[node name="SpawnManagerDebug" type="Node3D" parent="HUD" groups=["SpawnManager"]]
+script = ExtResource("5_yun5i")
+minionScene = ExtResource("21_44ivc")
+minion_models = Array[Resource]([ExtResource("22_o6e5r"), ExtResource("23_p26lt"), ExtResource("24_kufxy"), ExtResource("25_dbcaa"), ExtResource("25_dbcaa"), ExtResource("26_4na0w"), ExtResource("27_s8irp"), ExtResource("28_v6oia")])
+
+[node name="GameUIManager" type="Node3D" parent="HUD"]
+process_mode = 3
+script = ExtResource("11_x2nws")
+
+[node name="HUD" type="CanvasLayer" parent="HUD/GameUIManager"]
+process_mode = 1
+
+[node name="Labels" type="CanvasLayer" parent="HUD/GameUIManager/HUD"]
+
+[node name="UpperPanel" type="Panel" parent="HUD/GameUIManager/HUD/Labels"]
+custom_minimum_size = Vector2(0, 60)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5nt7u")
+
+[node name="CursorButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 68.0
+offset_right = 17.0
+offset_bottom = 113.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 23
+text = "Change cursor"
+
+[node name="GoldLabel" type="RichTextLabel" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -19.0
+offset_right = 235.0
+offset_bottom = 16.0
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "GOLD: 0G"
+fit_content = true
+scroll_active = false
+
+[node name="WaveTimer" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+visible = false
+layout_mode = 1
+offset_left = 255.0
+offset_top = 1.0
+offset_right = 505.0
+offset_bottom = 56.0
+text = "Next wave in: 0s"
+label_settings = SubResource("LabelSettings_pwjre")
+vertical_alignment = 1
+
+[node name="TimePanel" type="Panel" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+custom_minimum_size = Vector2(110, 60)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_right = 55.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h6dx4")
+
+[node name="TimeLabel" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/TimePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_ecubm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeTimer" type="Timer" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+process_mode = 1
+autostart = true
+
+[node name="PauseMenuButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 33
+text = "☰"
+clip_text = true
+
+[node name="EscPanel" type="Panel" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PauseMenuButton"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 1
+offset_right = 29.0
+offset_bottom = 18.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PauseMenuButton/EscPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ESC"
+label_settings = SubResource("LabelSettings_jec1h")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="CodexButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -182.0
+offset_top = 1.0
+offset_right = -82.65
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 26
+text = "Cardex"
+clip_text = true
+
+[node name="CodexPanel" type="Panel" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/CodexButton"]
+self_modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layout_mode = 1
+offset_right = 18.0
+offset_bottom = 18.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/CodexButton/CodexPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "K"
+label_settings = SubResource("LabelSettings_jec1h")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="PausePanel" type="Panel" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+process_mode = 3
+visible = false
+show_behind_parent = true
+custom_minimum_size = Vector2(300, 350)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -308.0
+offset_top = 65.0
+offset_right = -8.0
+offset_bottom = 415.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y68ng")
+
+[node name="SettingsPanel" type="Panel" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_7wnb2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel"]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 63.0
+offset_right = 101.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 23
+text = "Return to Menu"
+
+[node name="ControlsButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_top = 156.0
+offset_right = -50.0
+offset_bottom = 211.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 26
+text = "Controls"
+clip_text = true
+
+[node name="VideoButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_top = 251.0
+offset_right = -50.0
+offset_bottom = 306.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 26
+text = "Video"
+clip_text = true
+
+[node name="ControlPanel" type="Panel" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel"]
+visible = false
+custom_minimum_size = Vector2(300, 350)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -340.0
+offset_bottom = 420.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y68ng")
+
+[node name="CloseButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.09
+offset_top = -366.0
+offset_right = 111.09
+offset_bottom = -321.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 23
+text = "Return to settings"
+
+[node name="Controls" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.5
+offset_top = -101.0
+offset_right = 140.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Select building             -    \"LMB\" click
+Show entity's stats     -     \"LMB\" x2 click
+Remove entity (test)   -    \"RMB\" click 
+Pause Menu                 -     \"ESC\" key
+Cards Encyclopedia    -     \"K\" key
+Show the Shop            -     \"B\" key
+Roll the Shop               -     \"R\" key
+Navigate the Deck      -     \"1, 2, 3, 4, Q, E\"
+Show Card's stats       -     \"RMB\" on card"
+label_settings = SubResource("LabelSettings_x551i")
+
+[node name="MouseMovementButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+custom_minimum_size = Vector2(197.92, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = 117.0
+offset_right = 58.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "Mouse cursor 
+movement "
+
+[node name="MouseMovementCheckBox" type="CheckBox" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 345.0
+offset_right = 261.0
+offset_bottom = 369.0
+scale = Vector2(1.5, 1.5)
+disabled = true
+
+[node name="Label" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Game Controls"
+label_settings = SubResource("LabelSettings_7wnb2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VideoPanel" type="Panel" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Video Settings"
+label_settings = SubResource("LabelSettings_7wnb2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel"]
+custom_minimum_size = Vector2(222, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 53.0
+offset_right = 111.0
+offset_bottom = 103.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 23
+text = "Return to settings"
+
+[node name="ScreenModeButton" type="OptionButton" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -19.0
+offset_right = 91.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Maximized"
+popup/item_1/id = 2
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 3
+popup/item_3/text = "Exclusive Fullscreen"
+popup/item_3/id = 4
+
+[node name="Label2" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 133.0
+offset_right = 79.0
+offset_bottom = 156.0
+text = "Window display mode:"
+
+[node name="PausePanel" type="Panel" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReturnButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel"]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 63.0
+offset_right = 101.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 23
+text = "Return to Game"
+
+[node name="SettingsButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel"]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -19.0
+offset_right = 100.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "Settings"
+
+[node name="MenuButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel"]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -99.0
+offset_right = 99.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 23
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Quick Menu"
+label_settings = SubResource("LabelSettings_7wnb2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+clip_contents = true
+layout_mode = 1
+offset_left = 235.0
+offset_right = 255.0
+offset_bottom = 60.0
+theme_override_styles/separator = SubResource("StyleBoxLine_0bmv7")
+
+[node name="VSeparator2" type="VSeparator" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -222.0
+offset_right = -202.0
+offset_bottom = 60.0
+grow_horizontal = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_0bmv7")
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+initial_position = 4
+size = Vector2i(210, 100)
+unresizable = true
+popup_window = true
+dialog_text = "Leave to the Main Menu?"
+
+[node name="PlayerHealthBars" parent="HUD/GameUIManager/HUD/Labels/UpperPanel" instance=ExtResource("12_b8lg7")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.0
+offset_top = 34.0
+offset_right = -122.0
+offset_bottom = 34.0
+grow_horizontal = 2
+
+[node name="PlayerHealthBars2" parent="HUD/GameUIManager/HUD/Labels/UpperPanel" instance=ExtResource("12_b8lg7")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 121.0
+offset_top = 34.0
+offset_right = 121.0
+offset_bottom = 34.0
+grow_horizontal = 2
+player_enum = 1
+revert_ui = true
+
+[node name="DebugLayer" type="CanvasLayer" parent="HUD/GameUIManager/HUD/Labels/UpperPanel"]
+
+[node name="InstaWinButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+offset_left = 175.0
+offset_top = 69.0
+offset_right = 346.0
+offset_bottom = 116.0
+text = "Insta Win"
+
+[node name="Speedx1Button" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1559.0
+offset_top = 69.0
+offset_right = -1459.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "Speed x1"
+
+[node name="Speedx2Button" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1453.0
+offset_top = 69.0
+offset_right = -1353.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "Speed x2"
+
+[node name="Speedx4Button" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1345.0
+offset_top = 69.0
+offset_right = -1245.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "Speed 4x"
+
+[node name="Speedx8Button" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1236.0
+offset_top = 69.0
+offset_right = -1136.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "Speed 8x (!)"
+
+[node name="ViewCardsButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -211.253
+offset_right = 75.0
+offset_bottom = -161.253
+grow_horizontal = 2
+grow_vertical = 0
+text = "View cards"
+
+[node name="SpawnWaveButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -138.42
+offset_right = 75.0
+offset_bottom = -88.4207
+grow_horizontal = 2
+grow_vertical = 0
+text = "Spawn Wave"
+
+[node name="ClearDecksButton" type="Button" parent="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -68.4166
+offset_right = 75.0
+offset_bottom = -18.4171
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear Decks"
+
+[node name="P1MobTimer" type="Timer" parent="HUD"]
+
+[node name="P2MobTimer" type="Timer" parent="HUD"]
+
+[node name="CameraController" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 20)
+script = ExtResource("3_vxjuc")
+camera_borders_x = Vector2(-50, 50)
+camera_borders_z = Vector2(-25, 35)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController" node_paths=PackedStringArray("toggle_mouse_timer")]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
+current = true
+fov = 80.0
+near = 1.5
+script = ExtResource("4_oisq4")
+toggle_mouse_timer = NodePath("ToggleMouseTimer")
+
+[node name="ToggleMouseTimer" type="Timer" parent="CameraController/Camera3D"]
+wait_time = 0.2
+one_shot = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.875137, -0.219537, -0.431206, 0.482832, 0.454673, 0.748429, 0.0317494, -0.863178, 0.503901, 0.00286484, 0.0375671, -0.040123)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3alsl")
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+size = Vector3(93, 2, 93)
+material = SubResource("FogMaterial_awsgc")
+
+[connection signal="ready" from="Terrain" to="Terrain" method="_on_ready"]
+[connection signal="pressed" from="HUD/CardsP1Debug/CardsUI/OptionsPanel/OptionButtons/MiddleButton" to="HUD/CardsP1Debug" method="_on_middle_button_pressed"]
+[connection signal="pressed" from="HUD/CardsP1Debug/CardsUI/OptionsPanel/OptionButtons/UpgradeButton" to="HUD/CardsP1Debug" method="_on_upgrades_button_pressed"]
+[connection signal="mouse_entered" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/TopTower" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["tower", "top", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/TopTower" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/TopTower" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["tower", "top", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/MidTower" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["tower", "mid", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/MidTower" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/MidTower" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["tower", "mid", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/BotTower" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["tower", "bot", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/BotTower" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/BotTower" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["tower", "bot", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/TopBarrack" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["barrack", "top", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/TopBarrack" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/TopBarrack" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["barrack", "top", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/MidBarrack" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["barrack", "mid", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/MidBarrack" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/MidBarrack" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["barrack", "mid", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/BotBarrack" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["barrack", "bot", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/BotBarrack" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/BotBarrack" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["barrack", "bot", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades/Nexus" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["nexus", "", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades/Nexus" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades/Nexus" to="HUD/CardsP1Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["nexus", "", 1]]
+[connection signal="pressed" from="HUD/CardsP2Debug/CardsUI/OptionsPanel/OptionButtons/MiddleButton" to="HUD/CardsP2Debug" method="_on_middle_button_pressed"]
+[connection signal="pressed" from="HUD/CardsP2Debug/CardsUI/OptionsPanel/OptionButtons/UpgradeButton" to="HUD/CardsP2Debug" method="_on_upgrades_button_pressed"]
+[connection signal="mouse_entered" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/TopTower" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["tower", "top", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/TopTower" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/TopTower" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["tower", "top", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/MidTower" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["tower", "mid", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/MidTower" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/MidTower" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["tower", "mid", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/BotTower" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["tower", "bot", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/BotTower" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/TowerUpgrades/BotTower" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["tower", "bot", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/TopBarrack" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["barrack", "top", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/TopBarrack" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/TopBarrack" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["barrack", "top", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/MidBarrack" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["barrack", "mid", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/MidBarrack" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/MidBarrack" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["barrack", "mid", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/BotBarrack" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["barrack", "bot", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/BotBarrack" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/BarrackUpgrades/BotBarrack" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["barrack", "bot", 1]]
+[connection signal="mouse_entered" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades/Nexus" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_entered" binds= ["nexus", "", 1]]
+[connection signal="mouse_exited" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades/Nexus" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel/NexusUpgrades/Nexus" to="HUD/CardsP2Debug/CardsUI/BottomPanel/UpgradesPanel" method="_on_upgrade_button_pressed" binds= ["nexus", "", 1]]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/CursorButton" to="HUD/GameUIManager" method="_on_cursor_button_pressed"]
+[connection signal="timeout" from="HUD/GameUIManager/HUD/Labels/UpperPanel/TimeTimer" to="HUD/GameUIManager" method="_on_time_timer_timeout"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PauseMenuButton" to="HUD/GameUIManager" method="_on_pause_menu_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/CodexButton" to="HUD/CardEncyclopedia" method="_on_codex_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel/ReturnButton" to="HUD/GameUIManager" method="_on_return_settings_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel/ControlsButton" to="HUD/GameUIManager" method="_on_controls_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/SettingsPanel/VideoButton" to="HUD/GameUIManager" method="_on_video_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel/CloseButton" to="HUD/GameUIManager" method="_on_close_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/ControlPanel/MouseMovementButton" to="HUD/GameUIManager" method="_on_lol_like_cam_move_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel/CloseButton" to="HUD/GameUIManager" method="_on_close_button_pressed"]
+[connection signal="item_selected" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/VideoPanel/ScreenModeButton" to="HUD/GameUIManager" method="_on_screen_mode_button_item_selected"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel/ReturnButton" to="HUD/GameUIManager" method="_on_return_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel/SettingsButton" to="HUD/GameUIManager" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/PausePanel/PausePanel/MenuButton" to="HUD/GameUIManager" method="_on_menu_button_pressed"]
+[connection signal="confirmed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/ConfirmationDialog" to="HUD/GameUIManager" method="_on_confirmation_dialog_confirmed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer/InstaWinButton" to="HUD/GameUIManager" method="_on_insta_win_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer/Speedx1Button" to="HUD/GameUIManager" method="_on_speedx_1_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer/Speedx2Button" to="HUD/GameUIManager" method="_on_speedx_2_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer/Speedx4Button" to="HUD/GameUIManager" method="_on_speedx_4_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer/Speedx8Button" to="HUD/GameUIManager" method="_on_speedx_8_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer/ViewCardsButton" to="HUD/CardEncyclopedia" method="_on_view_cards_button_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer/SpawnWaveButton" to="HUD/SpawnManagerDebug" method="_on_spawn_wave_pressed"]
+[connection signal="pressed" from="HUD/GameUIManager/HUD/Labels/UpperPanel/DebugLayer/ClearDecksButton" to="HUD/CardsP1Debug" method="_on_clear_decks_button_pressed"]
+[connection signal="timeout" from="HUD/P1MobTimer" to="HUD/SpawnManagerDebug" method="_on_p1_mob_timer_timeout"]
+[connection signal="timeout" from="HUD/P2MobTimer" to="HUD/SpawnManagerDebug" method="_on_p2_mob_timer_timeout"]
+[connection signal="timeout" from="CameraController/Camera3D/ToggleMouseTimer" to="CameraController/Camera3D" method="_on_toggle_mouse_timer_timeout"]

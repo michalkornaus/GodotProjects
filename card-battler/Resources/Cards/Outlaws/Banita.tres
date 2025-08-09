@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bvpv37hdtdgqk"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_2vgup"]
+[ext_resource type="Texture2D" uid="uid://c18ygcxmw6pdk" path="res://Resources/Cards/Outlaws/humans.jpg" id="1_b7b2l"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_jj50a"]
+
+[sub_resource type="Resource" id="Resource_i4iea"]
+script = ExtResource("3_jj50a")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Acid"
+ability_amount = 1.0
+
+[resource]
+script = ExtResource("1_2vgup")
+card_name = "Banita"
+image = ExtResource("1_b7b2l")
+race = 1
+tier = 1
+description = "1 Toxic"
+cost = 50
+health = 150
+attack_damage = 15
+armor = 5
+attack_speed = 2.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 17
+special_ability_stats = Array[ExtResource("3_jj50a")]([SubResource("Resource_i4iea")])

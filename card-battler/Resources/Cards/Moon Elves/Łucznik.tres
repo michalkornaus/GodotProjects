@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://do3i0tu2v0flo"]
+
+[ext_resource type="Texture2D" uid="uid://b0qyphudjnvsb" path="res://Resources/Cards/Moon Elves/nightelf 3.jpg" id="1_s4ovg"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_uydax"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_tdffv"]
+
+[sub_resource type="Resource" id="Resource_tbufk"]
+script = ExtResource("3_tdffv")
+ability_activation = 0
+ability_type = "Ricochet"
+
+[resource]
+script = ExtResource("1_uydax")
+card_name = "Łucznik"
+image = ExtResource("1_s4ovg")
+race = 6
+tier = 0
+description = "Ricochet"
+cost = 20
+health = 75
+attack_damage = 10
+armor = 5
+attack_speed = 1.25
+attack_range = 4.0
+armor_penetration = 0.0
+type = 1
+sub_type = 12
+special_ability_stats = Array[ExtResource("3_tdffv")]([SubResource("Resource_tbufk")])

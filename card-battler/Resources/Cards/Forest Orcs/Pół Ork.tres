@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cv26k3uti3e23"]
+
+[ext_resource type="Texture2D" uid="uid://d32elwea8qs4q" path="res://Resources/Cards/Forest Orcs/ORc2.png" id="1_oamtv"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_qyh7u"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_24h6t"]
+
+[resource]
+script = ExtResource("1_qyh7u")
+card_name = "Pół Ork"
+image = ExtResource("1_oamtv")
+race = 3
+tier = 0
+description = ""
+cost = 20
+health = 90
+attack_damage = 10
+armor = 5
+attack_speed = 1.4
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 17
+special_ability_stats = Array[ExtResource("3_24h6t")]([])

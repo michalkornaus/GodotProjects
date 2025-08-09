@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://drfwxw1gmj3o4"]
+
+[ext_resource type="Texture2D" uid="uid://v434rc8v2bf0" path="res://Resources/Cards/Blood Brotherhood/Blood4.png" id="1_q5c4t"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_rlspv"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_xjbcm"]
+
+[sub_resource type="Resource" id="Resource_vs8aw"]
+script = ExtResource("3_xjbcm")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Bleed"
+ability_amount = 2.0
+
+[sub_resource type="Resource" id="Resource_ec4dt"]
+script = ExtResource("3_xjbcm")
+ability_activation = 0
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 3.0
+ability_duration = 0.0
+ability_cooldown = 0.5
+
+[resource]
+script = ExtResource("1_rlspv")
+card_name = "Rozpruwacz"
+image = ExtResource("1_q5c4t")
+race = 4
+tier = 2
+description = "2bleed/1sec"
+cost = 120
+health = 300
+attack_damage = 30
+armor = 20
+attack_speed = 1.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 17
+special_ability_stats = Array[ExtResource("3_xjbcm")]([SubResource("Resource_vs8aw"), SubResource("Resource_ec4dt")])

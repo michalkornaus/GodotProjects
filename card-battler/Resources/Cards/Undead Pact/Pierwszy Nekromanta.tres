@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://dhb46j64xuuiv"]
+
+[ext_resource type="Texture2D" uid="uid://bo28ftguikjpi" path="res://Resources/Cards/Undead Pact/Skeleton1.png" id="1_g4xos"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_jcwki"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_1cciu"]
+[ext_resource type="Resource" uid="uid://bch1311l7suqw" path="res://Resources/Cards/Undead Pact/Ghul.tres" id="4_vnel8"]
+
+[sub_resource type="Resource" id="Resource_kpk4k"]
+script = ExtResource("3_1cciu")
+ability_activation = 0
+ability_type = "AOE"
+ability_amount = 50.0
+ability_radius = 3.0
+
+[sub_resource type="Resource" id="Resource_5mpvt"]
+script = ExtResource("3_1cciu")
+ability_activation = 1
+ability_type = "Summon"
+ability_minion_to_spawn = ExtResource("4_vnel8")
+ability_chance = 33
+ability_cooldown = 3.0
+
+[resource]
+script = ExtResource("1_jcwki")
+card_name = "Pierwszy Nekromanta"
+image = ExtResource("1_g4xos")
+race = 5
+tier = 3
+description = "AOE/Szansa na wskrzeszenie ghula przy zabójstwie 33%"
+cost = 200
+health = 200
+attack_damage = 50
+armor = 10
+attack_speed = 0.5
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 16
+special_ability_stats = Array[ExtResource("3_1cciu")]([SubResource("Resource_kpk4k"), SubResource("Resource_5mpvt")])

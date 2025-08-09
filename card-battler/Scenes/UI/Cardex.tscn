@@ -1,0 +1,387 @@
+[gd_scene load_steps=8 format=3 uid="uid://djen03n4lf520"]
+
+[ext_resource type="Script" uid="uid://doly5vnnh42oa" path="res://Scripts/Cards/CardEncyclopedia.gd" id="1_wrsci"]
+[ext_resource type="PackedScene" uid="uid://bln5nembvaqdw" path="res://Scenes/Assets/Cards/Card Zone.tscn" id="2_0817a"]
+[ext_resource type="PackedScene" uid="uid://bpcf3shjxg2ll" path="res://Scenes/Assets/Cards/Card.tscn" id="3_7ejf1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6njt"]
+bg_color = Color(0.533333, 0.533333, 0.533333, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mav1x"]
+font_size = 24
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v57h"]
+bg_color = Color(0.443137, 0.443137, 0.443137, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_f0grw"]
+font_size = 26
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CardEncyclopedia" type="CanvasLayer"]
+script = ExtResource("1_wrsci")
+card_zone = ExtResource("2_0817a")
+card_scene = ExtResource("3_7ejf1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = -356.0
+offset_right = 427.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ControlPanel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p6njt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ControlPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="HBoxContainer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+text = "Sort cards"
+label_settings = SubResource("LabelSettings_mav1x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButtonType" type="OptionButton" parent="HBoxContainer/ControlPanel/VBoxContainer"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 21
+selected = 0
+item_count = 5
+popup/item_0/text = "Race"
+popup/item_0/id = 0
+popup/item_1/text = "Tier"
+popup/item_1/id = 1
+popup/item_2/text = "Health"
+popup/item_2/id = 2
+popup/item_3/text = "Attack Damage"
+popup/item_3/id = 3
+popup/item_4/text = "Class"
+popup/item_4/id = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/ControlPanel/VBoxContainer/OptionButtonType"]
+layout_mode = 0
+offset_top = -23.1895
+offset_right = 40.0
+offset_bottom = -0.189545
+text = "Sort type:"
+
+[node name="OptionButtonOrder" type="OptionButton" parent="HBoxContainer/ControlPanel/VBoxContainer"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 21
+selected = 0
+item_count = 2
+popup/item_0/text = "Ascending"
+popup/item_0/id = 0
+popup/item_1/text = "Descending"
+popup/item_1/id = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/ControlPanel/VBoxContainer/OptionButtonOrder"]
+layout_mode = 0
+offset_top = -23.1895
+offset_right = 40.0
+offset_bottom = -0.189545
+text = "Sort order:"
+
+[node name="Label2" type="Label" parent="HBoxContainer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+text = "Filter cards"
+label_settings = SubResource("LabelSettings_mav1x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtonRace" type="MenuButton" parent="HBoxContainer/ControlPanel/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Card's Race"
+switch_on_hover = true
+item_count = 9
+popup/item_0/text = "Human Kingdom"
+popup/item_0/checkable = 1
+popup/item_0/checked = true
+popup/item_0/id = 0
+popup/item_1/text = "Outlaws"
+popup/item_1/checkable = 1
+popup/item_1/checked = true
+popup/item_1/id = 1
+popup/item_2/text = "Mountain Clan"
+popup/item_2/checkable = 1
+popup/item_2/checked = true
+popup/item_2/id = 2
+popup/item_3/text = "Forest Orcs"
+popup/item_3/checkable = 1
+popup/item_3/checked = true
+popup/item_3/id = 3
+popup/item_4/text = "Blood Brotherhood"
+popup/item_4/checkable = 1
+popup/item_4/checked = true
+popup/item_4/id = 4
+popup/item_5/text = "Undead Pact"
+popup/item_5/checkable = 1
+popup/item_5/checked = true
+popup/item_5/id = 5
+popup/item_6/text = "Moon Elves"
+popup/item_6/checkable = 1
+popup/item_6/checked = true
+popup/item_6/id = 6
+popup/item_7/text = "Sun Elves"
+popup/item_7/checkable = 1
+popup/item_7/checked = true
+popup/item_7/id = 7
+popup/item_8/text = "Beast"
+popup/item_8/checkable = 1
+popup/item_8/checked = true
+popup/item_8/id = 8
+
+[node name="Panel" type="Panel" parent="HBoxContainer/ControlPanel/VBoxContainer/MenuButtonRace"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_right = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MenuButtonTier" type="MenuButton" parent="HBoxContainer/ControlPanel/VBoxContainer"]
+texture_filter = 6
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Card's Tier"
+switch_on_hover = true
+item_count = 4
+popup/item_0/text = "Common"
+popup/item_0/checkable = 1
+popup/item_0/checked = true
+popup/item_0/id = 0
+popup/item_1/text = "Rare"
+popup/item_1/checkable = 1
+popup/item_1/checked = true
+popup/item_1/id = 1
+popup/item_2/text = "Epic"
+popup/item_2/checkable = 1
+popup/item_2/checked = true
+popup/item_2/id = 2
+popup/item_3/text = "Legendary"
+popup/item_3/checkable = 1
+popup/item_3/checked = true
+popup/item_3/id = 3
+
+[node name="Panel" type="Panel" parent="HBoxContainer/ControlPanel/VBoxContainer/MenuButtonTier"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_right = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MenuButtonClass" type="MenuButton" parent="HBoxContainer/ControlPanel/VBoxContainer"]
+texture_filter = 6
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Card's Class"
+switch_on_hover = true
+item_count = 20
+popup/item_0/text = "Assassin"
+popup/item_0/checkable = 1
+popup/item_0/checked = true
+popup/item_0/id = 0
+popup/item_1/text = "Bandit"
+popup/item_1/checkable = 1
+popup/item_1/checked = true
+popup/item_1/id = 1
+popup/item_2/text = "Blood Sucker"
+popup/item_2/checkable = 1
+popup/item_2/checked = true
+popup/item_2/id = 2
+popup/item_3/text = "Brawler"
+popup/item_3/checkable = 1
+popup/item_3/checked = true
+popup/item_3/id = 3
+popup/item_4/text = "Death"
+popup/item_4/checkable = 1
+popup/item_4/checked = true
+popup/item_4/id = 4
+popup/item_5/text = "Demon"
+popup/item_5/checkable = 1
+popup/item_5/checked = true
+popup/item_5/id = 5
+popup/item_6/text = "Divine"
+popup/item_6/checkable = 1
+popup/item_6/checked = true
+popup/item_6/id = 6
+popup/item_7/text = "Elementalist"
+popup/item_7/checkable = 1
+popup/item_7/checked = true
+popup/item_7/id = 7
+popup/item_8/text = "Evoker"
+popup/item_8/checkable = 1
+popup/item_8/checked = true
+popup/item_8/id = 8
+popup/item_9/text = "Hand of Justice"
+popup/item_9/checkable = 1
+popup/item_9/checked = true
+popup/item_9/id = 9
+popup/item_10/text = "Healer"
+popup/item_10/checkable = 1
+popup/item_10/checked = true
+popup/item_10/id = 10
+popup/item_11/text = "Hunter"
+popup/item_11/checkable = 1
+popup/item_11/checked = true
+popup/item_11/id = 11
+popup/item_12/text = "Ranger"
+popup/item_12/checkable = 1
+popup/item_12/checked = true
+popup/item_12/id = 12
+popup/item_13/text = "Siedge"
+popup/item_13/checkable = 1
+popup/item_13/checked = true
+popup/item_13/id = 13
+popup/item_14/text = "Support"
+popup/item_14/checkable = 1
+popup/item_14/checked = true
+popup/item_14/id = 14
+popup/item_15/text = "Tank"
+popup/item_15/checkable = 1
+popup/item_15/checked = true
+popup/item_15/id = 15
+popup/item_16/text = "Warlock"
+popup/item_16/checkable = 1
+popup/item_16/checked = true
+popup/item_16/id = 16
+popup/item_17/text = "Warrior"
+popup/item_17/checkable = 1
+popup/item_17/checked = true
+popup/item_17/id = 17
+popup/item_18/text = "Veteran"
+popup/item_18/checkable = 1
+popup/item_18/checked = true
+popup/item_18/id = 18
+popup/item_19/text = "Wizard"
+popup/item_19/checkable = 1
+popup/item_19/checked = true
+popup/item_19/id = 19
+
+[node name="Panel" type="Panel" parent="HBoxContainer/ControlPanel/VBoxContainer/MenuButtonClass"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_right = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CheckButtonSpecials" type="CheckButton" parent="HBoxContainer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Show only Special Cards"
+
+[node name="Panel2" type="Panel" parent="HBoxContainer/ControlPanel/VBoxContainer/CheckButtonSpecials"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(600, 560)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0v57h")
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(580, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cardex - Cards Encyclopedia"
+label_settings = SubResource("LabelSettings_f0grw")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(580, 490)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 4
+
+[node name="CloseButton" type="Button" parent="."]
+offset_left = 1341.89
+offset_top = 190.876
+offset_right = 1373.89
+offset_bottom = 222.876
+text = "X"
+
+[connection signal="item_selected" from="HBoxContainer/ControlPanel/VBoxContainer/OptionButtonType" to="." method="_on_option_button_type_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/ControlPanel/VBoxContainer/OptionButtonOrder" to="." method="_on_option_button_order_item_selected"]
+[connection signal="toggled" from="HBoxContainer/ControlPanel/VBoxContainer/CheckButtonSpecials" to="." method="_on_check_button_specials_toggled"]
+[connection signal="gui_input" from="HBoxContainer/ScrollContainer" to="." method="_on_scroll_container_gui_input"]
+[connection signal="mouse_exited" from="HBoxContainer/ScrollContainer" to="." method="_on_scroll_container_mouse_exited"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_button_pressed"]

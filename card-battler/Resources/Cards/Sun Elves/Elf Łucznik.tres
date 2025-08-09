@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://jllo77q0t0j8"]
+
+[ext_resource type="Texture2D" uid="uid://eg657eulp8c8" path="res://Resources/Cards/Sun Elves/Uczen druida.jpg" id="1_4ncli"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="2_swx3p"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_q5op7"]
+
+[sub_resource type="Resource" id="Resource_tydpn"]
+script = ExtResource("3_q5op7")
+ability_activation = 3
+ability_type = "Range+"
+ability_amount = 0.33
+ability_threshold = 3.0
+
+[resource]
+script = ExtResource("2_swx3p")
+card_name = "Elf łucznik"
+image = ExtResource("1_4ncli")
+race = 7
+tier = 1
+description = "+33 % dmg / +3 Ramge treshold"
+cost = 50
+health = 115
+attack_damage = 15
+armor = 15
+attack_speed = 0.5
+attack_range = 5.0
+armor_penetration = 0.0
+type = 1
+sub_type = 12
+special_ability_stats = Array[ExtResource("3_q5op7")]([SubResource("Resource_tydpn")])

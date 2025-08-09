@@ -1,0 +1,34 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://buugjfjq2vag5"]
+
+[ext_resource type="Texture2D" uid="uid://iewdlmjm1vfa" path="res://Resources/Cards/Undead Pact/Skeleton6.png" id="1_nm5va"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="2_n8ggj"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_51th7"]
+
+[sub_resource type="Resource" id="Resource_kb8e5"]
+script = ExtResource("3_51th7")
+ability_activation = 0
+ability_type = "Ricochet"
+
+[sub_resource type="Resource" id="Resource_4kje2"]
+script = ExtResource("3_51th7")
+ability_activation = 0
+ability_type = "Mark"
+ability_amount = 10.0
+
+[resource]
+script = ExtResource("2_n8ggj")
+card_name = "Siewca śmierci"
+image = ExtResource("1_nm5va")
+race = 5
+tier = 2
+description = "Ricochet + Mark 10"
+cost = 120
+health = 150
+attack_damage = 40
+armor = 20
+attack_speed = 1.0
+attack_range = 4.0
+armor_penetration = 0.0
+type = 1
+sub_type = 12
+special_ability_stats = Array[ExtResource("3_51th7")]([SubResource("Resource_kb8e5"), SubResource("Resource_4kje2")])

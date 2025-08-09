@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://vhb7g07k4fae"]
+
+[ext_resource type="Texture2D" uid="uid://dwmgqxkxqvs46" path="res://Resources/Cards/Mountain Clan/Mountain Orc10.png" id="1_nb0my"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_ya3hd"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_1njpq"]
+
+[sub_resource type="Resource" id="Resource_nvx7v"]
+script = ExtResource("3_1njpq")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Fire"
+ability_amount = 10.0
+
+[sub_resource type="Resource" id="Resource_h8whw"]
+script = ExtResource("3_1njpq")
+ability_activation = 0
+ability_type = "AOE"
+ability_amount = 50.0
+ability_radius = 3.0
+
+[resource]
+script = ExtResource("1_ya3hd")
+card_name = "Władca Run"
+image = ExtResource("1_nb0my")
+race = 2
+tier = 3
+description = "Aoe + fire 10 "
+cost = 200
+health = 350
+attack_damage = 50
+armor = 30
+attack_speed = 0.7
+attack_range = 4.0
+armor_penetration = 0.0
+type = 2
+sub_type = 7
+special_ability_stats = Array[ExtResource("3_1njpq")]([SubResource("Resource_nvx7v"), SubResource("Resource_h8whw")])

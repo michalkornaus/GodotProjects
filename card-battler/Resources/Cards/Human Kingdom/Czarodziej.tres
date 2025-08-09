@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://c2hkbbn3g873j"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_a1pyg"]
+[ext_resource type="Texture2D" uid="uid://ceywysogohxco" path="res://Resources/Cards/Human Kingdom/Human11.png" id="1_ykadx"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_j26fm"]
+
+[sub_resource type="Resource" id="Resource_omaea"]
+script = ExtResource("3_j26fm")
+ability_activation = 0
+ability_type = "AOE"
+ability_amount = 20.0
+ability_radius = 3.0
+
+[sub_resource type="Resource" id="Resource_tp0k2"]
+script = ExtResource("3_j26fm")
+ability_activation = 0
+ability_type = "Ice"
+ability_amount = 0.33
+ability_duration = 1.0
+
+[resource]
+script = ExtResource("1_a1pyg")
+card_name = "Czarodziej"
+image = ExtResource("1_ykadx")
+race = 0
+tier = 2
+description = "AOE + Ice"
+cost = 120
+health = 200
+attack_damage = 20
+armor = 15
+attack_speed = 0.7
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 16
+special_ability_stats = Array[ExtResource("3_j26fm")]([SubResource("Resource_omaea"), SubResource("Resource_tp0k2")])

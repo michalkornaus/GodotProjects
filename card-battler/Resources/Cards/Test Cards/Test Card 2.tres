@@ -1,0 +1,57 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://b1y8xmyyftxkt"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_qgsrp"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="2_t6xjg"]
+
+[sub_resource type="Resource" id="Resource_dach5"]
+script = ExtResource("2_t6xjg")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Attack Damage"
+ability_amount = 5.0
+ability_duration = 5.0
+ability_cooldown = 10.0
+
+[sub_resource type="Resource" id="Resource_1t4wu"]
+script = ExtResource("2_t6xjg")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Attack Speed"
+ability_amount = 0.5
+ability_duration = 5.0
+ability_cooldown = 10.0
+
+[sub_resource type="Resource" id="Resource_nki16"]
+script = ExtResource("2_t6xjg")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Armor"
+ability_amount = 10.0
+ability_duration = 5.0
+ability_cooldown = 10.0
+
+[sub_resource type="Resource" id="Resource_uxjfa"]
+script = ExtResource("2_t6xjg")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Movement Speed"
+ability_amount = 0.5
+ability_duration = 5.0
+ability_cooldown = 10.0
+
+[resource]
+script = ExtResource("1_qgsrp")
+card_name = "Test Buffs"
+race = 0
+tier = 0
+description = "Buffs"
+cost = 20
+health = 150
+attack_damage = 4
+armor = 15
+attack_speed = 1.0
+attack_range = 4.0
+armor_penetration = 0.0
+type = 0
+sub_type = 0
+special_ability_stats = Array[ExtResource("2_t6xjg")]([SubResource("Resource_dach5"), SubResource("Resource_1t4wu"), SubResource("Resource_nki16"), SubResource("Resource_uxjfa")])

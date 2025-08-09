@@ -1,0 +1,125 @@
+[gd_scene load_steps=33 format=3 uid="uid://btfltvo6sqxq"]
+
+[ext_resource type="Script" uid="uid://b2tib2e8calel" path="res://Scripts/Cards/CardIcons.gd" id="1_pjn0s"]
+[ext_resource type="Texture2D" uid="uid://inc6snae56sw" path="res://Textures/Special Icons/AD Buff.png" id="2_45aex"]
+[ext_resource type="Texture2D" uid="uid://26fb327hqxk5" path="res://Textures/Special Icons/ARP.png" id="3_pyi4w"]
+[ext_resource type="Texture2D" uid="uid://b6iyihbj18jcx" path="res://Textures/Special Icons/Buff AS.png" id="4_vsgfw"]
+[ext_resource type="Texture2D" uid="uid://c6qi5qxi4bmtq" path="res://Textures/Special Icons/Debuff AS.png" id="5_c2pv2"]
+[ext_resource type="Texture2D" uid="uid://rt1woiwiwv0g" path="res://Textures/Special Icons/Armor.png" id="6_rm7y6"]
+[ext_resource type="Texture2D" uid="uid://coiphu3neoy71" path="res://Textures/Special Icons/Barier 3.png" id="7_ffp5v"]
+[ext_resource type="Texture2D" uid="uid://djkp7a7irpwkx" path="res://Textures/Special Icons/Bleed 5.png" id="8_djvkl"]
+[ext_resource type="Texture2D" uid="uid://d2paq5tot5y1k" path="res://Textures/Special Icons/Curse.png" id="9_dhygc"]
+[ext_resource type="Texture2D" uid="uid://cfuwxqivklpt5" path="res://Textures/Special Icons/Disarm.png" id="10_bpayp"]
+[ext_resource type="Texture2D" uid="uid://tupav3e2kkhd" path="res://Textures/Special Icons/Fire 1.png" id="11_8ygyv"]
+[ext_resource type="Texture2D" uid="uid://d01thg383fnod" path="res://Textures/Special Icons/Ice 2.png" id="12_k1x5x"]
+[ext_resource type="Texture2D" uid="uid://chk02p85tthg3" path="res://Textures/Special Icons/Buff MS.png" id="13_b0jx3"]
+[ext_resource type="Texture2D" uid="uid://b8lbijdeeijhk" path="res://Textures/Special Icons/Mark 3.png" id="14_kcev4"]
+[ext_resource type="Texture2D" uid="uid://bpt5kkxrrklxu" path="res://Textures/Special Icons/Poison 4.png" id="15_m7qud"]
+[ext_resource type="Texture2D" uid="uid://crbjfableyhpy" path="res://Textures/Special Icons/Regeneracja.png" id="16_nd0lq"]
+[ext_resource type="Texture2D" uid="uid://djq6pmpjmt1df" path="res://Textures/Special Icons/stun2.png" id="17_12ibp"]
+[ext_resource type="Texture2D" uid="uid://c5fnnld4n4tyx" path="res://Textures/Images/icon.svg" id="18_cilmb"]
+[ext_resource type="Texture2D" uid="uid://ce1sxjybebjhf" path="res://Textures/Special Icons/Posion 5.png" id="18_fkk7t"]
+[ext_resource type="Texture2D" uid="uid://u3lnkmhx4euw" path="res://Textures/Special Icons/ricochet.png" id="20_7er8y"]
+[ext_resource type="Texture2D" uid="uid://cic806qc0yhbl" path="res://Textures/Special Icons/raise-zombie.png" id="21_13hvr"]
+[ext_resource type="Texture2D" uid="uid://c7k7dlm2rsiw1" path="res://Textures/Special Icons/fission.png" id="22_hfbkh"]
+[ext_resource type="Texture2D" uid="uid://dew1hawdt68yf" path="res://Textures/Special Icons/lamellar.png" id="23_bv8bb"]
+[ext_resource type="Texture2D" uid="uid://c4vbm6g81u0q3" path="res://Textures/Special Icons/demolish.png" id="24_bk3oj"]
+[ext_resource type="Texture2D" uid="uid://cyt14aea2nnqh" path="res://Textures/Special Icons/wolf-head.png" id="25_3aetp"]
+[ext_resource type="Texture2D" uid="uid://bmld26noc7dkr" path="res://Textures/Special Icons/middle-arrow.png" id="26_2jvfh"]
+[ext_resource type="Texture2D" uid="uid://c4ioqq1kgq007" path="res://Textures/Special Icons/NewIcons/fast-arrow.png" id="27_l384k"]
+[ext_resource type="Texture2D" uid="uid://bu4ytnxu18ski" path="res://Textures/Special Icons/NewIcons/sparkling-sabre.png" id="28_hthr2"]
+[ext_resource type="Texture2D" uid="uid://cmtmdx7s1p3k8" path="res://Textures/Special Icons/NewIcons/saber-slash.png" id="29_dhjgm"]
+[ext_resource type="Texture2D" uid="uid://rksvfhwcxb8s" path="res://Textures/Special Icons/NewIcons/rolling-energy.png" id="30_3t0mt"]
+[ext_resource type="Texture2D" uid="uid://bh2aegirt77py" path="res://Textures/Special Icons/NewIcons/cash.png" id="31_cyg4j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37pi4"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.051971, 0.051971, 0.0519709, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="CardIcons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pjn0s")
+Icons = {
+"AD": ExtResource("2_45aex"),
+"AOE": ExtResource("30_3t0mt"),
+"ARP": ExtResource("3_pyi4w"),
+"AS": ExtResource("4_vsgfw"),
+"AS Debuff": ExtResource("5_c2pv2"),
+"Acid": ExtResource("18_fkk7t"),
+"Anti-Range": ExtResource("26_2jvfh"),
+"Armor": ExtResource("6_rm7y6"),
+"Barrier": ExtResource("7_ffp5v"),
+"Big Hunter": ExtResource("25_3aetp"),
+"Bleed": ExtResource("8_djvkl"),
+"Curse": ExtResource("9_dhygc"),
+"DMG": ExtResource("28_hthr2"),
+"Disarm": ExtResource("10_bpayp"),
+"Empty": ExtResource("18_cilmb"),
+"Explode": ExtResource("22_hfbkh"),
+"Fire": ExtResource("11_8ygyv"),
+"Gold": ExtResource("31_cyg4j"),
+"Ice": ExtResource("12_k1x5x"),
+"MS": ExtResource("13_b0jx3"),
+"Mark": ExtResource("14_kcev4"),
+"Poison": ExtResource("15_m7qud"),
+"Range+": ExtResource("27_l384k"),
+"Regen": ExtResource("16_nd0lq"),
+"Ricochet": ExtResource("20_7er8y"),
+"Siedge": ExtResource("24_bk3oj"),
+"Stun": ExtResource("17_12ibp"),
+"Summon": ExtResource("21_13hvr"),
+"Tower Tank": ExtResource("23_bv8bb"),
+"True DMG": ExtResource("29_dhjgm")
+}
+
+[node name="IconsHBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(150, 48)
+layout_mode = 0
+offset_top = -49.0
+offset_right = 150.0
+offset_bottom = -1.0
+mouse_filter = 2
+alignment = 1
+
+[node name="SpecialAbilityLabel" type="RichTextLabel" parent="."]
+visible = false
+top_level = true
+clip_contents = false
+layout_mode = 1
+offset_right = 148.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="SpecialBox" type="Panel" parent="SpecialAbilityLabel"]
+show_behind_parent = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_37pi4")

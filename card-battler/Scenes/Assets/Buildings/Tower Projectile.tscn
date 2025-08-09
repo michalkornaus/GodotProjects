@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://yswx1jx6ncbw"]
+
+[ext_resource type="Script" uid="uid://bovpp5fftl7aw" path="res://Scripts/Buildings/TowerProjectile.gd" id="1_lr6qp"]
+[ext_resource type="Material" uid="uid://d1bt68hsinvb5" path="res://Mats/Projectile_Mat.tres" id="2_ag0d4"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_oc7mn"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qi3us"]
+radius = 0.2
+
+[node name="StaticBody3D" type="StaticBody3D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_lr6qp")
+
+[node name="ProjectileMeshInstance" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("2_ag0d4")
+mesh = SubResource("SphereMesh_oc7mn")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qi3us")

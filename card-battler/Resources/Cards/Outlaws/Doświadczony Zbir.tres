@@ -1,0 +1,38 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bb55msy1lk65y"]
+
+[ext_resource type="Texture2D" uid="uid://bf7vxyrmnfdni" path="res://Resources/Cards/Outlaws/rog5.jpg" id="1_7f0hv"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_gppax"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_txwwa"]
+
+[sub_resource type="Resource" id="Resource_dv80j"]
+script = ExtResource("3_txwwa")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Bleed"
+ability_amount = 2.0
+
+[sub_resource type="Resource" id="Resource_7n2ht"]
+script = ExtResource("3_txwwa")
+ability_activation = 0
+ability_type = "Disarm"
+ability_amount = 0.2
+ability_duration = 2.0
+ability_cooldown = 5.0
+
+[resource]
+script = ExtResource("1_gppax")
+card_name = "Doświadczony Zbir"
+image = ExtResource("1_7f0hv")
+race = 1
+tier = 2
+description = "2bleed/5sec"
+cost = 120
+health = 150
+attack_damage = 50
+armor = 15
+attack_speed = 0.8
+attack_range = 4.0
+armor_penetration = 0.0
+type = 1
+sub_type = 18
+special_ability_stats = Array[ExtResource("3_txwwa")]([SubResource("Resource_dv80j"), SubResource("Resource_7n2ht")])

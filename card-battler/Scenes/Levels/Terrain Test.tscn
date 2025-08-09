@@ -1,0 +1,497 @@
+[gd_scene load_steps=35 format=3 uid="uid://ctylf33f7ixe"]
+
+[ext_resource type="Terrain3DStorage" uid="uid://cq4g3k833i01w" path="res://Resources/Terrain Test.res" id="1_7bx08"]
+[ext_resource type="Terrain3DMaterial" uid="uid://cs35rjmwc4vi2" path="res://Resources/Terrain Test Material.res" id="2_8ljhd"]
+[ext_resource type="Terrain3DAssets" uid="uid://ck2fau8fp6vjl" path="res://Resources/Terrain Test Assets.res" id="3_cx4nk"]
+[ext_resource type="PackedScene" uid="uid://chdefww8q046u" path="res://Scenes/Assets/Buildings/Models/Dock.tscn" id="5_mev0n"]
+[ext_resource type="PackedScene" uid="uid://bt6ioulwins5s" path="res://Scenes/Assets/Buildings/Models/Nexus.tscn" id="6_6hlj7"]
+[ext_resource type="PackedScene" uid="uid://bjid11rnogv3c" path="res://Scenes/Assets/Buildings/Models/Small Ship.tscn" id="6_hawot"]
+[ext_resource type="PackedScene" uid="uid://dkyead8bc5hv2" path="res://Scenes/Assets/Buildings/Models/Barrack.tscn" id="7_a2gfp"]
+[ext_resource type="PackedScene" uid="uid://b1cppyv1tsdab" path="res://Scenes/Assets/Buildings/Models/Tower.tscn" id="8_3hdfi"]
+[ext_resource type="Script" uid="uid://dih2648q6joio" path="res://Scripts/CameraMovement.gd" id="8_vfxlj"]
+[ext_resource type="Shader" uid="uid://dsk4ctmqhg8bg" path="res://addons/water_Shader/shaders/water.gdshader" id="13_k3ed6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_goasa"]
+resource_local_to_scene = true
+size = Vector2(180, 220)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8fje7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ptjyb"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_8fje7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6i3b2"]
+noise_type = 0
+seed = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r4a3k"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_6i3b2")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5edmb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qdptp"]
+seamless = true
+noise = SubResource("FastNoiseLite_5edmb")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vq7qh"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2unhc"]
+seamless = true
+bump_strength = 28.3
+noise = SubResource("FastNoiseLite_vq7qh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dxol0"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("13_k3ed6")
+shader_parameter/albedo = Color(0.02, 0.45, 0.8, 1)
+shader_parameter/transparency = 0.4
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
+shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0)
+shader_parameter/surface_normals_move_direction_b = Vector2(0, 1)
+shader_parameter/surface_texture_roughness = 0.6
+shader_parameter/surface_texture_scale = 0.3
+shader_parameter/surface_texture_time_scale = 0.06
+shader_parameter/ssr_resolution = 2.0
+shader_parameter/ssr_max_travel = 30.0
+shader_parameter/ssr_max_diff = 4.0
+shader_parameter/ssr_mix_strength = 0.7
+shader_parameter/wave_noise_scale = 15.0
+shader_parameter/wave_height_scale = 0.25
+shader_parameter/wave_time_scale = 0.025
+shader_parameter/wave_normal_flatness = 30.0
+shader_parameter/border_color = Color(0.00650025, 0.317665, 0.575803, 1)
+shader_parameter/border_scale = 2.0
+shader_parameter/border_near = 0.5
+shader_parameter/border_far = 300.0
+shader_parameter/refraction_intensity = 0.4
+shader_parameter/max_visible_depth = 10.0
+shader_parameter/color_deep = Color(0, 0.1, 0.4, 1)
+shader_parameter/wave_a = SubResource("NoiseTexture2D_qdptp")
+shader_parameter/wave_b = SubResource("NoiseTexture2D_2unhc")
+shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_ptjyb")
+shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aobx7"]
+resource_local_to_scene = true
+size = Vector2(180, 150)
+subdivide_width = 25
+subdivide_depth = 25
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k6f4a"]
+resource_local_to_scene = true
+size = Vector2(180, 150)
+subdivide_width = 200
+subdivide_depth = 200
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgskj"]
+render_priority = 0
+shader = ExtResource("13_k3ed6")
+shader_parameter/albedo = Color(0.02, 0.45, 0.8, 1)
+shader_parameter/transparency = 0.4
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
+shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0)
+shader_parameter/surface_normals_move_direction_b = Vector2(0, 1)
+shader_parameter/surface_texture_roughness = 0.6
+shader_parameter/surface_texture_scale = 0.3
+shader_parameter/surface_texture_time_scale = 0.06
+shader_parameter/ssr_resolution = 2.0
+shader_parameter/ssr_max_travel = 30.0
+shader_parameter/ssr_max_diff = 4.0
+shader_parameter/ssr_mix_strength = 0.7
+shader_parameter/wave_noise_scale = 15.0
+shader_parameter/wave_height_scale = 0.25
+shader_parameter/wave_time_scale = 0.025
+shader_parameter/wave_normal_flatness = 30.0
+shader_parameter/border_color = Color(1, 1, 1, 1)
+shader_parameter/border_scale = 2.0
+shader_parameter/border_near = 0.5
+shader_parameter/border_far = 300.0
+shader_parameter/refraction_intensity = 0.4
+shader_parameter/max_visible_depth = 10.0
+shader_parameter/color_deep = Color(0, 0.1, 0.4, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bdvq8"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_cgskj")
+size = Vector2(72, 170)
+subdivide_width = 250
+subdivide_depth = 250
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_45ac0"]
+resource_local_to_scene = true
+size = Vector2(50, 60)
+subdivide_width = 250
+subdivide_depth = 250
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j0w2d"]
+resource_local_to_scene = true
+size = Vector2(100, 90)
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0y0kx"]
+
+[sub_resource type="Sky" id="Sky_gt5f2"]
+sky_material = SubResource("ProceduralSkyMaterial_0y0kx")
+
+[sub_resource type="Environment" id="Environment_idteh"]
+background_mode = 2
+sky = SubResource("Sky_gt5f2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jy1mb"]
+size = Vector2(30, 30)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qxddh"]
+size = Vector2(180, 180)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgrre"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_sf862"]
+material = SubResource("StandardMaterial3D_fgrre")
+left_to_right = 1.0
+size = Vector3(90, 90, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kme8m"]
+size = Vector3(180, 2, 2)
+
+[node name="GameNode" type="Node3D"]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("1_7bx08")
+material = ExtResource("2_8ljhd")
+assets = ExtResource("3_cx4nk")
+
+[node name="WaterSurface" type="MeshInstance3D" parent="Terrain3D"]
+transform = Transform3D(0.999999, 0, 5.32907e-14, 0, 1, 0, -5.32907e-14, 0, 0.999999, 916.768, -3.81022, 329.782)
+mesh = SubResource("PlaneMesh_goasa")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_dxol0")
+
+[node name="WaterSurface2" type="MeshInstance3D" parent="Terrain3D"]
+transform = Transform3D(0.999999, 0, 5.32907e-14, 0, 1, 0, -5.32907e-14, 0, 0.999999, 736.768, -3.81022, 339.782)
+mesh = SubResource("PlaneMesh_aobx7")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_dxol0")
+
+[node name="WaterSurface3" type="MeshInstance3D" parent="Terrain3D"]
+transform = Transform3D(0.999999, 0, 5.32907e-14, 0, 1, 0, -5.32907e-14, 0, 0.999999, 556.769, -3.81022, 339.782)
+mesh = SubResource("PlaneMesh_k6f4a")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_dxol0")
+
+[node name="WaterSurface4" type="MeshInstance3D" parent="Terrain3D"]
+transform = Transform3D(0.938612, 0, -0.34497, 0, 1, 0, 0.34497, 0, 0.938612, 483.706, -4.44631, 483.79)
+mesh = SubResource("PlaneMesh_bdvq8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_dxol0")
+
+[node name="WaterSurface5" type="MeshInstance3D" parent="Terrain3D"]
+transform = Transform3D(0.999999, 0, 5.32907e-14, 0, 1, 0, -5.32907e-14, 0, 0.999999, 473.28, -4.04614, 598.126)
+mesh = SubResource("PlaneMesh_45ac0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_dxol0")
+
+[node name="WaterSurface6" type="MeshInstance3D" parent="Terrain3D"]
+transform = Transform3D(0.999999, 0, 5.32907e-14, 0, 1, 0, -5.32907e-14, 0, 0.999999, 420.216, -3.81022, 666.481)
+mesh = SubResource("PlaneMesh_j0w2d")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_dxol0")
+
+[node name="Dock" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 483.338, -0.8, 427.105)
+
+[node name="Dock2" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 483.338, -0.8, 431.855)
+
+[node name="Dock3" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 494.338, -0.8, 427.105)
+
+[node name="Dock4" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 494.338, -0.8, 431.855)
+
+[node name="Dock5" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 505.338, -0.8, 427.105)
+
+[node name="Dock6" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 505.338, -0.8, 431.855)
+
+[node name="Dock7" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 516.338, -0.8, 427.105)
+
+[node name="Dock8" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 516.338, -0.8, 431.855)
+
+[node name="Dock9" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 527.338, -0.8, 427.105)
+
+[node name="Dock10" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 527.338, -0.8, 431.855)
+
+[node name="Dock15" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, 6.36396, 478.809, -0.8, 475.409)
+
+[node name="Dock16" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, 6.36396, 475.45, -0.8, 478.768)
+
+[node name="Dock17" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, 6.36396, 486.587, -0.8, 483.187)
+
+[node name="Dock18" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, 6.36396, 483.229, -0.8, 486.546)
+
+[node name="Dock19" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, 6.36396, 494.366, -0.8, 490.966)
+
+[node name="Dock20" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, 6.36396, 491.007, -0.8, 494.324)
+
+[node name="Dock21" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, 6.36396, 502.144, -0.8, 498.744)
+
+[node name="Dock22" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, 6.36396, 498.785, -0.8, 502.102)
+
+[node name="Dock23" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, -6.36396, 470.041, -0.8, 550.663)
+
+[node name="Dock24" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, -6.36396, 473.399, -0.8, 554.022)
+
+[node name="Dock25" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, -6.36396, 477.819, -0.8, 542.885)
+
+[node name="Dock26" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, -6.36396, 481.178, -0.8, 546.243)
+
+[node name="Dock27" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, -6.36396, 485.597, -0.8, 535.106)
+
+[node name="Dock28" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, -6.36396, 488.956, -0.8, 538.465)
+
+[node name="Dock29" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, -6.36396, 493.375, -0.8, 527.328)
+
+[node name="Dock30" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, 6.36396, 0, 9, 0, -6.36396, 0, -6.36396, 496.734, -0.8, 530.687)
+
+[node name="Dock31" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, -6.36396, 0, 9, 0, 6.36396, 0, -6.36396, 558.057, -0.8, 561.43)
+
+[node name="Dock32" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, -6.36396, 0, 9, 0, 6.36396, 0, -6.36396, 561.415, -0.8, 558.071)
+
+[node name="Dock33" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, -6.36396, 0, 9, 0, 6.36396, 0, -6.36396, 550.278, -0.8, 553.652)
+
+[node name="Dock34" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, -6.36396, 0, 9, 0, 6.36396, 0, -6.36396, 553.637, -0.8, 550.293)
+
+[node name="Dock35" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, -6.36396, 0, 9, 0, 6.36396, 0, -6.36396, 542.5, -0.8, 545.873)
+
+[node name="Dock36" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-6.36396, 0, -6.36396, 0, 9, 0, 6.36396, 0, -6.36396, 545.859, -0.8, 542.515)
+
+[node name="Dock11" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 469.147, -0.600109, 595.469)
+
+[node name="Dock12" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 469.168, -0.535185, 599.757)
+
+[node name="Dock13" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 479.647, -0.590053, 595.469)
+
+[node name="Dock14" parent="Terrain3D" instance=ExtResource("5_mev0n")]
+transform = Transform3D(-3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, 479.647, -0.510799, 599.796)
+
+[node name="Small Ship" parent="Terrain3D" instance=ExtResource("6_hawot")]
+transform = Transform3D(-0.971143, -0.100067, 0.216489, -0.0976691, 0.994981, 0.0217726, -0.217581, 0, -0.976042, 515.682, -4.70159, 439)
+
+[node name="CameraController" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 430, 18, 445)
+script = ExtResource("8_vfxlj")
+camera_borders_x = Vector2(422, 602)
+camera_borders_z = Vector2(422, 602)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
+current = true
+fov = 80.0
+near = 0.02
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0317494, 0.863178, -0.503901, 0.482832, 0.454673, 0.748429, 0.875137, -0.219537, -0.431206, 470.04, 0.0375671, 470.003)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_idteh")
+
+[node name="Bases" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 0, 512)
+
+[node name="Player1_Base" type="Node3D" parent="Bases"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -75)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bases/Player1_Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+visible = false
+mesh = SubResource("PlaneMesh_jy1mb")
+
+[node name="Nexus" parent="Bases/Player1_Base" instance=ExtResource("6_6hlj7")]
+transform = Transform3D(0.848528, 0, -0.848528, 0, 1.2, 0, 0.848528, 0, 0.848528, -8, 0, -8)
+
+[node name="Barrack" parent="Bases/Player1_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(0.848528, 0, 0.848528, 0, 1.2, 0, -0.848528, 0, 0.848528, 3.45444, 0, 3.45444)
+
+[node name="Barrack2" parent="Bases/Player1_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -8, 0, 7)
+
+[node name="Barrack3" parent="Bases/Player1_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 7, 0, -8)
+
+[node name="Tower" parent="Bases/Player1_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -10.8, 0, 12)
+
+[node name="Tower2" parent="Bases/Player1_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 12, 0, -10.8)
+
+[node name="Tower3" parent="Bases/Player1_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(0.848528, 0, 0.848528, 0, 1.2, 0, -0.848528, 0, 0.848528, 8, 0, 8)
+
+[node name="Player2_Base" type="Node3D" parent="Bases"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75, 0, -75)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bases/Player2_Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+visible = false
+mesh = SubResource("PlaneMesh_jy1mb")
+
+[node name="Nexus" parent="Bases/Player2_Base" instance=ExtResource("6_6hlj7")]
+transform = Transform3D(0.848528, 0, -0.848528, 0, 1.2, 0, 0.848528, 0, 0.848528, -8, 0, -8)
+
+[node name="Barrack" parent="Bases/Player2_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(0.848528, 0, 0.848528, 0, 1.2, 0, -0.848528, 0, 0.848528, 3.45444, 0, 3.45444)
+
+[node name="Barrack2" parent="Bases/Player2_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -8, 0, 7)
+
+[node name="Barrack3" parent="Bases/Player2_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 7, 0, -8)
+
+[node name="Tower" parent="Bases/Player2_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -10.8, 0, 12)
+
+[node name="Tower2" parent="Bases/Player2_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 12, 0, -10.8)
+
+[node name="Tower3" parent="Bases/Player2_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(0.848528, 0, 0.848528, 0, 1.2, 0, -0.848528, 0, 0.848528, 8, 0, 8)
+
+[node name="Player3_Base" type="Node3D" parent="Bases"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 75, 0, 75)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bases/Player3_Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+visible = false
+mesh = SubResource("PlaneMesh_jy1mb")
+
+[node name="Nexus" parent="Bases/Player3_Base" instance=ExtResource("6_6hlj7")]
+transform = Transform3D(0.848528, 0, -0.848528, 0, 1.2, 0, 0.848528, 0, 0.848528, -8, 0, -8)
+
+[node name="Barrack" parent="Bases/Player3_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(0.848528, 0, 0.848528, 0, 1.2, 0, -0.848528, 0, 0.848528, 3.45444, 0, 3.45444)
+
+[node name="Barrack2" parent="Bases/Player3_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -8, 0, 7)
+
+[node name="Barrack3" parent="Bases/Player3_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 7, 0, -8)
+
+[node name="Tower" parent="Bases/Player3_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -10.8, 0, 12)
+
+[node name="Tower2" parent="Bases/Player3_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 12, 0, -10.8)
+
+[node name="Tower3" parent="Bases/Player3_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(0.848528, 0, 0.848528, 0, 1.2, 0, -0.848528, 0, 0.848528, 8, 0, 8)
+
+[node name="Player4_Base" type="Node3D" parent="Bases"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75, 0, 75)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bases/Player4_Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+visible = false
+mesh = SubResource("PlaneMesh_jy1mb")
+
+[node name="Nexus" parent="Bases/Player4_Base" instance=ExtResource("6_6hlj7")]
+transform = Transform3D(0.848528, 0, -0.848528, 0, 1.2, 0, 0.848528, 0, 0.848528, -8, 0, -8)
+
+[node name="Barrack" parent="Bases/Player4_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(0.848528, 0, 0.848528, 0, 1.2, 0, -0.848528, 0, 0.848528, 3.45444, 0, 3.45444)
+
+[node name="Barrack2" parent="Bases/Player4_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -8, 0, 7)
+
+[node name="Barrack3" parent="Bases/Player4_Base" instance=ExtResource("7_a2gfp")]
+transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 7, 0, -8)
+
+[node name="Tower" parent="Bases/Player4_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -10.8, 0, 12)
+
+[node name="Tower2" parent="Bases/Player4_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 12, 0, -10.8)
+
+[node name="Tower3" parent="Bases/Player4_Base" instance=ExtResource("8_3hdfi")]
+transform = Transform3D(0.848528, 0, 0.848528, 0, 1.2, 0, -0.848528, 0, 0.848528, 8, 0, 8)
+
+[node name="MeshInstanceFloor_HideThisToWork" type="MeshInstance3D" parent="Bases"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
+mesh = SubResource("PlaneMesh_qxddh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Bases/MeshInstanceFloor_HideThisToWork"]
+transform = Transform3D(-0.707107, -0.707107, 3.09086e-08, 0, -4.37114e-08, -1, 0.707107, -0.707107, 3.09086e-08, 0, 1.5, -75)
+mesh = SubResource("PrismMesh_sf862")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Bases/MeshInstanceFloor_HideThisToWork"]
+transform = Transform3D(0.707107, 0.707107, -3.09086e-08, -2.11758e-22, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, 0, 1.5, 75)
+mesh = SubResource("PrismMesh_sf862")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Bases/MeshInstanceFloor_HideThisToWork"]
+transform = Transform3D(0.707107, -0.707107, 3.09086e-08, 2.11758e-22, -4.37114e-08, -1, 0.707107, 0.707107, -3.09086e-08, -75, 1.5, 0)
+mesh = SubResource("PrismMesh_sf862")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Bases/MeshInstanceFloor_HideThisToWork"]
+transform = Transform3D(-0.707107, 0.707107, -3.09086e-08, -2.11758e-22, -4.37114e-08, -1, -0.707107, -0.707107, 3.09086e-08, 75, 1.5, 0)
+mesh = SubResource("PrismMesh_sf862")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bases/MeshInstanceFloor_HideThisToWork"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -91)
+mesh = SubResource("BoxMesh_kme8m")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Bases/MeshInstanceFloor_HideThisToWork"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 91)
+mesh = SubResource("BoxMesh_kme8m")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Bases/MeshInstanceFloor_HideThisToWork"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -91, 1, 0)
+mesh = SubResource("BoxMesh_kme8m")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Bases/MeshInstanceFloor_HideThisToWork"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 91, 1, 0)
+mesh = SubResource("BoxMesh_kme8m")

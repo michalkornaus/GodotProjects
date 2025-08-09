@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://oxk3are2xgre"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_k26qp"]
+[ext_resource type="Texture2D" uid="uid://bt0ygcdpjg72w" path="res://Resources/Cards/Human Kingdom/Human10.png" id="1_t88lk"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_dfasb"]
+
+[sub_resource type="Resource" id="Resource_0rcxm"]
+script = ExtResource("3_dfasb")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Fire"
+ability_amount = 5.0
+
+[resource]
+script = ExtResource("1_k26qp")
+card_name = "Adept"
+image = ExtResource("1_t88lk")
+race = 0
+tier = 1
+description = "Fire 5 / 3 sec"
+cost = 50
+health = 110
+attack_damage = 30
+armor = 10
+attack_speed = 1.0
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 19
+special_ability_stats = Array[ExtResource("3_dfasb")]([SubResource("Resource_0rcxm")])

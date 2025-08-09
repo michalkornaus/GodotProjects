@@ -1,0 +1,572 @@
+[gd_scene load_steps=28 format=3 uid="uid://bpcf3shjxg2ll"]
+
+[ext_resource type="Script" uid="uid://pg8rlrdhbi6b" path="res://Scripts/Cards/Card.gd" id="1_uspvd"]
+[ext_resource type="PackedScene" uid="uid://07pf7kft7nmm" path="res://Scenes/Assets/TierIcon.tscn" id="2_oak7c"]
+[ext_resource type="PackedScene" uid="uid://btfltvo6sqxq" path="res://Scenes/Assets/Cards/Card Icons.tscn" id="3_xs0wg"]
+[ext_resource type="Texture2D" uid="uid://u054c4btbmb4" path="res://Textures/Card Icons/HealthCircle.png" id="4_c7qb2"]
+[ext_resource type="Texture2D" uid="uid://b2slyx378kfg" path="res://Textures/Card Icons/GoldCircle.png" id="4_lea4a"]
+[ext_resource type="Texture2D" uid="uid://bputvlijvmlad" path="res://Textures/Card Icons/DamageCircle.png" id="5_d70js"]
+[ext_resource type="Texture2D" uid="uid://chnrc6s4fod8u" path="res://Textures/Card Icons/ArmorCircle.png" id="7_s27tv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv28o"]
+resource_local_to_scene = true
+bg_color = Color(0.439216, 0.501961, 0.564706, 1)
+border_width_left = 5
+border_width_top = 6
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+
+[sub_resource type="Gradient" id="Gradient_dxljn"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.908889, 0.988095)
+colors = PackedColorArray(0.270588, 0.623529, 0.239216, 1, 0.160784, 0.384314, 0.141176, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ps2s7"]
+gradient = SubResource("Gradient_dxljn")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="FontVariation" id="FontVariation_wr8mb"]
+variation_embolden = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ajj6"]
+font = SubResource("FontVariation_wr8mb")
+font_color = Color(0.32549, 0.764706, 0.286275, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_771yy"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.906667, 0.988095)
+colors = PackedColorArray(0.92549, 0.278431, 0.14902, 1, 0.654902, 0.168627, 0.0666667, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_idfms"]
+gradient = SubResource("Gradient_771yy")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="FontVariation" id="FontVariation_hbybh"]
+variation_embolden = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_416wt"]
+font = SubResource("FontVariation_hbybh")
+font_color = Color(0.988235, 0.560784, 0.470588, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_ty1ac"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.90873, 0.988095)
+colors = PackedColorArray(0.113725, 0.580392, 0.796078, 1, 0.0470588, 0.380392, 0.529412, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ud7lu"]
+gradient = SubResource("Gradient_ty1ac")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="FontVariation" id="FontVariation_1bx65"]
+variation_embolden = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wulo1"]
+font = SubResource("FontVariation_1bx65")
+font_color = Color(0.215686, 0.690196, 0.92549, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_52uv2"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.911111, 0.988095)
+colors = PackedColorArray(0.858824, 0.67451, 0.203922, 1, 0.491521, 0.379495, 0.0886272, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fe3wu"]
+gradient = SubResource("Gradient_52uv2")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="FontVariation" id="FontVariation_otmhx"]
+variation_embolden = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_88qp0"]
+line_spacing = 0.0
+font = SubResource("FontVariation_otmhx")
+font_color = Color(0.92549, 0.737255, 0.278431, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_6msuk"]
+line_spacing = 1.0
+font_size = 13
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.494118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_861qb"]
+resource_local_to_scene = true
+bg_color = Color(0.439216, 0.501961, 0.564706, 1)
+border_width_left = 5
+border_width_top = 6
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwe28"]
+font_size = 22
+font_color = Color(0.827451, 0.709804, 0.239216, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[node name="Card" type="Control" node_paths=PackedStringArray("name_label_big", "image_rect_big", "description_label", "name_label_back", "cost_label_big", "special_ability_label", "health_label_big", "armor_label_big", "attack_damage_label_big", "name_label_small", "image_rect_small", "cost_label_small", "health_label_small", "attack_damage_label_small", "armor_label_small", "cost_texture_small", "popup_label", "cost_popup_label", "cost_popup_timer", "delay_timer", "tier_icon_big", "tier_icon_small")]
+texture_filter = 4
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uspvd")
+name_label_big = NodePath("CardPanelBig/FaceSide/NameLabelFront")
+image_rect_big = NodePath("CardPanelBig/FaceSide/ImagePanel/TextureRect")
+description_label = NodePath("CardPanelBig/ReverseSide/DescriptionLabel")
+name_label_back = NodePath("CardPanelBig/ReverseSide/NameLabelBack")
+cost_label_big = NodePath("CardPanelBig/FaceSide/CostSprite/CostLabel")
+special_ability_label = NodePath("CardPanelBig/FaceSide/SpecialAbilityLabel")
+health_label_big = NodePath("CardPanelBig/FaceSide/HealthSprite/HealthLabel")
+armor_label_big = NodePath("CardPanelBig/FaceSide/ArmorSprite/ArmorLabel")
+attack_damage_label_big = NodePath("CardPanelBig/FaceSide/DamageSprite/ADLabel")
+name_label_small = NodePath("CardPanelSmall/NameLabel")
+image_rect_small = NodePath("CardPanelSmall/ImagePanel/TextureRect")
+cost_label_small = NodePath("CardPanelSmall/GoldTexture/CostLabel")
+health_label_small = NodePath("CardPanelSmall/HealthTexture/HealthLabel")
+attack_damage_label_small = NodePath("CardPanelSmall/DamageTexture/ADLabel")
+armor_label_small = NodePath("CardPanelSmall/ArmorTexture/ArmorLabel")
+cost_texture_small = NodePath("CardPanelSmall/GoldTexture")
+popup_label = NodePath("PopupLabel")
+cost_popup_label = NodePath("CostPopupLabel")
+cost_popup_timer = NodePath("CostTimer")
+delay_timer = NodePath("DelayTimer")
+tier_icon_big = NodePath("CardPanelBig/FaceSide/TierIconBig")
+tier_icon_small = NodePath("CardPanelSmall/TierIconSmall")
+
+[node name="MouseClickControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -72.0
+offset_right = 70.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+
+[node name="CardPanelBig" type="Control" parent="."]
+visible = false
+texture_filter = 4
+anchors_preset = 0
+offset_left = -75.0
+offset_top = -100.0
+offset_right = 75.0
+offset_bottom = 105.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="CardPanelBig"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mv28o")
+
+[node name="FaceSide" type="Control" parent="CardPanelBig"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ImagePanel" type="Panel" parent="CardPanelBig/FaceSide"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = 11.0
+offset_right = 63.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CardPanelBig/FaceSide/ImagePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HealthSprite" type="Sprite2D" parent="CardPanelBig/FaceSide"]
+position = Vector2(16, 128)
+texture = SubResource("GradientTexture2D_ps2s7")
+
+[node name="HealthLabel" type="Label" parent="CardPanelBig/FaceSide/HealthSprite"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -28.0
+offset_right = 15.0
+offset_bottom = -4.0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_4ajj6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DamageSprite" type="Sprite2D" parent="CardPanelBig/FaceSide"]
+position = Vector2(75, 128)
+texture = SubResource("GradientTexture2D_idfms")
+
+[node name="ADLabel" type="Label" parent="CardPanelBig/FaceSide/DamageSprite"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -28.0
+offset_right = -17.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_416wt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArmorSprite" type="Sprite2D" parent="CardPanelBig/FaceSide"]
+position = Vector2(135, 128)
+texture = SubResource("GradientTexture2D_ud7lu")
+
+[node name="ArmorLabel" type="Label" parent="CardPanelBig/FaceSide/ArmorSprite"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -28.0
+offset_right = -17.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_wulo1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostSprite" type="Sprite2D" parent="CardPanelBig/FaceSide"]
+position = Vector2(135, 15)
+texture = SubResource("GradientTexture2D_fe3wu")
+
+[node name="CostLabel" type="Label" parent="CardPanelBig/FaceSide/CostSprite"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -44.0
+offset_right = 15.0
+offset_bottom = -20.0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_88qp0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardIcons" parent="CardPanelBig/FaceSide" instance=ExtResource("3_xs0wg")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+offset_top = 9.0
+offset_bottom = 9.0
+grow_vertical = 0
+
+[node name="TierIconBig" parent="CardPanelBig/FaceSide" instance=ExtResource("2_oak7c")]
+scale = Vector2(1.25, 1.25)
+mouse_filter = 2
+
+[node name="NameLabelFront" type="Label" parent="CardPanelBig/FaceSide"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 140.0
+offset_right = 145.0
+offset_bottom = 166.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpecialAbilityLabel" type="Label" parent="CardPanelBig/FaceSide"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 166.0
+offset_right = 145.0
+offset_bottom = 202.0
+theme_override_constants/line_spacing = -6
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="ReverseSide" type="Control" parent="CardPanelBig"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NameLabelBack" type="Label" parent="CardPanelBig/ReverseSide"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 145.0
+offset_bottom = 29.0
+
+[node name="DescriptionLabel" type="Label" parent="CardPanelBig/ReverseSide"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -171.0
+offset_right = 145.0
+offset_bottom = -4.0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_6msuk")
+autowrap_mode = 3
+
+[node name="CardPanelSmall" type="Control" parent="."]
+texture_filter = 4
+anchors_preset = 0
+offset_left = -70.0
+offset_top = -72.0
+offset_right = 70.0
+offset_bottom = 88.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="CardPanelSmall"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_861qb")
+
+[node name="ImagePanel" type="Panel" parent="CardPanelSmall"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 11.0
+offset_right = -6.99989
+offset_bottom = -25.0001
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CardPanelSmall/ImagePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="TierIconSmall" parent="CardPanelSmall" instance=ExtResource("2_oak7c")]
+scale = Vector2(1.15, 1.15)
+mouse_filter = 2
+
+[node name="CardIcons" parent="CardPanelSmall" instance=ExtResource("3_xs0wg")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+offset_top = -38.0
+offset_right = -60.0
+offset_bottom = 10.0
+grow_vertical = 0
+
+[node name="GoldTexture" type="TextureRect" parent="CardPanelSmall"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = -1.0
+offset_right = 141.0
+offset_bottom = 31.0
+mouse_filter = 2
+texture = ExtResource("4_lea4a")
+expand_mode = 1
+
+[node name="CostLabel" type="Label" parent="CardPanelSmall/GoldTexture"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -27.0
+offset_right = 36.0
+offset_bottom = -4.0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_88qp0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthTexture" type="TextureRect" parent="CardPanelSmall"]
+layout_mode = 0
+offset_top = 108.0
+offset_right = 32.0
+offset_bottom = 140.0
+mouse_filter = 2
+texture = ExtResource("4_c7qb2")
+expand_mode = 1
+
+[node name="HealthLabel" type="Label" parent="CardPanelSmall/HealthTexture"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -13.0
+offset_right = 32.0
+offset_bottom = 12.0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_4ajj6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DamageTexture" type="TextureRect" parent="CardPanelSmall"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 108.0
+offset_right = 86.0
+offset_bottom = 140.0
+mouse_filter = 2
+texture = ExtResource("5_d70js")
+expand_mode = 1
+
+[node name="ADLabel" type="Label" parent="CardPanelSmall/DamageTexture"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -13.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_416wt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArmorTexture" type="TextureRect" parent="CardPanelSmall"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 108.0
+offset_right = 141.0
+offset_bottom = 140.0
+mouse_filter = 2
+texture = ExtResource("7_s27tv")
+expand_mode = 1
+
+[node name="ArmorLabel" type="Label" parent="CardPanelSmall/ArmorTexture"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -13.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_wulo1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="CardPanelSmall"]
+layout_mode = 0
+offset_top = 134.0
+offset_right = 140.0
+offset_bottom = 158.0
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="PopupLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -118.0
+offset_top = -142.0
+offset_right = 118.0
+offset_bottom = -111.0
+label_settings = SubResource("LabelSettings_cwe28")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostPopupLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -118.0
+offset_top = -142.0
+offset_right = 118.0
+offset_bottom = -111.0
+label_settings = SubResource("LabelSettings_cwe28")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="DelayTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="gui_input" from="MouseClickControl" to="." method="_on_mouse_click_control_gui_input"]
+[connection signal="mouse_entered" from="MouseClickControl" to="." method="_on_mouse_click_control_mouse_entered"]
+[connection signal="mouse_exited" from="MouseClickControl" to="." method="_on_mouse_click_control_mouse_exited"]
+[connection signal="timeout" from="CostTimer" to="." method="_on_cost_timer_timeout"]

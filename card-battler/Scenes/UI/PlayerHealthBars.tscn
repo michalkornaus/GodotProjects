@@ -1,0 +1,334 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpgrurqcmh6b"]
+
+[ext_resource type="Script" uid="uid://t0kjhlrtmrha" path="res://Scripts/PlayerHealthBars.gd" id="1_ogwax"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sejuv"]
+resource_local_to_scene = true
+bg_color = Color(0.164706, 0.168627, 0.168627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 3
+border_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_577gg"]
+resource_local_to_scene = true
+bg_color = Color(0.133333, 0.513726, 0.686275, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 3
+border_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajlmt"]
+font_size = 14
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhmje"]
+resource_local_to_scene = true
+bg_color = Color(0.164706, 0.168627, 0.168627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyxd2"]
+resource_local_to_scene = true
+bg_color = Color(0.133333, 0.513726, 0.686275, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_0mxnh"]
+font_size = 12
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PlayerHealthBars" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ogwax")
+
+[node name="NexusProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_sejuv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_577gg")
+value = 100.0
+
+[node name="NexusLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -39.0
+offset_right = 37.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nexus HP"
+label_settings = SubResource("LabelSettings_ajlmt")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TowerTopBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_right = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bhmje")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wyxd2")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="TowerTopBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "T"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TowerMidBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -20.0
+offset_right = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bhmje")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wyxd2")
+value = 100.0
+show_percentage = false
+
+[node name="Label2" type="Label" parent="TowerMidBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "T"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TowerBotBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -20.0
+offset_right = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bhmje")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wyxd2")
+value = 100.0
+show_percentage = false
+
+[node name="Label3" type="Label" parent="TowerBotBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "T"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BarrackTopBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 1.0
+offset_right = -55.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bhmje")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wyxd2")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="BarrackTopBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BarrackMidBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 1.0
+offset_right = -84.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bhmje")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wyxd2")
+value = 100.0
+show_percentage = false
+
+[node name="Label2" type="Label" parent="BarrackMidBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BarrackBotBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = 1.0
+offset_right = -114.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bhmje")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wyxd2")
+value = 100.0
+show_percentage = false
+
+[node name="Label3" type="Label" parent="BarrackBotBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelTop" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -36.0
+offset_right = -44.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TOP"
+label_settings = SubResource("LabelSettings_0mxnh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMid" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -36.0
+offset_right = -73.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MID"
+label_settings = SubResource("LabelSettings_0mxnh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelBot" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -36.0
+offset_right = -103.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BOT"
+label_settings = SubResource("LabelSettings_0mxnh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RefreshTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]

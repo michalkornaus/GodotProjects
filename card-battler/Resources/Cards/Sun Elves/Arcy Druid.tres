@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://d1wi0fm1tsgs1"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_c5jt7"]
+[ext_resource type="Texture2D" uid="uid://bdl13hcw8o5ur" path="res://Resources/Cards/Sun Elves/sun elf 4.jpg" id="1_jlrrl"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_xrfv1"]
+
+[sub_resource type="Resource" id="Resource_d5mjq"]
+script = ExtResource("3_xrfv1")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 50.0
+ability_duration = 0.0
+ability_cooldown = 2.0
+
+[sub_resource type="Resource" id="Resource_secrp"]
+script = ExtResource("3_xrfv1")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 50.0
+ability_duration = 5.0
+ability_cooldown = 2.0
+
+[resource]
+script = ExtResource("1_c5jt7")
+card_name = "Arcy Druid"
+image = ExtResource("1_jlrrl")
+race = 7
+tier = 3
+description = "Heal 50 + regneracja 50/5 "
+cost = 200
+health = 250
+attack_damage = 30
+armor = 35
+attack_speed = 0.75
+attack_range = 5.0
+armor_penetration = 0.0
+type = 2
+sub_type = 10
+special_ability_stats = Array[ExtResource("3_xrfv1")]([SubResource("Resource_d5mjq"), SubResource("Resource_secrp")])

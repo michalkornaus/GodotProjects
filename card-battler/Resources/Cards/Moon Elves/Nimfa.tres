@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://byd006ffprlk"]
+
+[ext_resource type="Texture2D" uid="uid://5iq7vh11dr83" path="res://Resources/Cards/Moon Elves/night elf 7.jpg" id="1_gxlls"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_qfcw5"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_em15n"]
+
+[sub_resource type="Resource" id="Resource_k2r4m"]
+script = ExtResource("3_em15n")
+ability_activation = 0
+ability_type = "Ice"
+ability_amount = 0.33
+ability_duration = 1.0
+
+[resource]
+script = ExtResource("1_qfcw5")
+card_name = "Nimfa"
+image = ExtResource("1_gxlls")
+race = 6
+tier = 0
+description = "Ice 33%"
+cost = 20
+health = 75
+attack_damage = 8
+armor = 0
+attack_speed = 1.0
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 7
+special_ability_stats = Array[ExtResource("3_em15n")]([SubResource("Resource_k2r4m")])

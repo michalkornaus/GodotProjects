@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bbupsd4hbj581"]
+
+[resource]
+resource_local_to_scene = true
+roughness = 0.75

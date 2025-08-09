@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c34n3670s37pl"]
+
+[ext_resource type="Texture2D" uid="uid://c54i4o0dbf6ut" path="res://Resources/Cards/Undead Pact/Mutant.png" id="1_jvpnd"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_xblkf"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_e7fjm"]
+
+[sub_resource type="Resource" id="Resource_0llye"]
+script = ExtResource("3_e7fjm")
+ability_activation = 0
+ability_type = "Buff"
+ability_buff_type = "Attack Speed"
+ability_amount = 0.1
+ability_duration = 5.0
+ability_cooldown = 1.0
+
+[resource]
+script = ExtResource("1_xblkf")
+card_name = "Mutant"
+image = ExtResource("1_jvpnd")
+race = 5
+tier = 2
+description = "On hit buff 0.1 AS"
+cost = 120
+health = 250
+attack_damage = 30
+armor = 30
+attack_speed = 1.2
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 0
+special_ability_stats = Array[ExtResource("3_e7fjm")]([SubResource("Resource_0llye")])

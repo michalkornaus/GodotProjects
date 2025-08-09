@@ -1,0 +1,343 @@
+[gd_scene load_steps=6 format=3 uid="uid://dncc5j2hqxpam"]
+
+[ext_resource type="Script" uid="uid://bn8wwl7lar3wp" path="res://Scripts/Main Menu.gd" id="1_1hkjt"]
+[ext_resource type="AudioStream" uid="uid://cpvyep3uoex10" path="res://Sounds/Music/OrcMenuTheme.mp3" id="6_urjtb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x2pvr"]
+font_size = 60
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2oq2"]
+font_size = 35
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6tgql"]
+font_size = 22
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_1hkjt")
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TitleName" type="Label" parent="MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Minion Commander"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="MainMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TitleScreenContainer" type="HBoxContainer" parent="MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MainMenuContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer"]
+custom_minimum_size = Vector2(0, 5.875)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/MainMenuContainer"]
+layout_mode = 2
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_x2pvr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/MainMenuContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/MainMenuContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Spacer2" type="Control" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/MainMenuContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/MainMenuContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "Settings"
+
+[node name="Spacer3" type="Control" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/MainMenuContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/MainMenuContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="PlayContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 5.875)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+layout_mode = 2
+text = "Play Menu"
+label_settings = SubResource("LabelSettings_x2pvr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+layout_mode = 2
+text = "Versus FFA"
+label_settings = SubResource("LabelSettings_l2oq2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FFA2Button" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "2 Players"
+
+[node name="Spacer2" type="Control" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="FFA4Button" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "4 Players"
+
+[node name="Spacer4" type="Control" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="DebugPlayButton" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Debug Play"
+
+[node name="Spacer3" type="Control" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Return"
+
+[node name="Spacer2" type="Control" parent="MainMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="LoadingResContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MainMenu/HBoxContainer/VBoxContainer/LoadingResContainer"]
+layout_mode = 2
+text = "Loading resources in progress..."
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MainMenu/HBoxContainer/VBoxContainer/LoadingResContainer"]
+layout_mode = 2
+max_value = 1.0
+
+[node name="DebugPanel" type="Panel" parent="MainMenu"]
+visible = false
+modulate = Color(1, 1, 1, 0.756863)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -528.0
+offset_top = -258.0
+offset_right = -28.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="MainMenu/DebugPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "Adjust variables before starting the game"
+label_settings = SubResource("LabelSettings_6tgql")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1GoldInputBox" type="SpinBox" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 51.0
+offset_right = 252.0
+offset_bottom = 86.0
+max_value = 10000.0
+value = 100.0
+suffix = "G"
+
+[node name="P1GoldLabel" type="Label" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 51.0
+offset_right = 106.0
+offset_bottom = 85.0
+text = "Player 1"
+vertical_alignment = 1
+
+[node name="P2GoldInputBox" type="SpinBox" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 104.0
+offset_right = 252.0
+offset_bottom = 139.0
+max_value = 10000.0
+value = 100.0
+suffix = "G"
+
+[node name="P2GoldLabel" type="Label" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 104.0
+offset_right = 106.0
+offset_bottom = 138.0
+text = "Player 2"
+vertical_alignment = 1
+
+[node name="WaveTimeInputBox" type="SpinBox" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 159.0
+offset_right = 252.0
+offset_bottom = 194.0
+min_value = 5.0
+max_value = 180.0
+value = 30.0
+suffix = "s"
+
+[node name="WaveTimeLabel" type="Label" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 159.0
+offset_right = 109.0
+offset_bottom = 193.0
+text = "P1 Wave Time"
+vertical_alignment = 1
+
+[node name="StartTimeInputBox" type="SpinBox" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 159.0
+offset_right = 484.0
+offset_bottom = 194.0
+min_value = 1.0
+max_value = 60.0
+value = 15.0
+suffix = "s"
+
+[node name="StartTimeLabel" type="Label" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 159.0
+offset_right = 398.0
+offset_bottom = 193.0
+text = "Start Time"
+vertical_alignment = 1
+
+[node name="P1TeamColorLabel" type="Label" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 51.0
+offset_right = 364.0
+offset_bottom = 85.0
+text = "P1 Color"
+vertical_alignment = 1
+
+[node name="P2TeamColorLabel" type="Label" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 104.0
+offset_right = 358.0
+offset_bottom = 138.0
+text = "P2 Color"
+vertical_alignment = 1
+
+[node name="P1TeamColor" type="OptionButton" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 51.0
+offset_right = 470.0
+offset_bottom = 85.0
+item_count = 4
+selected = 0
+popup/item_0/text = "Green"
+popup/item_0/id = 0
+popup/item_1/text = "Red"
+popup/item_1/id = 1
+popup/item_2/text = "Blue"
+popup/item_2/id = 2
+popup/item_3/text = "Yellow"
+popup/item_3/id = 3
+
+[node name="P2TeamColor" type="OptionButton" parent="MainMenu/DebugPanel"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 104.0
+offset_right = 470.0
+offset_bottom = 138.0
+item_count = 4
+selected = 1
+popup/item_0/text = "Green"
+popup/item_0/id = 0
+popup/item_1/text = "Red"
+popup/item_1/id = 1
+popup/item_2/text = "Blue"
+popup/item_2/id = 2
+popup/item_3/text = "Yellow"
+popup/item_3/id = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_urjtb")
+autoplay = true
+
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/MainMenuContainer/PlayButton" to="." method="_on_main_menu_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/MainMenuContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer/FFA2Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer/FFA4Button" to="." method="_on_ffa_button_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer/DebugPlayButton" to="." method="_on_debug_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/TitleScreenContainer/PlayContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="item_selected" from="MainMenu/DebugPanel/P1TeamColor" to="." method="_on_player1_team_color_item_selected"]
+[connection signal="item_selected" from="MainMenu/DebugPanel/P2TeamColor" to="." method="_on_player2_team_color_item_selected"]

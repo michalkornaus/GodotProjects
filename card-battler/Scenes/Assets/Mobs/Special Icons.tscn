@@ -1,0 +1,60 @@
+[gd_scene load_steps=18 format=3 uid="uid://d0fc7e3ga1eb4"]
+
+[ext_resource type="Script" uid="uid://rjqg60ha45lc" path="res://Scripts/Mobs/SpecialIcons.gd" id="1_ms2pv"]
+[ext_resource type="Texture2D" uid="uid://inc6snae56sw" path="res://Textures/Special Icons/AD Buff.png" id="2_ntxdy"]
+[ext_resource type="Texture2D" uid="uid://26fb327hqxk5" path="res://Textures/Special Icons/ARP.png" id="3_4ucvk"]
+[ext_resource type="Texture2D" uid="uid://b6iyihbj18jcx" path="res://Textures/Special Icons/Buff AS.png" id="4_qfugd"]
+[ext_resource type="Texture2D" uid="uid://c6qi5qxi4bmtq" path="res://Textures/Special Icons/Debuff AS.png" id="5_2hyt7"]
+[ext_resource type="Texture2D" uid="uid://rt1woiwiwv0g" path="res://Textures/Special Icons/Armor.png" id="6_vf44u"]
+[ext_resource type="Texture2D" uid="uid://coiphu3neoy71" path="res://Textures/Special Icons/Barier 3.png" id="7_rfcav"]
+[ext_resource type="Texture2D" uid="uid://djkp7a7irpwkx" path="res://Textures/Special Icons/Bleed 5.png" id="8_oyooa"]
+[ext_resource type="Texture2D" uid="uid://d2paq5tot5y1k" path="res://Textures/Special Icons/Curse.png" id="9_7j2io"]
+[ext_resource type="Texture2D" uid="uid://cfuwxqivklpt5" path="res://Textures/Special Icons/Disarm.png" id="10_t05ck"]
+[ext_resource type="Texture2D" uid="uid://tupav3e2kkhd" path="res://Textures/Special Icons/Fire 1.png" id="11_nl8mw"]
+[ext_resource type="Texture2D" uid="uid://d01thg383fnod" path="res://Textures/Special Icons/Ice 2.png" id="12_3ljuk"]
+[ext_resource type="Texture2D" uid="uid://chk02p85tthg3" path="res://Textures/Special Icons/Buff MS.png" id="13_2q5g1"]
+[ext_resource type="Texture2D" uid="uid://b8lbijdeeijhk" path="res://Textures/Special Icons/Mark 3.png" id="14_bb7r1"]
+[ext_resource type="Texture2D" uid="uid://bpt5kkxrrklxu" path="res://Textures/Special Icons/Poison 4.png" id="15_wg5dg"]
+[ext_resource type="Texture2D" uid="uid://crbjfableyhpy" path="res://Textures/Special Icons/Regeneracja.png" id="16_nhqii"]
+[ext_resource type="Texture2D" uid="uid://djq6pmpjmt1df" path="res://Textures/Special Icons/stun2.png" id="17_dal02"]
+
+[node name="SpecialIcons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ms2pv")
+Icons = {
+"AD": ExtResource("2_ntxdy"),
+"ARP": ExtResource("3_4ucvk"),
+"AS": ExtResource("4_qfugd"),
+"AS Debuff": ExtResource("5_2hyt7"),
+"Armor": ExtResource("6_vf44u"),
+"Barrier": ExtResource("7_rfcav"),
+"Bleed": ExtResource("8_oyooa"),
+"Curse": ExtResource("9_7j2io"),
+"Disarm": ExtResource("10_t05ck"),
+"Fire": ExtResource("11_nl8mw"),
+"Ice": ExtResource("12_3ljuk"),
+"MS": ExtResource("13_2q5g1"),
+"Mark": ExtResource("14_bb7r1"),
+"Poison": ExtResource("15_wg5dg"),
+"Regen": ExtResource("16_nhqii"),
+"Stun": ExtResource("17_dal02")
+}
+
+[node name="BuffHBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 0
+offset_top = -49.0
+offset_right = 200.0
+offset_bottom = -1.0
+
+[node name="DebuffHBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 0
+offset_top = 41.0
+offset_right = 200.0
+offset_bottom = 87.0

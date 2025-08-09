@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dkjnxwg4et74p"]
+
+[ext_resource type="Texture2D" uid="uid://cwu1sn81k87ry" path="res://Resources/Cards/Outlaws/rog3.jpg" id="1_34led"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_wtow2"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_pjbyd"]
+
+[sub_resource type="Resource" id="Resource_fin82"]
+script = ExtResource("3_pjbyd")
+ability_activation = 0
+ability_type = "DMG"
+ability_amount = 10.0
+ability_hits_to_activate = 3
+
+[resource]
+script = ExtResource("1_wtow2")
+card_name = "Łotr"
+image = ExtResource("1_34led")
+race = 1
+tier = 0
+description = "each 3 hit deal bonus 10 dmg "
+cost = 20
+health = 100
+attack_damage = 15
+armor = 0
+attack_speed = 1.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 1
+special_ability_stats = Array[ExtResource("3_pjbyd")]([SubResource("Resource_fin82")])

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bkyrt6uirgmuy"]
+
+[ext_resource type="Texture2D" uid="uid://rar2a3bndwrx" path="res://Resources/Cards/Forest Orcs/orc7.png" id="1_55on4"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_mdjam"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_xtea7"]
+
+[sub_resource type="Resource" id="Resource_yb8ca"]
+script = ExtResource("3_xtea7")
+ability_activation = 3
+ability_type = "Big Hunter"
+ability_amount = 0.3
+ability_threshold = 250.0
+
+[resource]
+script = ExtResource("1_mdjam")
+card_name = "Łowca Olbrzymów"
+image = ExtResource("1_55on4")
+race = 3
+tier = 1
+description = "Big Hunter"
+cost = 50
+health = 175
+attack_damage = 30
+armor = 10
+attack_speed = 0.7
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 13
+special_ability_stats = Array[ExtResource("3_xtea7")]([SubResource("Resource_yb8ca")])

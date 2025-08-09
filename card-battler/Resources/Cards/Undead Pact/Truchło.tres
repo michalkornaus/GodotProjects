@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://4ohay80jhb7j"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_pa8o0"]
+[ext_resource type="Texture2D" uid="uid://di3mpvif30kwl" path="res://Resources/Cards/Undead Pact/Truchlo.png" id="1_xd0ox"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_7sone"]
+
+[resource]
+script = ExtResource("1_pa8o0")
+card_name = "Truchło"
+image = ExtResource("1_xd0ox")
+race = 5
+tier = 0
+description = ""
+cost = 20
+health = 80
+attack_damage = 5
+armor = 10
+attack_speed = 2.0
+attack_range = 1.5
+armor_penetration = 0.0
+type = 0
+sub_type = 12
+special_ability_stats = Array[ExtResource("3_7sone")]([])

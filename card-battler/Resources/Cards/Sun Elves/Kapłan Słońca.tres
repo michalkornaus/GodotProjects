@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://cilc4u4tpvb3b"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_4xtnl"]
+[ext_resource type="Texture2D" uid="uid://b0y5njl2ac06l" path="res://Resources/Cards/Sun Elves/Sun elf 7.jpg" id="1_8dsrv"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_4h11y"]
+
+[sub_resource type="Resource" id="Resource_dmolf"]
+script = ExtResource("3_4h11y")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Fire"
+ability_amount = 10.0
+
+[sub_resource type="Resource" id="Resource_3qbr3"]
+script = ExtResource("3_4h11y")
+ability_activation = 3
+ability_type = "Range+"
+ability_amount = 0.3
+ability_threshold = 4.0
+
+[resource]
+script = ExtResource("1_4xtnl")
+card_name = "Kapłan Słońca"
+image = ExtResource("1_8dsrv")
+race = 7
+tier = 2
+description = "Fire 10/3 "
+cost = 120
+health = 150
+attack_damage = 30
+armor = 20
+attack_speed = 1.4
+attack_range = 5.0
+armor_penetration = 0.0
+type = 2
+sub_type = 7
+special_ability_stats = Array[ExtResource("3_4h11y")]([SubResource("Resource_dmolf"), SubResource("Resource_3qbr3")])

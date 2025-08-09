@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cs67fkdlc6587"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_jytva"]
+[ext_resource type="Texture2D" uid="uid://3a5tut44p1if" path="res://Resources/Cards/Sun Elves/Nimfa.jpg" id="1_yqq2h"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_s1f54"]
+
+[sub_resource type="Resource" id="Resource_kns4a"]
+script = ExtResource("3_s1f54")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 10.0
+ability_duration = 2.0
+ability_cooldown = 1.0
+
+[resource]
+script = ExtResource("1_jytva")
+card_name = "Driada"
+image = ExtResource("1_yqq2h")
+race = 7
+tier = 0
+description = "Regeneracja 10/2 cd 1 "
+cost = 20
+health = 60
+attack_damage = 15
+armor = 5
+attack_speed = 1.0
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 14
+special_ability_stats = Array[ExtResource("3_s1f54")]([SubResource("Resource_kns4a")])

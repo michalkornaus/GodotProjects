@@ -1,0 +1,95 @@
+[gd_scene load_steps=21 format=3 uid="uid://dujs37qsrm41c"]
+
+[ext_resource type="PackedScene" uid="uid://vi0aftyh1au0" path="res://Scenes/Assets/Terrain.tscn" id="1_bwd7e"]
+[ext_resource type="PackedScene" uid="uid://0cdht6xykwu7" path="res://Scenes/UI/HUD.tscn" id="2_l6t8r"]
+[ext_resource type="Script" uid="uid://dih2648q6joio" path="res://Scripts/CameraMovement.gd" id="3_myuou"]
+[ext_resource type="Script" uid="uid://cdvuwxr6ewal4" path="res://Scripts/Camera3D.gd" id="4_cargd"]
+[ext_resource type="PackedScene" uid="uid://c42pbenlfpvpk" path="res://Scenes/AI/AI Controller.tscn" id="5_x583t"]
+[ext_resource type="Resource" uid="uid://oyuxohoufxsw" path="res://Resources/Buildings/TowerUpgrade1.tres" id="6_nnewt"]
+[ext_resource type="Resource" uid="uid://ykdul4kvw8e1" path="res://Resources/Buildings/TowerUpgrade2.tres" id="7_ojysp"]
+[ext_resource type="Resource" uid="uid://cidmuwjbcpc23" path="res://Resources/Buildings/TowerUpgrade3.tres" id="8_tsflc"]
+[ext_resource type="Resource" uid="uid://dy04sfsyyklrp" path="res://Resources/Buildings/BarrackUpgrade1.tres" id="9_ugrh1"]
+[ext_resource type="Resource" uid="uid://bahhljppsrjqt" path="res://Resources/Buildings/BarrackUpgrade2.tres" id="10_5dr7t"]
+[ext_resource type="Resource" uid="uid://b58aod210i8k0" path="res://Resources/Buildings/BarrackUpgrade3.tres" id="11_k200p"]
+[ext_resource type="Resource" uid="uid://crbrseowu7pr8" path="res://Resources/Buildings/BarrackUpgrade4.tres" id="12_c3f1n"]
+[ext_resource type="Resource" uid="uid://n5by2pepsaqp" path="res://Resources/Buildings/NexusUpgrade1.tres" id="13_xygpk"]
+[ext_resource type="Resource" uid="uid://cn47imoio6f8q" path="res://Resources/Buildings/NexusUpgrade2.tres" id="14_6rlr2"]
+[ext_resource type="Resource" uid="uid://36yq7273dnak" path="res://Resources/Buildings/NexusUpgrade3.tres" id="15_5kal0"]
+[ext_resource type="Resource" uid="uid://otju3di3o3sl" path="res://Resources/Buildings/NexusUpgrade4.tres" id="16_esm17"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_trv5t"]
+sky_top_color = Color(0.764706, 0.827451, 0.917647, 1)
+sky_horizon_color = Color(0.52549, 0.752941, 0.784314, 1)
+sky_curve = 0.0891906
+sky_energy_multiplier = 1.1
+ground_bottom_color = Color(0.137255, 0.258824, 0.317647, 1)
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_5kw30"]
+sky_material = SubResource("ProceduralSkyMaterial_trv5t")
+
+[sub_resource type="Environment" id="Environment_6gxsl"]
+background_mode = 2
+background_color = Color(0.407843, 0.615686, 0.67451, 1)
+sky = SubResource("Sky_5kw30")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_exposure = 0.6
+ssao_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 110.0
+volumetric_fog_detail_spread = 1.4
+volumetric_fog_ambient_inject = 0.1
+
+[sub_resource type="FogMaterial" id="FogMaterial_rrjxq"]
+density = 0.45
+albedo = Color(0.403922, 0.403922, 0.403922, 1)
+edge_fade = 1e-05
+
+[node name="GameNode" type="Node3D"]
+
+[node name="Terrain" parent="." instance=ExtResource("1_bwd7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000226974, 0.000179768, 0.000156403)
+
+[node name="HUD" parent="." instance=ExtResource("2_l6t8r")]
+
+[node name="CameraController" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 18, 40)
+script = ExtResource("3_myuou")
+camera_borders_x = Vector2(-50, 50)
+camera_borders_z = Vector2(-50, 50)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController" node_paths=PackedStringArray("toggle_mouse_timer")]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
+current = true
+fov = 80.0
+near = 1.5
+script = ExtResource("4_cargd")
+toggle_mouse_timer = NodePath("ToggleMouseTimer")
+
+[node name="ToggleMouseTimer" type="Timer" parent="CameraController/Camera3D"]
+wait_time = 0.2
+one_shot = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6gxsl")
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+size = Vector3(93, 2, 93)
+material = SubResource("FogMaterial_rrjxq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.875137, -0.219537, -0.431206, 0.482832, 0.454673, 0.748429, 0.0317494, -0.863178, 0.503901, 0.00286484, 0.0375671, -0.040123)
+shadow_enabled = true
+
+[node name="AIControllerP2" parent="." instance=ExtResource("5_x583t")]
+tower_upgrades_array = Array[Resource]([ExtResource("6_nnewt"), ExtResource("7_ojysp"), ExtResource("8_tsflc")])
+barrack_upgrades_array = Array[Resource]([ExtResource("9_ugrh1"), ExtResource("10_5dr7t"), ExtResource("11_k200p"), ExtResource("12_c3f1n")])
+nexus_upgrades_array = Array[Resource]([ExtResource("13_xygpk"), ExtResource("14_6rlr2"), ExtResource("15_5kal0"), ExtResource("16_esm17")])
+
+[connection signal="timeout" from="CameraController/Camera3D/ToggleMouseTimer" to="CameraController/Camera3D" method="_on_toggle_mouse_timer_timeout"]

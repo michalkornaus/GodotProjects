@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://nb5ogqdbqgeu"]
+
+[ext_resource type="Texture2D" uid="uid://6h425swnxtok" path="res://Resources/Cards/Mountain Clan/Mountain Orc11.png" id="1_bok7g"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_mxibb"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_mluft"]
+
+[sub_resource type="Resource" id="Resource_7oa4h"]
+script = ExtResource("3_mluft")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Heal"
+ability_amount = 40.0
+ability_duration = 4.0
+ability_cooldown = 2.0
+
+[resource]
+script = ExtResource("1_mxibb")
+card_name = "Znachor"
+image = ExtResource("1_bok7g")
+race = 2
+tier = 1
+description = "Heal Overtime 40 / 4 s / 2 CD "
+cost = 50
+health = 125
+attack_damage = 15
+armor = 20
+attack_speed = 0.5
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 10
+special_ability_stats = Array[ExtResource("3_mluft")]([SubResource("Resource_7oa4h")])

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://c3o0cnokla6g8"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_ai312"]
+[ext_resource type="Texture2D" uid="uid://b2q6inrm5vxo1" path="res://Resources/Cards/Forest Orcs/ORc3.png" id="1_gpnlf"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_qmj5j"]
+
+[sub_resource type="Resource" id="Resource_y44eh"]
+script = ExtResource("3_qmj5j")
+ability_activation = 0
+ability_type = "Ricochet"
+
+[sub_resource type="Resource" id="Resource_w3yge"]
+script = ExtResource("3_qmj5j")
+ability_activation = 0
+ability_type = "Stun"
+ability_chance = 10
+ability_duration = 1.0
+ability_cooldown = 1.0
+
+[resource]
+script = ExtResource("1_ai312")
+card_name = "Stary Łowca"
+image = ExtResource("1_gpnlf")
+race = 3
+tier = 2
+description = "Rikkoszen + 10% chance for stun"
+cost = 120
+health = 250
+attack_damage = 70
+armor = 50
+attack_speed = 1.0
+attack_range = 4.0
+armor_penetration = 0.0
+type = 1
+sub_type = 11
+special_ability_stats = Array[ExtResource("3_qmj5j")]([SubResource("Resource_y44eh"), SubResource("Resource_w3yge")])

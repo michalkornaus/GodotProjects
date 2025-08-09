@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://2cxqcmmfcmms"]
+
+[ext_resource type="Texture2D" uid="uid://w625hvaq6yo8" path="res://Resources/Cards/Blood Brotherhood/Spragniony Krwi.png" id="1_85c0g"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="2_nxea4"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_dnnuv"]
+
+[sub_resource type="Resource" id="Resource_lej7h"]
+script = ExtResource("3_dnnuv")
+ability_activation = 5
+ability_type = "Buff"
+ability_buff_type = "Barrier"
+ability_amount = 15.0
+ability_radius = 5.0
+
+[resource]
+script = ExtResource("2_nxea4")
+card_name = "Spragniony Krwi"
+image = ExtResource("1_85c0g")
+race = 4
+tier = 1
+description = ""
+cost = 50
+health = 100
+attack_damage = 20
+armor = 0
+attack_speed = 1.0
+attack_range = 3.0
+armor_penetration = 0.0
+type = 1
+sub_type = 0
+special_ability_stats = Array[ExtResource("3_dnnuv")]([SubResource("Resource_lej7h")])

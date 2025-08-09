@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://d20ddmn51ar5l"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_3g3ys"]
+[ext_resource type="Texture2D" uid="uid://bkjj7ssyv8xpt" path="res://Resources/Cards/Moon Elves/nighthunter.jpg" id="1_hv17n"]
+[ext_resource type="Resource" uid="uid://bmmxkt3k85vnr" path="res://Resources/Cards/Beast/Pająk.tres" id="3_rlciw"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="4_ufqx8"]
+
+[sub_resource type="Resource" id="Resource_get22"]
+script = ExtResource("4_ufqx8")
+ability_activation = 1
+ability_type = "Summon"
+ability_minion_to_spawn = ExtResource("3_rlciw")
+ability_chance = 33
+ability_cooldown = 3.0
+
+[sub_resource type="Resource" id="Resource_uid8j"]
+script = ExtResource("4_ufqx8")
+ability_activation = 0
+ability_type = "DMG"
+ability_amount = 30.0
+ability_hits_to_activate = 3
+
+[resource]
+script = ExtResource("1_3g3ys")
+card_name = "Opiekun Mrocznego Lasu "
+image = ExtResource("1_hv17n")
+race = 6
+tier = 3
+description = "On kill spawn Spider (chance 33%) each 3 hit deal 30 dmg"
+cost = 200
+health = 225
+attack_damage = 30
+armor = 25
+attack_speed = 1.0
+attack_range = 4.0
+armor_penetration = 0.0
+type = 2
+sub_type = 16
+special_ability_stats = Array[ExtResource("4_ufqx8")]([SubResource("Resource_get22"), SubResource("Resource_uid8j")])

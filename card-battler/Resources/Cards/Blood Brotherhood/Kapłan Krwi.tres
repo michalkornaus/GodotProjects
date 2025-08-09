@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bla31feig28aw"]
+
+[ext_resource type="Texture2D" uid="uid://0bjyknm2yjat" path="res://Resources/Cards/Blood Brotherhood/Blood1.png" id="1_3kj5j"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_gl6jm"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_f2qbe"]
+
+[sub_resource type="Resource" id="Resource_vs11o"]
+script = ExtResource("3_f2qbe")
+ability_activation = 0
+ability_type = "AOE"
+ability_amount = 20.0
+ability_radius = 3.0
+
+[sub_resource type="Resource" id="Resource_oej3q"]
+script = ExtResource("3_f2qbe")
+ability_activation = 2
+ability_type = "Buff"
+ability_buff_type = "Barrier"
+ability_amount = 20.0
+ability_duration = 5.0
+ability_cooldown = 2.0
+
+[resource]
+script = ExtResource("1_gl6jm")
+card_name = "Kapłan Krwi"
+image = ExtResource("1_3kj5j")
+race = 4
+tier = 2
+description = "AOE, Barrier 20 / 2 s CD"
+cost = 120
+health = 225
+attack_damage = 20
+armor = 10
+attack_speed = 0.7
+attack_range = 3.0
+armor_penetration = 0.0
+type = 2
+sub_type = 19
+special_ability_stats = Array[ExtResource("3_f2qbe")]([SubResource("Resource_vs11o"), SubResource("Resource_oej3q")])

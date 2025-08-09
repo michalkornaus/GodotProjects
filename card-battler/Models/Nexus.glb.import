@@ -1,0 +1,86 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://d3j8eu750mlia"
+path="res://.godot/imported/Nexus.glb-6c0c8ef703c4f7baad574212826a27b0.scn"
+
+[deps]
+
+source_file="res://Models/Nexus.glb"
+dest_files=["res://.godot/imported/Nexus.glb-6c0c8ef703c4f7baad574212826a27b0.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Black": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Mats/Black.tres"
+},
+"DarkBlue": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Mats/DarkBlue.tres"
+},
+"DarkRed": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Mats/DarkRed.tres"
+},
+"Green": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Mats/Green.tres"
+},
+"LightBlue": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Mats/LightBlue.tres"
+},
+"LightRed": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Mats/LightRed.tres"
+},
+"TowerGreen": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Mats/TowerGreen.tres"
+}
+},
+"nodes": {
+"PATH:NexusBlue": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:NexusRed": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:TowerBlue": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:TowerRed": {
+"generate/physics": true,
+"physics/shape_type": 2
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

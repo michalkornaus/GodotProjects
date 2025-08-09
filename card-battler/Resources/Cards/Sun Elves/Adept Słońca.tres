@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://iwc0e5gxipke"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_ahugb"]
+[ext_resource type="Texture2D" uid="uid://cf7lkl5rln0c3" path="res://Resources/Cards/Sun Elves/sun elf 3.jpg" id="1_yl7jq"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_fgulx"]
+
+[sub_resource type="Resource" id="Resource_icybb"]
+script = ExtResource("3_fgulx")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Fire"
+ability_amount = 5.0
+
+[resource]
+script = ExtResource("1_ahugb")
+card_name = "Adept Słońca"
+image = ExtResource("1_yl7jq")
+race = 7
+tier = 1
+description = "Fire 5/3"
+cost = 50
+health = 115
+attack_damage = 15
+armor = 10
+attack_speed = 1.4
+attack_range = 4.0
+armor_penetration = 0.0
+type = 2
+sub_type = 8
+special_ability_stats = Array[ExtResource("3_fgulx")]([SubResource("Resource_icybb")])

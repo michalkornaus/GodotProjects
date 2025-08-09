@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bmmxkt3k85vnr"]
+
+[ext_resource type="Texture2D" uid="uid://djakq6n455e56" path="res://Resources/Cards/Beast/Spider.webp" id="1_mqcfy"]
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_tac6b"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_qm74b"]
+
+[sub_resource type="Resource" id="Resource_2xufw"]
+script = ExtResource("3_qm74b")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Acid"
+ability_amount = 1.0
+
+[resource]
+script = ExtResource("1_tac6b")
+card_name = "Pająk"
+image = ExtResource("1_mqcfy")
+race = 8
+tier = 0
+description = "1 toxic / 5 s Stacking"
+cost = 20
+health = 95
+attack_damage = 5
+armor = 0
+attack_speed = 1.5
+attack_range = 3.0
+armor_penetration = 0.0
+type = 1
+sub_type = 12
+special_ability_stats = Array[ExtResource("3_qm74b")]([SubResource("Resource_2xufw")])

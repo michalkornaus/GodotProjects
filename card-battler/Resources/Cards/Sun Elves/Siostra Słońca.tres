@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://d3yhbml721br8"]
+
+[ext_resource type="Script" uid="uid://d4ngfj7md4vwm" path="res://Scripts/Cards/CardStats.gd" id="1_6ckvq"]
+[ext_resource type="Texture2D" uid="uid://doio8fouyjm3d" path="res://Resources/Cards/Sun Elves/Sun elf 5.jpg" id="1_w6138"]
+[ext_resource type="Script" uid="uid://i2u3nusd7ees" path="res://Scripts/Mobs/MobSpecialAbility.gd" id="3_f613e"]
+
+[sub_resource type="Resource" id="Resource_ynoex"]
+script = ExtResource("3_f613e")
+ability_activation = 0
+ability_type = "DOT"
+ability_dot_type = "Fire"
+ability_amount = 15.0
+
+[sub_resource type="Resource" id="Resource_5b7dg"]
+script = ExtResource("3_f613e")
+ability_activation = 0
+ability_type = "DMG"
+ability_amount = 45.0
+ability_hits_to_activate = 3
+
+[resource]
+script = ExtResource("1_6ckvq")
+card_name = "Siostra Słońca"
+image = ExtResource("1_w6138")
+race = 7
+tier = 3
+description = "Fire 15/3 each 3 hit deal 45"
+cost = 200
+health = 225
+attack_damage = 45
+armor = 35
+attack_speed = 1.5
+attack_range = 4.0
+armor_penetration = 0.0
+type = 2
+sub_type = 6
+special_ability_stats = Array[ExtResource("3_f613e")]([SubResource("Resource_ynoex"), SubResource("Resource_5b7dg")])
